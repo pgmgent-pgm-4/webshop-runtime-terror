@@ -14,6 +14,7 @@ Custom modules
 import { EnvironmentVariables } from './config';
 import { morganMiddleware, swaggerSpec } from './middleware';
 import apiRoutes from './api/routes';
+import indexRouter from './rout/index';
 
 /*
 Database
@@ -74,6 +75,13 @@ app.use('/api', cors(), apiRoutes);
 Swagger
 */
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+
+/*
+Webshop routes
+*/ 
+
+app.use('/', indexRouter)
 
 /*
 Not Found routes
