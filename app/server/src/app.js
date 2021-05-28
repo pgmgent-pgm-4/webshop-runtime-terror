@@ -39,6 +39,10 @@ nunjucks.configure(path.join(__dirname, 'views'), {
 });
 app.set('view engine', 'html');
 
+
+app.use(express.static(__dirname + '/public'));
+
+
 /*
 bodyParser
 */
@@ -66,6 +70,15 @@ if (EnvironmentVariables.NODE_ENV === 'development') {
 	app.use(morganMiddleware);
 }
 
+
+/*
+Webshop routes
+*/ 
+
+app.use('/', indexRouter)
+
+
+
 /*
 API Routes
 */
@@ -76,12 +89,6 @@ Swagger
 */
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-
-/*
-Webshop routes
-*/ 
-
-app.use('/', indexRouter)
 
 /*
 Not Found routes

@@ -66,6 +66,7 @@ while (amount--) {
 
 export default {
   up: async (queryInterface, Sequelize) => {
+    console.log('product')
     await queryInterface.bulkInsert(
 			"Products", products, {});
   },

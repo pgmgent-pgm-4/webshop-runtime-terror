@@ -6,7 +6,7 @@ import database from '../index.js';
 
 let orders = [];
 let amount = 50;
-let orderNumber = 0;
+let orderNumber = 101;
 const orderStates = ['preparation', 'shipping', 'delivered']; 
 
 while (amount--) {

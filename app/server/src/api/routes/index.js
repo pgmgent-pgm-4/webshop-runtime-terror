@@ -120,6 +120,67 @@ router.get('/users',pagination, userController.getUsers);
  */
 
 router.get('/users/:userId', userController.getUserById);
+
+/**
+ * @swagger
+ * /api/users:
+ *   post:
+ *     summary: Create a specific user
+ *     description: Create a specific user. Can be used to create different users
+ *     parameters:
+ *       in: body
+ *       name: body
+ *       schema:
+ *         type: object
+ *         properties:
+ *           data:
+ *             type: object
+ *               properties:
+ *                 username:
+ *                 type: string
+ *                 description: The users username.
+ *                 example: ph
+ *               email:
+ *                 type: string
+ *                 description: The users email
+ *                 example: myEmail@hotmail.com
+ *               password:
+ *                 type: string
+ *                 description: The users password
+ *                 example: myPassword123
+ *         required: true
+ *         description: User object that needs to be added to the database 
+ *     responses:
+ *       200:
+ *         description: The user details by id.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: integer
+ *                       description: The user ID.
+ *                       example: 1
+ *                     username:
+ *                       type: string
+ *                       description: The users username.
+ *                       example: ph
+ *                     email:
+ *                       type: string
+ *                       description: The users email
+ *                       example: myEmail@hotmail.com
+ *                     password:
+ *                       type: string
+ *                       description: The users password
+ *                       example: myPassword123
+ *       404:
+ *         description: Could not found the user with id {id}!
+ */
+
 router.post('/users', userController.addUser);
 router.put('/users/:userId', userController.updateUser);
 router.delete('/users/:userId', userController.deleteUser);

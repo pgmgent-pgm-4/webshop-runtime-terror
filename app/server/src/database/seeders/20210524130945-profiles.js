@@ -11,7 +11,6 @@ while (amount--) {
   // 15% chance for admin user
   const boolean = Math.random() < 0.15;
   id++;
-  console.log(id);
   profiles.push({
     first_name: faker.name.firstName(),
     last_name: faker.name.lastName(),
@@ -32,6 +31,7 @@ while (amount--) {
 
 export default {
   up: async (queryInterface, Sequelize) => {
+    console.log('profile');
     await queryInterface.bulkInsert(
 			"Profiles", profiles, {});
   },
