@@ -40,15 +40,8 @@ nunjucks.configure(path.join(__dirname, 'views'), {
 });
 app.set('view engine', 'html');
 
-<<<<<<< HEAD
-
 app.use(express.static(__dirname + '/public'));
 
-
-=======
-app.use(express.static(__dirname + '/public'));
-
->>>>>>> 2d081ac645230685daa4e85bbf788b17321837a1
 /*
 bodyParser
 */
