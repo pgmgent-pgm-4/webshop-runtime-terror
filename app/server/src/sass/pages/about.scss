@@ -1,0 +1,88 @@
+@use '../abstracts/functions' as func;
+
+
+.story {
+    
+    &__article {
+        margin-bottom: 5rem;
+
+            &__decorative__title {
+                color: $accent-color-heading;
+                font-family: $font-family-source-serif-pro;
+                font-size: $text-decorative;
+                text-align: center;
+                display: block;
+            }
+
+            &__title {
+                color: $white-color;
+                font-weight: func.weight(normal);
+                text-align: center;
+                font-size: $text-elg;
+                transform: translateY(-4rem);
+                margin: 0;
+            }
+
+            &__content {
+
+                &__image {
+                    width: 100%; 
+                    border: 2px solid $white-color;
+                }
+
+                @include medium { 
+                    &__image { 
+                        width: 50%;
+                        height: 50%;
+                        margin-right: 1rem;
+                    }    
+                }
+
+                @include large { 
+                    &__image { 
+                        width: 50%;
+                        height: 50%;
+                        margin-right: 1rem;
+                    }    
+                }
+
+                &__text {
+                    color: $white-color;
+
+                    h3 {
+                        text-transform: uppercase;
+                        font-size: $text-lg;
+                        font-weight: func.weight(normal);
+                    }
+                }
+
+                @include medium { 
+                    &__text { 
+                        border-left: 2px solid $accent-color;
+                        padding-left: 1rem;
+                    }    
+                }
+
+                @include large { 
+                    &__text { 
+                        border-left: 2px solid $accent-color;
+                        padding-left: 1rem;
+                    }    
+                }
+                
+            }
+
+            @include medium { &__content { 
+                display: flex;
+                align-items: center;
+            }}
+
+            @include large { &__content { 
+                display: flex;
+                align-items: center;
+                width: 70rem;
+                margin: 0 auto
+            }}
+    }
+
+}

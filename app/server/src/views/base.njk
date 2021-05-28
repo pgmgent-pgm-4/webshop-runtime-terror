@@ -1,0 +1,17 @@
+<!doctype html>
+<html  lang="en">
+  <head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    {% include "components/header.njk" %}
+    <main class="main">
+        {% block  content %}{% endblock %}
+    </main>
+    {% include "components/footer.njk" %}
+
+
+    <script src="scripts/navigation.js"></script>
+  </body>
+</html>

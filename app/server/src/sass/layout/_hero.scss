@@ -1,0 +1,91 @@
+.hero {
+    position: relative;
+    z-index: -1;
+    transform: translateY(-6rem);
+    width: 100%;
+    
+    &__video {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__image {
+        background-image: url('../media/About/About_story_hero.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 51vh;
+        max-height: 90rem;
+        background-position-x: 65%;
+        padding: 1.5rem;
+    }
+
+    @include extra-large {
+        &__image {
+            height: 70vh;
+        }
+    }
+
+    &__title {
+        position: absolute;
+        width: calc(100% - 2rem);
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        bottom: 0;
+        background-color: $hero-transparent-color;
+    }
+
+    @include small { 
+        &__title { 
+            width: calc(100% - 4rem);
+        }    
+    }
+
+    @include medium { 
+        &__title { 
+            width: calc(100% - 8rem);
+        }    
+    }
+
+    @include large { 
+        &__title { 
+            width: calc(100% - 12rem);
+        }    
+    }
+}
+
+.about__segmented-control {
+    margin: 0 auto;
+    width: 18.375rem;
+    border-radius: 7px;
+    background-color: $about-segmented-control-bg;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 0.7rem 0.5rem;
+
+    &__selected {
+        position: absolute;
+        transform: translateY(-50%);
+        top: 50%;
+        left: 0;
+        background-color: $white-color;
+        width: 50%;
+        height: 80%;
+        border-radius: 7px;
+        margin-left: 0.2rem;
+        margin-right: 0.2rem;
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.151);
+    }
+
+    &__story {
+        position: relative;
+		cursor: pointer;
+        margin: 0 auto;
+    }
+
+    &__mission {
+        position: relative;
+		cursor: pointer;
+        margin: 0 auto;
+    }
+}

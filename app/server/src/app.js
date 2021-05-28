@@ -8,6 +8,7 @@ import nunjucks from 'nunjucks';
 import swaggerUi from 'swagger-ui-express';
 import { createTerminus } from '@godaddy/terminus';
 
+
 /*
 Custom modules
 */
@@ -38,6 +39,8 @@ nunjucks.configure(path.join(__dirname, 'views'), {
 	watch: true,
 });
 app.set('view engine', 'html');
+
+app.use(express.static(__dirname + '/public'));
 
 /*
 bodyParser

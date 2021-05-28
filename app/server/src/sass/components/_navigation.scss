@@ -1,0 +1,60 @@
+.nav {
+    text-align: center;
+    font-size: $text-m;
+    overflow: hidden;
+
+    &__actions {
+        display: flex;
+        justify-content: space-between;
+        padding: 2rem;
+        padding-bottom: 1rem;
+
+        svg {
+            cursor: pointer;
+        }
+
+        &__close {
+            width: 2rem;
+            fill: $white-color;
+        }
+
+    }
+
+    &__border {
+        width: 105%;
+        transform: translateX(-5%);
+    }
+
+    &__list {
+        list-style: none;
+        padding: 2rem 0;
+
+        &__item {
+            margin-bottom: 3.5rem;
+
+            a {
+                color: $white-color;
+                text-decoration: none;
+            }
+
+            &--accesoiries {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            &__chevron {
+                margin-left: 1rem;
+                width: 2rem;
+                fill: $white-color;
+            }
+
+            button {
+                color: $white-color;
+                background: none;
+                border: none;
+            }
+
+        }
+    }
+}
