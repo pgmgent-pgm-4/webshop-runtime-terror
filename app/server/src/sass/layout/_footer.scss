@@ -1,0 +1,152 @@
+@use '../abstracts/functions' as func;
+
+.footer {
+    background-color: $footer-bg-color;
+    padding: 2rem;
+
+    &__container {
+        margin: 0 auto;
+        margin-bottom: 5rem;
+    }
+
+    &__nav {
+        text-align: center;
+        padding: 0;
+        list-style: none;
+        margin: 0 auto;
+        margin-bottom: 5rem;
+
+        &__item {
+
+            a {
+                text-decoration: none;
+                display: block;
+                margin-bottom: 1rem;
+                color: $white-color;
+            }
+
+            button {
+                background: none;
+                border: none;
+                color: $white-color;
+            }
+
+            &--accesoiries {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 1rem;
+            }
+
+            &__chevron {
+                fill: $white-color;
+                width: 1.5rem;
+            }
+        }
+    }
+
+    &__socials {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        padding: 0;
+        width: 15rem;
+        margin: 0 auto;
+    }
+
+    &__info {
+        margin-top: 2rem;
+        list-style: none;
+        padding: 0;
+        text-align: center;
+
+        li {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: $white-color;
+            text-decoration: none;
+        }
+    }
+
+    &__call-to-action {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+
+        label {
+            color: $white-color;
+            font-weight: func.weight(bold);
+            font-size: $text-lg;
+            margin-bottom: 1rem;
+            margin: 0 auto;
+        }
+
+        input {
+            background: none;
+            border: none;
+            border-bottom: 1px solid $white-color;
+            padding: 0.5rem;
+            margin: 0 auto;
+            margin-bottom: 1rem;
+            width: calc(15rem - 1rem);
+        }
+
+        input::placeholder {
+            font-family: $font-family-source-serif-pro;
+        }
+
+        button {
+            width: 15rem;
+            margin: 0 auto;
+        }
+    }
+
+}
+
+@include medium { 
+    .wrapper {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .footer { 
+        &__call-to-action {
+            width: 100%;
+            
+            label,
+            input,
+            button {
+                margin: 0 auto;
+                margin-bottom: 1rem;
+            }
+        }
+    }    
+}
+
+@include large { 
+    .wrapper { 
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }    
+}
+
+@include extra-large { 
+    .wrapper { 
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        width: 80rem;
+        margin: 0 auto;
+    }    
+}
+
+.copyright {
+    border-top: 1px solid $accent-color;
+    color: $white-color;
+    text-align: center;
+    background-color: $body-bg;
+}

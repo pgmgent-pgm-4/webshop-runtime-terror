@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development HOSTNAME=localhost PORT=8080 nodemon --exec babel-node -e js,html,nj src/app.js --watch src/*",
     "seed": "sequelize db:seed:all",
-    "delete_seed": "sequelize db:seed:undo:all"
+    "delete_seed": "sequelize db:seed:undo:all",
+    "sass": "sass --style=compressed ./src/sass/main.scss ./src/public/css/style.css --watch"
   },
   "keywords": [
     "Timeless",
@@ -40,6 +41,7 @@
     "http": "^0.0.1-security",
     "moment": "^2.29.1",
     "morgan": "^1.10.0",
+    "node-sass": "^6.0.0",
     "nunjucks": "^3.2.3",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",

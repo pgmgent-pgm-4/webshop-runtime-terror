@@ -1,0 +1,117 @@
+.header {
+    background-color: $hero-transparent-color;
+
+    &__logo-desktop {
+        display: none;
+    }
+
+    @include medium { 
+        &__logo-desktop {
+            display: block;
+        }
+        
+        &__logo-mobile {
+            display: none;
+        }   
+    }
+
+    @include large { 
+        &__logo-desktop {
+            display: block;
+        }
+        
+        &__logo-mobile {
+            display: none;
+        }   
+    }
+
+    @include extra-large { 
+        &__logo-desktop {
+            display: block;
+        }
+        
+        &__logo-mobile {
+            display: none;
+        }   
+    }
+
+    &__hamburger {
+        width: 4.5rem;
+
+        svg {
+            cursor: pointer;
+        }
+    }
+
+    &__shopping-bag {
+        margin-left: 1rem;
+    }
+
+    .nav-overlay__bg {
+        background-color: $nav-transparent-color;
+        -webkit-backdrop-filter: blur(4px);
+        backdrop-filter: blur(4px);
+        position: absolute;
+        display: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+
+        &--open {
+            display: block; 
+        }
+    }
+
+    .nav-overlay {
+        background-color: $body-bg;
+        position: absolute;
+        display: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+
+        &--open {
+            display: block; 
+        }
+    }
+
+    @include small { 
+        .nav-overlay { 
+            width: 576px;
+        }    
+    }
+    @include medium { 
+        .nav-overlay { 
+            width: 576px;
+        }    
+    }
+    @include large { 
+        .nav-overlay { 
+            width: 576px;
+        }    
+    }
+    @include extra-large { 
+        .nav-overlay { 
+            width: 576px;
+        }    
+    }
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+}
+
+@include extra-large { 
+    .container {
+        width: 80rem;
+        margin: 0 auto;
+    }   
+}
+
