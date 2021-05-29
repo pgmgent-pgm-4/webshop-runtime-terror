@@ -9,6 +9,47 @@
     &__video {
         width: 100%;
         height: 100%;
+
+        &--desktop,
+        &--ultrawide {
+            display: none;
+        }
+
+        @include medium { 
+            &--mobile {
+                display: none;
+            }
+
+            &--desktop {
+                display: block;
+            } 
+
+            &--ultrawide {
+                display: none;
+            }   
+        }
+
+        @include large { 
+            &--mobile,
+            &--ultrawide {
+                display: none;
+            }
+
+            &--desktop {
+                display: block;
+            }      
+        }
+
+        @include extra-large { 
+            &--mobile,
+            &--desktop {
+                display: none;
+            }
+
+            &--ultrawide {
+                display: block;
+            }   
+        }
     }
 
     &__image {

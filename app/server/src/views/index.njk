@@ -1,8 +1,16 @@
 {% extends  base %}
 {% block  content %}
 <section class="hero">    
-    <video class="hero__video" autoplay loop muted>
+    <video class="hero__video hero__video--mobile" autoplay loop muted>
         <source src="media/hero-video_homepage-mobile.mp4" type="video/mp4">
+    </video>
+
+    <video class="hero__video hero__video--desktop" autoplay loop muted>
+        <source src="media/hero-video_homepage.mp4" type="video/mp4">
+    </video>
+
+    <video class="hero__video hero__video--ultrawide" autoplay loop muted>
+        <source src="media/hero-video_homepage-ultra-wide.mp4" type="video/mp4">
     </video>
 
     <div class="hero__title h-layout">
