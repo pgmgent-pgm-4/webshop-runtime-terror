@@ -48,6 +48,67 @@
         }
     }
 
+    &__collections {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 80rem;
+        margin: 0 auto;
+
+        &__link {
+            margin: 0 1rem;
+            flex-grow: 1;
+            align-items: stretch;
+            
+
+            &--new {
+                background-image: url('../media/collections/new.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+                width: 100%;
+                min-width: 15rem;
+                height: 22rem;
+                margin: 1rem 0;
+            }
+
+            &--storage {
+                background-image: url('../media/collections/watch-storage.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+                width: 100%;
+                min-width: 15rem;
+                height: 22rem;
+                margin: 1rem 0;
+            }
+
+            &--outlet {
+                background-image: url('../media/collections/outlet.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+                width: 100%;
+                min-width: 15rem;
+                height: 22rem;
+                margin: 1rem 0;
+            }
+
+            @media (min-width: 560px) {
+                &--outlet {
+                    max-width: calc(50% - 1rem);
+                }
+            }
+
+            @media (min-width: 833px) {
+                &--outlet {
+                    max-width: 100%;
+                }
+            }
+            
+
+        }
+    }
     
 
 }
