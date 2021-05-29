@@ -1,19 +1,5 @@
 .home {
 
-    &__call-to-action {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 0 auto;
-        width: 20rem;
-        transform: translateY(-3rem);
-
-        a {
-            width: 8rem;
-            text-align: center;
-        }
-    }
-
     &__brands {
 
         &__outer-container {
