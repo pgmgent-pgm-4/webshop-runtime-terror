@@ -3,6 +3,7 @@
 import faker from 'faker';
 import 'babel-polyfill';
 import database from '../index.js';
+import _ from 'underscore';
 
 let product_superlatives = [];
 let amount = 50;
@@ -34,19 +35,21 @@ const superlatives = [
 ];
 
 
-while (amount--) {
-  const superlative = superlatives[Math.floor(Math.random() * superlatives.length)];
-  product_superlatives.push({
-    superlative: superlative.name,
-    img: superlative.img,
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    ProductId: faker.random.number({min: 1, max: 50})
-  })
-}
+
 
 export default {
   up: async (queryInterface, Sequelize) => {
+    const products = await queryInterface.sequelize.query("SELECT id FROM `products`");
+    while (amount--) {
+      const superlative = _.sample(superlatives);
+      product_superlatives.push({
+        superlative: superlative.name,
+        img: superlative.img,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        ProductId: _.sample(products[0]).id,
+      })
+    }
     await queryInterface.bulkInsert(
 			"Product_superlatives", product_superlatives, {});
   },

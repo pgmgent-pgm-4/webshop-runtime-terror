@@ -3,6 +3,7 @@
 import faker from 'faker';
 import 'babel-polyfill';
 import database from '../index.js';
+import _ from 'underscore';
 
 let products = [];
 let amount = 50;
@@ -19,14 +20,14 @@ const batteries = ['Renata 371 1.55v Silver Oxide', 'Renata 456 1.60v Silver Oxi
 const storageMaterial = ['Carbon', 'Ceramic', 'Leather'];
 const storageStyles = ['Case', 'Pouch', 'Roll'];
 const collection = ['new', 'all'];
-
+console.log('products')
 
 while (amount--) {
   // 85% chance for admin user
   const boolean = Math.random() < 0.85;
   products.push({
     title: faker.commerce.productName(),
-    brand: brands[Math.floor(Math.random() * brands.length)],
+    brand: _.sample(brands),
     price: faker.commerce.price(30, 3000, 2, '€'),
     description: faker.lorem.paragraph(5),
     stock: boolean, 
@@ -34,31 +35,31 @@ while (amount--) {
     watch_thickness: faker.random.number({min: 10, max: 30, precision:2}),
     watch_length: faker.random.number({min: 140, max: 300, precision:2}),
     watch_width: faker.random.number({min: 16, max: 30, precision:2}),
-    case_material: watchMaterial[Math.floor(Math.random() * watchMaterial.length)],
-    case_color: colors[Math.floor(Math.random() * colors.length)],
+    case_material: _.sample(watchMaterial),
+    case_color: _.sample(colors),
     case_width: faker.random.number({min: 20, max: 50, precision:2}),
     case_length:faker.random.number({min: 20, max: 50, precision:2}),
     case_thickness: faker.random.number({min: 6, max: 12, precision:2}),
-    case_shape: shapes[Math.floor(Math.random() * shapes.length)],
-    glass_material: glass_materials[Math.floor(Math.random() * glass_materials.length)],
+    case_shape: _.sample(shapes),
+    glass_material: _.sample(glass_materials),
     glass_opening_diameter: faker.random.number({min: 26, max: 50, precision:2}),
-    band_material: watchMaterial[Math.floor(Math.random() * watchMaterial.length)],
-    band_color: colors[Math.floor(Math.random() * colors.length)],
+    band_material: _.sample(watchMaterial),
+    band_color: _.sample(colors),
     band_width: faker.random.number({min: 16, max: 40, precision:2}),
     circumference_range: `min. ${faker.random.number({min: 100, max: 200, precision:2})} - max. ${faker.random.number({min: 200, max: 300, precision:2})}`,
-    movement_type: movementTypes[Math.floor(Math.random() * movementTypes.length)],
-    battery: batteries[Math.floor(Math.random() * batteries.length)],
+    movement_type: _.sample(movementTypes),
+    battery: _.sample(batteries),
     battery_life: faker.random.number({min: 60, max: 200}),
     weight: faker.random.number({min: 50, max: 120, precision:2}),
     water_resistance: faker.random.number({min: 5, max: 50}),
-    storage_material: storageMaterial[Math.floor(Math.random() * storageMaterial.length)], 
-    storage_color: colors[Math.floor(Math.random() * colors.length)], 
+    storage_material: _.sample(storageMaterial), 
+    storage_color: _.sample(colors), 
     storage_width: faker.random.number({min: 60, max: 400, precision:2}),
     storage_length: faker.random.number({min: 60, max: 800, precision:2}),
     storage_thickness: faker.random.number({min: 100, max: 400, precision:2}),
     capacity: faker.random.number({min: 1, max: 16}),
-    storage_style: storageStyles[Math.floor(Math.random() * storageStyles.length)],
-    collection: collection[Math.floor(Math.random() * collection.length)], 
+    storage_style: _.sample(storageStyles),
+    collection: _.sample(collection), 
     createdAt: new Date(),
     updatedAt: new Date(), 
   })

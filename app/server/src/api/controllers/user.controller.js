@@ -1,6 +1,6 @@
 import { handleHTTPError } from '../../utils';
 import database from '../../database';
-
+import {validationResult} from 'express-validator';
 
 /*
 Get all users
@@ -48,6 +48,10 @@ const getUserById = async (req, res, next) => {
  */
 const addUser = async (req, res, next) => {
   try {
+    const errors = validationResult(req);
+    if(!errors.isEmpty()) {
+      return res.send(errors.array());
+    }
     // Get body from response
 		const model = req.body;
 		// Create a post

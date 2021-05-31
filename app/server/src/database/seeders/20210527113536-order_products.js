@@ -3,24 +3,23 @@
 import faker from 'faker';
 import 'babel-polyfill';
 import database from '../index.js';
+import _ from 'underscore';
 
 let order_products = [];
-let amount = 50;
-let orderId = 0;
 
-
-while (amount--) {
-  orderId++;
-  order_products.push({
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    order_id: orderId,
-    product_id: faker.random.number({min: 1, max: 50}),
-  })
-}
 
 export default {
   up: async (queryInterface, Sequelize) => {
+    const users = await queryInterface.sequelize.query("SELECT id FROM `users`");
+    const orders = await queryInterface.sequelize.query("SELECT id FROM 'orders'");
+    orders[0].forEach(order => {
+      order_products.push({
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        order_id: order.id,
+        product_id: _.sample(users[0]).id,
+      }); 
+    });
     await queryInterface.bulkInsert(
 			"Order_products", order_products, {});
   },

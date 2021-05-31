@@ -3,24 +3,27 @@
 import faker from 'faker';
 import 'babel-polyfill';
 import database from '../index.js';
+import _ from 'underscore';
 
 let payments = [];
 let amount = 50;
 const paymentTypes = ['Visa', 'Bancontact']; 
 
-while (amount--) {
-  payments.push({
-    payment_type: paymentTypes[Math.floor(Math.random() * paymentTypes.length)],
-    amount: faker.random.number({min: 5, max: 10000, precision:2}),
-    paid_date: faker.date.soon(7),
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    UserId: faker.random.number({min: 1, max: 50}),
-  })
-}
+
 
 export default {
   up: async (queryInterface, Sequelize) => {
+    const users = await queryInterface.sequelize.query("SELECT id FROM `users`");
+    while (amount--) {
+      payments.push({
+        payment_type: _.sample(paymentTypes),
+        amount: faker.random.number({min: 5, max: 10000, precision:2}),
+        paid_date: faker.date.soon(7),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        UserId: _.sample(users[0]).id,
+      })
+    }
     await queryInterface.bulkInsert(
 			"Payments", payments, {});
   },
