@@ -32,4 +32,40 @@ function setupMap(center) {
   map.addControl(nav, 'bottom-left');
 
   map.scrollZoom.disable();
+
+  const contactForm = document.getElementById('right');
+  const contactFormToggle = document.querySelector('.contact-form-toggle'); 
+  const collapsed = document.querySelector('.collapsed')
+
+  contactFormToggle.addEventListener('click', (e) => {
+    
+    var padding = {};
+    
+    if (collapsed.classList.contains('collapsed')) {
+      // Remove the 'collapsed' class from the class list of the element, this sets it back to the expanded state.
+      contactForm.classList.remove('collapsed');
+      console.log(collapsed)
+      
+      padding['right'] = 576; // In px, matches the width of the sidebars set in .sidebar CSS class
+      map.easeTo({
+        padding: padding,
+        duration: 1000 // In ms, CSS transition duration property for the sidebar matches this value
+      });
+      } else {
+      padding['right'] = 0;
+      // Add the 'collapsed' class to the class list of the element
+      contactForm.classList.add('collapsed');
+      console.log(collapsed)
+      map.easeTo({
+        padding: padding,
+        duration: 1000
+      });
+    }
+ 
+  })
+  
 }
+
+
+
+
