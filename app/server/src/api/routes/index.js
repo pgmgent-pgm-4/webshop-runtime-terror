@@ -19,6 +19,8 @@ import * as promotionController from '../controllers/promotion.controller.js';
 import * as reviewController from '../controllers/review.controller.js';
 
 import pagination from '../../utils/pagination.js';
+// import { validationUsers } from '../validation/user.validation.js';
+import { body  } from 'express-validator';
 
 /*
 Make a router
@@ -37,10 +39,10 @@ Routes
  * @swagger
  * /api/users:
  *   get:
- *      summary: Retrieve a list of users
- *      description: Retrieve a list of users. Can be used to populate a list of users when prototyping or testing an API.*
- *      responses:
- *        200:
+ *     summary: Retrieve a list of users
+ *     description: Retrieve a list of users. Can be used to populate a list of users when prototyping or testing an API.*
+ *     responses:
+ *       200:
  *         description: A list of users.
  *         content:
  *           application/json:
@@ -68,8 +70,8 @@ Routes
  *                          type: string
  *                          description: The users password
  *                          example: myPassword123
- *        404:
- *          description: The user is not found 
+ *       404:
+ *         description: The user is not found 
  */
 router.get('/users',pagination, userController.getUsers);
 
@@ -80,10 +82,10 @@ router.get('/users',pagination, userController.getUsers);
  *     summary: Retrieve a specific user
  *     description: Retrieve a specific user. Can be used to find a specific user
  *     parameters:
- *         in: path
- *         name: id
- *         schema:
- *           type: string
+ *       in: path
+ *       name: id
+ *       schema:
+ *         type: string
  *         required: true
  *         description: The user id 
  *     responses:
@@ -116,7 +118,7 @@ router.get('/users',pagination, userController.getUsers);
  *                          description: The users password
  *                          example: myPassword123
  *       404:
- *        description: Could not found the user with id {id}!
+ *         description: Could not found the user with id {id}!
  */
 
 router.get('/users/:userId', userController.getUserById);
@@ -124,64 +126,73 @@ router.get('/users/:userId', userController.getUserById);
 /**
  * @swagger
  * /api/users:
- *   post:
- *     summary: Create a specific user
- *     description: Create a specific user. Can be used to create different users
- *     parameters:
- *       in: body
- *       name: body
- *       schema:
- *         type: object
- *         properties:
- *           data:
- *             type: object
- *               properties:
- *                 username:
- *                 type: string
- *                 description: The users username.
- *                 example: ph
- *               email:
- *                 type: string
- *                 description: The users email
- *                 example: myEmail@hotmail.com
- *               password:
- *                 type: string
- *                 description: The users password
- *                 example: myPassword123
- *         required: true
- *         description: User object that needs to be added to the database 
- *     responses:
- *       200:
- *         description: The user details by id.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 data:
- *                   type: object
- *                   properties:
- *                     id:
- *                       type: integer
- *                       description: The user ID.
- *                       example: 1
- *                     username:
- *                       type: string
- *                       description: The users username.
- *                       example: ph
- *                     email:
- *                       type: string
- *                       description: The users email
- *                       example: myEmail@hotmail.com
- *                     password:
- *                       type: string
- *                       description: The users password
- *                       example: myPassword123
- *       404:
- *         description: Could not found the user with id {id}!
+ *  post:
+ *    summary: Create a specific user
+ *    description: Create a specific user. Can be used to create different users
+ *    parameters:
+ *      - in: header
+ *        name: body
+ *        schema:
+ *          type: object
+ *          properties:
+ *            data:
+ *              type: object
+ *              properties:
+ *                username:
+ *                  type: string
+ *                  description: The users username.
+ *                  example: ph
+ *                email:
+ *                  type: string
+ *                  description: The users email
+ *                  example: myEmail@hotmail.com
+ *                password:
+ *                  type: string
+ *                  description: The users password
+ *                  example: myPassword123
+ *        required: true
+ *        description: User object that needs to be added to the database 
+ *    responses:
+ *      200:
+ *        description: The user details by id.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                data:
+ *                  type: object
+ *                  properties:
+ *                    id:
+ *                      type: integer
+ *                      description: The user ID.
+ *                      example: 1
+ *                    username:
+ *                      type: string
+ *                      description: The users username.
+ *                      example: ph
+ *                    email:
+ *                      type: string
+ *                      description: The users email
+ *                      example: myEmail@hotmail.com
+ *                    password:
+ *                      type: string
+ *                      description: The users password
+ *                      example: myPassword123
+ *      404:
+ *        description: Could not found the user with id {id}!
  */
+router.post('/users', 
+body('username')
+  .notEmpty().withMessage('Username cannot be empty'),/*
+body('email')
+  .isEmail().withMessage('e-mail address must be valid'),
+body('password')
+  .notEmpty().withMessage('password cannot be empty')
+  .bail()
+  .isLength({min: 7, max: 24}).withMessage('Password must have min 7 and max 32 characters'), */userController.addUser);
 
-router.post('/users', userController.addUser);
+
 router.put('/users/:userId', userController.updateUser);
 router.delete('/users/:userId', userController.deleteUser);
 
