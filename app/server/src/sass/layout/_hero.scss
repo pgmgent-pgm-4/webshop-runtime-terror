@@ -2,7 +2,7 @@
 
 .hero {
     position: relative;
-    z-index: -1;
+    z-index: 1;
     transform: translateY(-4.5rem);
     width: 100%;
     
@@ -75,6 +75,7 @@
         padding-bottom: 2rem;
         bottom: 0;
         background-color: $hero-transparent-color;
+        
     }
 
     @include small { 
@@ -93,6 +94,68 @@
         &__title { 
             width: calc(100% - 12rem);
         }    
+    }
+
+    &__call-to-action {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        margin-top: 2rem;
+        width: 18rem;
+
+        a {
+            width: 7rem;
+            text-align: center;
+        }
+
+        @include small { 
+            a {
+                width: 8rem;
+            }   
+        }
+
+        @include medium { 
+            a {
+                width: 10rem;
+            }   
+        }
+
+        @include large { 
+            a {
+                width: 10rem;
+            }   
+        }
+
+        @include extra-large { 
+            a {
+                width: 10rem;
+            }   
+        }
+    }
+
+    @include small { 
+        &__call-to-action {
+            width: 20rem;
+        }   
+    }
+
+    @include medium { 
+        &__call-to-action {
+            width: 25rem;
+        }   
+    }
+
+    @include large { 
+        &__call-to-action {
+            width: 25rem;
+        }   
+    }
+
+    @include extra-large { 
+        &__call-to-action {
+            width: 25rem;
+        }   
     }
 }
 
