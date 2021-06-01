@@ -12,6 +12,7 @@ $footer-bg-color: #111C2D;
 $body-bg: #070B12;
 $nav-transparent-color: #89bbbe9c;
 $about-segmented-control-bg: #EEEEF0;
+$secondary-accent-color: #C1CFD0;
 
 // FONT-SIZE
 $text-base: 1rem;
@@ -37,3 +38,6 @@ $small-width: 576px;
 $medium-width: 768px;
 $large-width: 1280px;
 $extra-large-width: 1600px;
+
+// TRANSITION
+$transition-regular: all 0.2s ease;

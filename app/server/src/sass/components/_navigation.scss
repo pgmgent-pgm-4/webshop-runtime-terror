@@ -27,7 +27,7 @@
 
     &__list {
         list-style: none;
-        padding: 2rem 0;
+        padding: 1rem 0;
 
         &__item {
             margin-bottom: 3.5rem;
@@ -35,6 +35,14 @@
             a {
                 color: $white-color;
                 text-decoration: none;
+                padding: 1rem 1rem;
+                border-radius: $border-radius-sm;
+                transition: $transition-regular;
+
+                &:hover {
+                    color: $black-color;
+                    background-color: $nav-transparent-color;
+                }
             }
 
             &--accesoiries {
