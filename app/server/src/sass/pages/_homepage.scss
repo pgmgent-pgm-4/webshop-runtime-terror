@@ -267,7 +267,7 @@
         }
 
         &__watches {
-            padding: 0;
+            padding: 4rem 0;
             margin: 0;
             list-style: none;
             display: flex;
@@ -275,15 +275,31 @@
             align-items: flex-start;
 
             .watch {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
-                color: white;
                 position: relative;
                 padding-bottom: 1rem;
                 width: 15rem;
-                filter: blur(2px);
+
+                a {
+                    text-decoration: none;
+                    display: block;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    color: white;
+
+                    &:hover .watch__image {
+                        transform: scale(1.1);
+                    }
+
+                    &:hover .watch__background {
+                        height: 0;
+                    }
+                    
+                    &:hover .watch__devider {
+                        width: 4rem;
+                    }
+                }
 
                 &__brand {
                     font-size: $text-m;
@@ -292,6 +308,7 @@
 
                 &__image {
                     width: 90%;
+                    transition: $transition-regular;
                 }
 
                 &__devider {
@@ -300,6 +317,7 @@
                     background-color: $accent-color;
                     display: block;
                     margin-bottom: 1rem;
+                    transition: all 0.2s ease;
                 }
 
                 &__background {
@@ -310,11 +328,8 @@
                     bottom: 0;
                     z-index: -1;
                     border-radius: $border-radius-sm;
+                    transition: all 0.2s ease;
                 }
-            }
-
-            .swiper-slide-active {
-                filter: blur(0);
             }
         }
 
@@ -400,6 +415,7 @@
             padding: 5rem 0;
 
             &__bg {
+                padding: 5rem 0;
                 position: relative;
                 margin: 0 auto;
                 background-image: url('../media/buying-process/watch_bg.png');
@@ -409,10 +425,58 @@
                 width: 300px;
                 height: 300px;
 
+                &__pointers {
+                    width: 200px;
+                    height: 200px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+
+                    &__image {
+                        display: block;
+                        height: 100%;
+                        animation: rotation-pointers 20s linear infinite;
+                    }
+
+                    @keyframes rotation-pointers {
+                        0% {
+                            transform: rotate(0deg);
+                        }
+        
+                        100% {
+                            transform: rotate(360deg);
+                        }
+                    }
+                }
+
+                @include small { 
+                    &__pointers {
+                        width: 400px;
+                        height: 400px;
+                    }   
+                }
+
+                @include medium { 
+                    &__pointers {
+                        width: 450px;
+                        height: 450px;
+                    }   
+                }
+
+                @include large { 
+                    &__pointers {
+                        width: 500px;
+                        height: 500px;
+                    }   
+                }
+
                 &__wrapper {
                     background-color: $body-bg;
                     z-index: -50;
-                    
                     position: absolute;
                     top: 50%;
                     left: 50%;
@@ -438,25 +502,6 @@
                         width: 570px;
                         height: 570px;
                     }   
-                }
-
-                &__pointers {
-                    position: absolute;
-                    left: 50%;
-                    top: 50%;
-                    height: 70%;
-                    transform: translate(-50%, -50%);
-                    animation: rotation-pointers 20s linear infinite;
-                }
-    
-                @keyframes rotation-pointers {
-                    0% {
-                        transform: translate(-50%, -50%) rotate(0deg);
-                    }
-    
-                    100% {
-                        transform: translate(-50%, -50%) rotate(360deg);
-                    }
                 }
             }
 
@@ -637,6 +682,30 @@
 
 }
 
+.swiper-pagination {
+    position: relative !important;
+
+    .swiper-pagination-bullet {
+        width: 0.75rem;
+        height: 0.75rem;
+        background-color: $accent-color;
+    }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: $black-color !important;
+    position: absolute !important;
+    top: 95% !important;
+    background-color: $accent-color;
+    border-radius: $border-radius-sm;
+    height: 2rem !important;
+    width: 2rem !important;
+    
+    &::after {
+        font-size: $text-btn !important;
+    }
+}
 
 
 
