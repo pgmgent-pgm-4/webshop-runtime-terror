@@ -108,11 +108,25 @@
 <section class="home__buying-process h-layout">
     <h2>Buying process</h2>
 
-    <div class="home__buying-process__animation">
-        <div class="home__buying-process__animation__bg">
-            <img class="home__buying-process__animation__middle" src="media/buying-process/watch_middle-mobile.png" alt="">
-        </div>
+    <div class="home__buying-process__clock">
         
+            <div class="home__buying-process__clock__bg">
+                <div class="home__buying-process__clock__bg__wrapper"></div>
+
+                <img class="home__buying-process__clock__pointer home__buying-process__clock__pointer--big" src="media/buying-process/watch_big-pointer.png" alt="">
+                <img class="home__buying-process__clock__pointer home__buying-process__clock__pointer--small" src="media/buying-process/watch_small-pointer.png" alt="">
+                <img class="home__buying-process__clock__middle" src="media/buying-process/watch_middle.png" alt="">
+            
+
+                <div class="home__buying-process__clock__info">
+                    <div class="home__buying-process__clock__info__bg find"><span>Find</span></div>
+                    <div class="home__buying-process__clock__info__bg pay"><span>Pay</span></div>
+                    <div class="home__buying-process__clock__info__bg receive"><span>Receive</span></div>
+                    <div class="home__buying-process__clock__info__bg enjoy"><span>Enjoy</span></div>
+                </div>  
+            </div>
+        
+        <div class="home__buying-process__band"></div>
     </div>
 
 </section>
@@ -120,7 +134,7 @@
 
 
 
-<div class="page-loader">
+{# <div class="page-loader">
     <div class="page-loader__text">
         <div class="page-loader__text__hide">
             <span class="page-loader__text__hide__inner-text">“Time is a resource. One that must be</span>
@@ -136,7 +150,7 @@
         </div>
     </div>
 </div>
-<div class="slider"></div>
+<div class="slider"></div> #}
 {% endblock %}
 
 

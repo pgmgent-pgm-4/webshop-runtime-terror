@@ -140,6 +140,7 @@
         background: linear-gradient(270deg, rgba(38,60,91,1) 0%, rgba(8,12,18,0) 65%);
         
         &__wrapper {
+            padding-top: 2rem;
             border-bottom: 2px solid $accent-color;
             box-shadow: 0px 3px 3px transparentize($accent-color, 0.3);
     
@@ -251,7 +252,7 @@
     
             p {
                 color: $white-color;
-                max-width: 60rem;
+                max-width: 40rem;
                 margin: 0 auto;
                 margin-bottom: 4rem;
             }
@@ -336,24 +337,167 @@
     }
 
     &__buying-process {
+        position: relative;
 
-        &__animation {
-            position: relative;
-            height: 50vh;
-            
+        &__clock {
+            padding: 2rem 0;
 
             &__bg {
-                background-image: url('../media/buying-process/watch_bg-mobile.png');
-                width: 100%;
+                position: relative;
+                margin: 0 auto;
+                background-image: url('../media/buying-process/watch_bg.png');
+                background-repeat: no-repeat;
+                background-size: 100%;
+                background-position: center center;
+                width: 300px;
+                height: 300px;
+
+                &__wrapper {
+                    background-color: $body-bg;
+                    z-index: -50;
+                    width: 340px;
+                    height: 340px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+
+                @include large { 
+                    &__wrapper {
+                        width: 430px;
+                        height: 430px;
+                    }   
+                }
+    
+                @include extra-large { 
+                    &__wrapper {
+                        width: 560px;
+                        height: 560px;
+                    }   
+                }
+            }
+
+            @include small { 
+                &__bg {
+                    width: 500px;
+                    height: 500px;
+                }   
+            }
+
+            @include medium { 
+                &__bg {
+                    width: 500px;
+                    height: 500px;
+                }   
+            }
+
+            @include large { 
+                &__bg {
+                    width: 600px;
+                    height: 600px;
+                }   
+            }
+
+            @include extra-large { 
+                &__bg {
+                    width: 800px;
+                    height: 800px;
+                }   
+            }
+
+            &__pointer {
+                position: absolute;
+                bottom: 50%;
+                left: 50%;
+                transform-origin: bottom;
+
+                &--big {
+                    height: 45%;
+                    transform: translate(-50%) rotate(45deg);
+                }
+
+                &--small {
+                    height: 30%;
+                    transform: translate(-50%) rotate(0deg);
+                }
             }
 
             &__middle {
-                width: 20%;
+                width: 15%;
                 position: absolute;
                 left: 50%;
-                top: 0;
-                transform: translateX(-50%);
+                top: 50%;
+                transform: translate(-50%, -50%);
             }
+
+            &__info {
+                color: $white-color;
+                position: relative;
+                height: 100%;
+                width: 100%;
+
+                &__bg {
+                    background-color: $footer-bg-color;
+                    width: 5rem;
+                    text-align: center;
+                    padding: 0.3rem 0;
+                    border-radius: $border-radius-sm;
+                }
+
+                .find {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                }
+                .pay {
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                }
+                .receive {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                }
+                .enjoy {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
+            }
+        }
+
+        &__band {
+            display: none;
+            width: 100%;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-46.5%);
+            z-index: -100;
+            border-top: 1px solid $accent-color;
+            border-bottom: 1px solid $accent-color;
+        }
+
+        @include medium { 
+            &__band {
+               display: block;
+            }   
+        }
+
+        @include large { 
+            &__band {
+               display: block;
+            }   
+        }
+
+        @include extra-large { 
+            &__band {
+               display: block;
+               height: 300px;
+            }   
         }
     }
     
