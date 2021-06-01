@@ -261,6 +261,63 @@
 
     &__explore {
         margin-bottom: 5rem;
+
+        h2 {
+            margin-bottom: 2rem;
+        }
+
+        &__watches {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            .watch {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                color: white;
+                position: relative;
+                padding-bottom: 1rem;
+                width: 15rem;
+                filter: blur(2px);
+
+                &__brand {
+                    font-size: $text-m;
+                    color: $secondary-accent-color;
+                }
+
+                &__image {
+                    width: 90%;
+                }
+
+                &__devider {
+                    height: 2px;
+                    width: 2rem;
+                    background-color: $accent-color;
+                    display: block;
+                    margin-bottom: 1rem;
+                }
+
+                &__background {
+                    background-color: $footer-bg-color;
+                    position: absolute;
+                    width: 100%;
+                    height: 60%;
+                    bottom: 0;
+                    z-index: -1;
+                    border-radius: $border-radius-sm;
+                }
+            }
+
+            .swiper-slide-active {
+                filter: blur(0);
+            }
+        }
+
     }
 
     &__newsletter {
@@ -340,7 +397,7 @@
         position: relative;
 
         &__clock {
-            padding: 2rem 0;
+            padding: 5rem 0;
 
             &__bg {
                 position: relative;
@@ -355,12 +412,18 @@
                 &__wrapper {
                     background-color: $body-bg;
                     z-index: -50;
-                    width: 340px;
-                    height: 340px;
+                    
                     position: absolute;
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
+                }
+
+                @include medium { 
+                    &__wrapper {
+                        width: 350px;
+                        height: 350px;
+                    }   
                 }
 
                 @include large { 
@@ -372,9 +435,28 @@
     
                 @include extra-large { 
                     &__wrapper {
-                        width: 560px;
-                        height: 560px;
+                        width: 570px;
+                        height: 570px;
                     }   
+                }
+
+                &__pointers {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    height: 70%;
+                    transform: translate(-50%, -50%);
+                    animation: rotation-pointers 20s linear infinite;
+                }
+    
+                @keyframes rotation-pointers {
+                    0% {
+                        transform: translate(-50%, -50%) rotate(0deg);
+                    }
+    
+                    100% {
+                        transform: translate(-50%, -50%) rotate(360deg);
+                    }
                 }
             }
 
@@ -406,31 +488,6 @@
                 }   
             }
 
-            &__pointer {
-                position: absolute;
-                bottom: 50%;
-                left: 50%;
-                transform-origin: bottom;
-
-                &--big {
-                    height: 45%;
-                    transform: translate(-50%) rotate(45deg);
-                }
-
-                &--small {
-                    height: 30%;
-                    transform: translate(-50%) rotate(0deg);
-                }
-            }
-
-            &__middle {
-                width: 15%;
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-            }
-
             &__info {
                 color: $white-color;
                 position: relative;
@@ -440,30 +497,105 @@
                 &__bg {
                     background-color: $footer-bg-color;
                     width: 5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     text-align: center;
                     padding: 0.3rem 0;
                     border-radius: $border-radius-sm;
+
+                    &--desktop {
+                        display: none;
+                    }
+
+                    @include large { 
+                        &--desktop {
+                            display: block;
+                        }   
+
+                        &--mobile {
+                            display: none;
+                        }
+                    }
+
+                    @include extra-large { 
+                        &--desktop {
+                            display: block;
+                        }   
+
+                        &--mobile {
+                            display: none;
+                        }
+                    }
+                }
+
+                @include large { 
+                    &__bg {
+                        width: 12rem;
+                        height: 3.5rem;
+                        font-size: 14px;
+                    }
+                }
+
+                @include extra-large { 
+                    &__bg {
+                        width: 12rem;
+                        height: 3.5rem;
+                        font-size: 14px;
+                    }
                 }
 
                 .find {
                     position: absolute;
                     right: 0;
                     top: 0;
+                    animation: find 20s linear infinite;
+                    animation-delay: -2.5s;
                 }
+
+                @keyframes find {
+                    0% {
+                        background-color: $secondary-accent-color;
+                        color: black;
+                    }
+                    25% {
+                        background-color: $secondary-accent-color;
+                        color: $black-color;
+                    }
+                    50% {
+                        background-color: $footer-bg-color;
+                        color: $white-color;
+                    }
+                    75% {
+                        background-color: $footer-bg-color;
+                    }
+                    100% {
+                        background-color: $footer-bg-color;
+                    }
+                }
+
                 .pay {
                     position: absolute;
                     right: 0;
                     bottom: 0;
+                    animation: find 20s linear infinite;
+                    animation-delay: 2.5s;
                 }
+
                 .receive {
                     position: absolute;
                     left: 0;
                     bottom: 0;
+                    animation: find 20s linear infinite;
+                    animation-delay: 7.5s;
                 }
+
                 .enjoy {
                     position: absolute;
                     left: 0;
                     top: 0;
+                    animation: find 20s linear infinite;
+                    animation-delay: 12.5s;
                 }
             }
         }
@@ -475,10 +607,11 @@
             position: absolute;
             left: 0;
             top: 50%;
-            transform: translateY(-46.5%);
+            transform: translateY(-41.5%);
             z-index: -100;
-            border-top: 1px solid $accent-color;
-            border-bottom: 1px solid $accent-color;
+            border-top: 2px solid $accent-color;
+            border-bottom: 2px solid $accent-color;
+            box-shadow: 0px 0px 10px $accent-color;
         }
 
         @include medium { 
