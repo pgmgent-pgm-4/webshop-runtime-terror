@@ -1,0 +1,270 @@
+@use '../abstracts/functions' as func;
+
+.location {
+    position: relative;
+    //margin-bottom: -4.5rem;
+    .map {
+        width: 100%;
+        height: 100vh;
+    
+        .marker-popup {
+            .mapboxgl-popup-content {
+                border-radius: $border-radius-sm;
+                padding: 0.5rem;
+                font-family: $font-family-montserrat;
+            }
+
+            p {
+                margin: 0;
+                color: $black-color;
+                font-size: $text-base;
+            }
+        }
+
+        .mapboxgl-marker {
+            
+            svg {
+                
+                g {
+                    fill: red;
+
+                    circle {
+                        fill: #2E2E2E;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.contact-form {
+    transition: transform 1s;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $white-color;
+
+    &__container {
+        background: $hero-transparent-color;
+        backdrop-filter: blur(2px);
+        border-radius: $border-radius-sm;
+        width: calc(100% - 3rem);
+        //height: 70%;
+        padding: 2rem 1rem;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+
+            h2 {
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+
+            form {
+                font-size: 18px;
+                font-family: $font-family-source-serif-pro;
+
+                div {
+                    color: $white-color;
+                }
+
+                label {
+                    color: $white-color;
+                }
+
+                label,
+                select,
+                button {
+                    display: block;
+                    margin: 0.5rem 0;
+                    width: 100%;
+                    color: $white-color;
+                }
+
+                @include medium { 
+                    label,
+                    select {
+                        width: 50%;
+                        display: inline;
+                    }   
+                }
+
+                @include large { 
+                    label,
+                    select {
+                        width: 50%;
+                        display: inline;
+                    }   
+                }
+
+                @include extra-large { 
+                    label,
+                    select {
+                        width: 50%;
+                        display: inline;
+                    }   
+                }
+
+                input,
+                textarea {
+                    margin-bottom: 0.5rem;
+                    width: calc(100% - 0.5rem);
+                    color: $white-color;
+                }
+
+                
+                @include medium { 
+                    input {
+                        width: 50%;
+                        margin: 0.5rem 0;
+                    }   
+                }
+
+                @include large { 
+                    input {
+                        width: 50%;
+                        margin: 0.5rem 0;
+                    }   
+                }
+
+                @include extra-large { 
+                    input {
+                        width: 50%;
+                        margin: 0.5rem 0;
+                    }   
+                }
+
+                select {
+                    option {
+                        background-color: $hero-transparent-color;
+                    }
+                }
+
+                input,
+                select {
+                    background-color: transparent;
+                    border: none;
+                    border-bottom: 1px solid $white-color;
+                }
+
+                @include medium { 
+                    .question {
+                        display: block;
+                        margin-top: 2rem;
+                    }   
+                }
+
+                @include large { 
+                    .question {
+                        display: block;
+                        margin-top: 2rem;
+                    }   
+                }
+
+                @include extra-large { 
+                    .question {
+                        display: block;
+                        margin-top: 2rem;
+                    }   
+                }
+
+                textarea {
+                    background-color: transparent;
+                    border: none;
+                    border: 1px solid $white-color;
+                }
+
+                button {
+                    font-family: $font-family-montserrat;
+                }
+            }
+    }
+}
+
+@include small { 
+    .contact-form {
+       width: 36rem;
+       right: 0;
+    }    
+}
+
+@include medium { 
+    .contact-form {
+       width: 36rem;
+       right: 0;
+    }    
+}
+
+@include large { 
+    .contact-form {
+       width: 36rem;
+       right: 0;
+    }    
+}
+    
+.contact-form-toggle {
+    position: absolute;
+    width: 15rem;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+.collapsed {
+    transform: translateX(576px);
+}
+
+@include small { 
+    .collapsed {
+        transform: translateX(46rem);
+    }    
+}
+
+@include medium { 
+    .collapsed {
+        transform: translateX(60rem);
+    }    
+}
+
+@include large { 
+    .collapsed {
+        transform: translateX(60rem);
+    }    
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-bottom: 4.5rem; 
+    max-width: 50rem;
+    
+    div {
+        padding: 1rem;
+    }
+
+    h2 {
+        margin-bottom: 1rem;
+    }
+
+    p {
+        margin: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    a {
+        color: $white-color;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+}
+
+
+
+
