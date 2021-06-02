@@ -1,0 +1,22 @@
+
+{% extends  base %}
+{% block  content %}
+
+
+<form id="registrationForm" action="`https://localhost:8080/auth/register`">
+    <label for="username">
+        Username
+        <input type="text"  name="username" id="username" required>
+    </label>
+    <label for="email">
+        Email
+        <input type="email" name="email" id="email" required>
+    </label>
+    <label for="password">
+        password (min 10 characters)
+        <input type="password" name="password" id="password" required>
+    </label>
+    <button>Send</button>
+</form>
+            
+{% endblock %}

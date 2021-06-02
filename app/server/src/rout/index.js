@@ -28,4 +28,13 @@ router.get('/about', async  function(req, res, next) {
   res.render('./about/about.njk', data)
 })
 
+router.get('/registration', async  function(req, res, next) {
+  let  data = {
+    base:  'base.njk',
+    title: 'Registration'
+  }
+
+  res.render('./registration/registration.njk', data)
+})
+
 module.exports = router

@@ -6,9 +6,7 @@ export default (sequelize) => {
 			this.belongsToMany(models.Order, {through: "Order_products", foreignKey: {name: "product_id",
         allowNull: false
       }});
-      this.belongsToMany(models.Category, {through: "Product_has_categories", foreignKey: {name: "product_id",
-        allowNull: false
-      }});
+      this.belongsToMany(models.Category, {through: "Product_has_categories"});
       this.hasOne(models.Promotion, {
         foreignKey: {
           allowNull: false

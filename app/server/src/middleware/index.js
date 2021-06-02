@@ -1,5 +1,6 @@
 import morganMiddleware from './morgan.middleware';
-import { jwtStrategy } from './passport.middleware';
+import authMiddleware from './passport.middleware';
 import swaggerSpec from './swagger.middleware';
+import validateRegistration from './validateRegistration';
 
-export { jwtStrategy, morganMiddleware, swaggerSpec };
+export { authMiddleware, morganMiddleware, swaggerSpec, validateRegistration };

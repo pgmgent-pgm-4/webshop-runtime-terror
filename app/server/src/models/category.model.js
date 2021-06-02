@@ -3,9 +3,7 @@ import { Model, DataTypes } from 'sequelize';
 export default (sequelize) => {
 	class Category extends Model {
 		static associate(models) {
-			this.belongsToMany(models.Product, { through: 'Product_has_categories', foreignKey: {name: "category_id",
-        allowNull: false
-      }});
+			this.belongsToMany(models.Product, { through: 'Product_has_categories' });
 		}
 	}
 

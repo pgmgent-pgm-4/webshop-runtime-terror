@@ -30,6 +30,7 @@ export default (sequelize) => {
 		{
       username: {
         type: DataTypes.STRING(255),
+        unique: true,
         allowNull: false,
       },
       email: {

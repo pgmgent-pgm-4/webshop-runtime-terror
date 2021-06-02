@@ -182,15 +182,15 @@ router.get('/users/:userId', userController.getUserById);
  *      404:
  *        description: Could not found the user with id {id}!
  */
-router.post('/users', 
-body('username')
-  .notEmpty().withMessage('Username cannot be empty'),/*
-body('email')
-  .isEmail().withMessage('e-mail address must be valid'),
-body('password')
-  .notEmpty().withMessage('password cannot be empty')
-  .bail()
-  .isLength({min: 7, max: 24}).withMessage('Password must have min 7 and max 32 characters'), */userController.addUser);
+// router.post('/users', 
+// body('username')
+//   .notEmpty().withMessage('Username cannot be empty'),
+// body('email')
+//   .isEmail().withMessage('e-mail address must be valid'),
+// body('password')
+//   .notEmpty().withMessage('password cannot be empty')
+//   .bail()
+//   .isLength({min: 7, max: 24}).withMessage('Password must have min 7 and max 32 characters'), userController.addUser);
 
 
 router.put('/users/:userId', userController.updateUser);
@@ -258,6 +258,7 @@ router.delete('/product_superlatives/:product_superlativeId', product_superlativ
 
 router.get('/products', pagination, productController.getProducts);
 router.get('/products/:productId', productController.getProductById);
+router.get('/productsCategory/:categoryId', productController.getProductByCategoryId);
 router.post('/products', productController.addProduct);
 router.put('/products/:productId', productController.updateProduct);
 router.delete('/products/:productId', productController.deleteProduct);

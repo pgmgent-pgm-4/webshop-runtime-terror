@@ -15,11 +15,10 @@ export default {
       product_has_categories.push({
         createdAt: new Date(),
         updatedAt: new Date(),
-        category_id: _.sample(categories[0]).id,
-        product_id: product.id,
+        CategoryId: _.sample(categories[0]).id,
+        ProductId: product.id,
       }); 
     });
-    console.log(product_has_categories);
     await queryInterface.bulkInsert(
 			"Product_has_categories", product_has_categories, {});
   },

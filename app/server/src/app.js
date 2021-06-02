@@ -13,9 +13,10 @@ import { createTerminus } from '@godaddy/terminus';
 Custom modules
 */
 import { EnvironmentVariables } from './config';
-import { morganMiddleware, swaggerSpec } from './middleware';
+import { morganMiddleware, authMiddleware, swaggerSpec } from './middleware';
 import apiRoutes from './api/routes';
 import indexRouter from './rout/index';
+import authenticationEndpoints from './authentication/index'
 
 /*
 Database
@@ -76,12 +77,17 @@ Webshop routes
 
 app.use('/', indexRouter)
 
+/*
+Authentication routes
+*/
+
+app.use('/auth', authenticationEndpoints);
 
 
 /*
 API Routes
 */
-app.use('/api', cors(), apiRoutes);
+app.use('/api', authMiddleware, cors(), apiRoutes);
 
 /*
 Swagger

@@ -1,6 +1,8 @@
 import { handleHTTPError } from '../../utils';
 import database from '../../database';
 import {validationResult} from 'express-validator';
+import bcrypt, { hash } from 'bcrypt';
+import dotenv from 'dotenv';
 
 /*
 Get all users
@@ -24,7 +26,7 @@ const getUsers = async (req, res, next) => {
 };
 
 /*
-Get a specific user
+Get a specific user by id
 */
 const getUserById = async (req, res, next) => {
   try {
@@ -43,25 +45,35 @@ const getUserById = async (req, res, next) => {
   }
 };
 
+
 /**
  * Creates a new user
  */
 const addUser = async (req, res, next) => {
   try {
-    const errors = validationResult(req);
-    if(!errors.isEmpty()) {
-      return res.send(errors.array());
-    }
     // Get body from response
 		const model = req.body;
-		// Create a post
-		const createdModel = await database.User.create(model);
-		// Send response
-		res.status(201).json(createdModel);
+    await bcrypt.hash(model.password, parseInt(process.env.BCRYPT_SALT_ROUNDS)).then((hash) => {
+      model.password = hash;
+    });
+    // Create a post
+    const createdModel = await database.User.create(model);
+    console.log(model);
+    // Send response
+    res.status(201).json(createdModel);
   } catch (error) {
     handleHTTPError(error, next)
   }
 }
+
+// const { user } = req.body;
+  // bcrypt.hash(req.body.password, parseInt(process.env.BCRYPT_SALT_ROUNDS)).then((hash) => {
+  //   user.password = hash;
+  //   console.log(user)
+  // })
+  
+
+
 
 /**
  * Update a specific user
