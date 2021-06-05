@@ -3,14 +3,10 @@
 {% block  content %}
 
 
-<form id="registrationForm" action="/auth/register">
+<form id="loginForm" action="/auth/login">
     <label for="username">
         Username
         <input type="text"  name="username" id="username" required>
-    </label>
-    <label for="email">
-        Email
-        <input type="email" name="email" id="email" required>
     </label>
     <label for="password">
         password (min 10 characters)
@@ -18,5 +14,10 @@
     </label>
     <button>Send</button>
 </form>
+
+<h2>Token</h2>
+<p id="token"></p>
+<h2>Username</h2>
+<p id="userName"></p>
             
 {% endblock %}

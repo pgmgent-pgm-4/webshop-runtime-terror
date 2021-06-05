@@ -88,11 +88,11 @@ app.post('/login', (req, res) => {
 
 app.post('/register', registrationRules, validateRegistration, userController.addUser);
 
-app.get('/', (req, res) => {
-  res.status(200).json({
-    "message": 'Everyting is working fine'
-  });
-})
+// app.get('/', (req, res) => {
+//   res.status(200).json({
+//     "message": 'Everyting is working fine'
+//   });
+// })
 
 export default app;
 

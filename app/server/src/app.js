@@ -87,7 +87,7 @@ app.use('/auth', authenticationEndpoints);
 /*
 API Routes
 */
-app.use('/api', authMiddleware, cors(), apiRoutes);
+app.use('/api', /*authMiddleware,*/ cors(), apiRoutes);
 
 /*
 Swagger

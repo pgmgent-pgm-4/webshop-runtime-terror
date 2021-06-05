@@ -5,7 +5,9 @@
       this.registerEventListeners();
     },
     cacheElements () {
-      this.$form = document.querySelector('#registrationForm');
+      this.$form = document.querySelector('#loginForm');
+      this.$token = document.querySelector('#token');
+      this.$userName = document.querySelector('#userName');
     },
     registerEventListeners () {
       if (this.$form !== null) {
@@ -14,10 +16,9 @@
           let formData = new FormData(e.target);
           const data ={
             username: formData.get('username'),
-            email: formData.get('email'),
             password: formData.get('password'),
           };
-          let response = await fetch('/auth/register', {
+          let response = await fetch('/auth/login', {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -25,8 +26,12 @@
             },
             body: JSON.stringify(data),
           });
-          let result = await response.json();
-          console.log(result);
+          const result = await response.json();
+          console.log(result.user.username);
+          console.log(result.token);
+          this.$token.innerHTML = result.token;
+          this.$userName.innerHTML = result.user.username;
+
         }
 
 

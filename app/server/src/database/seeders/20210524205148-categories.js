@@ -44,7 +44,6 @@ export default {
       await queryInterface.bulkInsert(
         "Categories", cat, {});
     }
-
   },
 
   down: async (queryInterface, Sequelize) => {

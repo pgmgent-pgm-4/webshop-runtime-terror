@@ -10,14 +10,14 @@ let order_products = [];
 
 export default {
   up: async (queryInterface, Sequelize) => {
-    const users = await queryInterface.sequelize.query("SELECT id FROM `users`");
+    const products = await queryInterface.sequelize.query("SELECT id FROM `products`");
     const orders = await queryInterface.sequelize.query("SELECT id FROM 'orders'");
     orders[0].forEach(order => {
       order_products.push({
         createdAt: new Date(),
         updatedAt: new Date(),
         order_id: order.id,
-        product_id: _.sample(users[0]).id,
+        product_id: _.sample(products[0]).id,
       }); 
     });
     await queryInterface.bulkInsert(

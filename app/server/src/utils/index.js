@@ -8,6 +8,13 @@
 //   results: arr.slice((currentPage - 1) * itemsPerPage, (currentPage - 1) * itemsPerPage + itemsPerPage),
 // });
 
+const splitter = (string, divider, begin, end) => {
+  const tokens = string.split(divider).slice(begin, end);
+  const result = tokens.join(divider);
+  return result
+};
+
+
 const handleHTTPError = (error, next) => next(error);
 
 const HTTPError = (message, statusCode) => {
@@ -19,6 +26,7 @@ const HTTPError = (message, statusCode) => {
 
 export {
   // convertArrayToPagedObject,
+  splitter,
   handleHTTPError,
   HTTPError,
 }

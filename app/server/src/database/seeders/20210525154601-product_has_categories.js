@@ -4,21 +4,48 @@ import faker from 'faker';
 import 'babel-polyfill';
 import database from '../index.js';
 import _ from 'underscore';
+import { splitter } from '../../utils/index';
 
 let product_has_categories = [];
 
+const getCategory = (category) => {
+  let cat = '';
+  switch (category) {
+    case 'men':
+      cat = 1;
+      break;
+    case 'women':
+      cat = 2;
+      break;
+    case 'storage':
+      cat = 3;
+      break;
+    case 'bands':
+      cat = 4;
+      break;
+    case 'outlet':
+      cat = 5;
+      break;
+  }
+  return cat;
+}
+
+
 export default {
   up: async (queryInterface, Sequelize) => {
-    const categories = await queryInterface.sequelize.query("SELECT id FROM `categories`");
-    const products = await queryInterface.sequelize.query("SELECT id FROM 'products'");
+    const products = await queryInterface.sequelize.query("SELECT id, image FROM 'products'");
     products[0].forEach(product => {
+      const category = splitter(product.image, '__',  0, 1).toLowerCase();
+      console.log(category);
+      const cat = getCategory(category);
       product_has_categories.push({
         createdAt: new Date(),
         updatedAt: new Date(),
-        CategoryId: _.sample(categories[0]).id,
+        CategoryId: cat,
         ProductId: product.id,
       }); 
     });
+    console.log(product_has_categories);
     await queryInterface.bulkInsert(
 			"Product_has_categories", product_has_categories, {});
   },

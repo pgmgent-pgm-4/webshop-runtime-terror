@@ -12,11 +12,11 @@ export default (sequelize) => {
           allowNull: false
         }
       });
-      this.hasMany(models.Product_media, {
-        foreignKey: {
-          allowNull: false
-        }
-      });
+      // this.hasMany(models.Product_media, {
+      //   foreignKey: {
+      //     allowNull: false
+      //   }
+      // });
       this.hasMany(models.Product_superlative, {
         foreignKey: {
           allowNull: false
@@ -37,6 +37,10 @@ export default (sequelize) => {
         allowNull: false,
       },
       brand: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      image: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -95,6 +99,9 @@ export default (sequelize) => {
         type: DataTypes.STRING
       },
       band_width: {
+        type: DataTypes.FLOAT
+      },
+      band_length: {
         type: DataTypes.FLOAT
       },
       circumference_range: {
