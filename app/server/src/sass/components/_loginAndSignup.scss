@@ -1,0 +1,136 @@
+@use '../abstracts/functions' as func;
+
+.form--container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .form {
+        height: 35rem;
+        width: 20rem;
+        border-radius: $border-radius-sm;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: transparentize($white-color, 0.5);
+        backdrop-filter: blur(4px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        h1 {
+            color: $black-color;
+            font-weight: func.weight(bold);
+            text-align: left;
+            padding: 2rem;
+            padding-bottom: 0;
+        }
+
+        form {
+            padding: 0 2rem;
+
+            div {
+                position: relative;
+
+                input {
+                    width: calc(100% - 0.5rem);
+                    margin-bottom: 1rem;
+                    padding: 0.5rem 0;
+                    background: none;
+                    border: none;
+                    border-bottom: 1px solid $black-color;
+                    outline: none;
+                    transition: all 0.2s ease;
+                }
+
+                label {
+                    position: absolute;
+                    top: 10px;
+                    left: 0;
+                    pointer-events: none;
+                    transition: all 0.2s ease;
+                }
+
+                .input-border {
+                    width: 0;
+                    background: $accent-color;
+                    height: 0.1rem;
+                    display: block;
+                    transform: translateY(-1.1rem);
+                    transition: all 0.2s ease;
+                }
+
+                input:focus ~ label {
+                    top: -12px;
+                    font-size: 0.8rem;
+                    font-weight: func.weight(bold);
+                }
+
+                input:valid ~ label {
+                    top: -12px;
+                    font-size: 0.8rem;
+                    font-weight: func.weight(bold);
+                }
+
+                input:focus ~ span, 
+                input:valid ~ span {
+                    width: calc(100% - 0.5rem);
+                }
+                
+            }
+
+            button {
+                margin-top: 1rem;
+                width: 100%;
+            }
+        }
+
+        &__redirect {
+            background-color:$black-color;
+            padding: 0.5rem 2rem;
+
+            &__link {
+                color: $accent-color;
+                text-decoration: none;
+                font-weight: func.weight(bold);
+
+                &__text {
+                    position: relative;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        width: 0;
+                        bottom: -0.2rem;
+                        background: $accent-color;
+                        height: 0.1rem;
+                        transition: all 0.2s ease-in-out;
+                        border-radius: $border-radius-sm;
+                    }
+                }
+
+                &:hover { 
+                    .form__redirect__link__text::before {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    @include medium { 
+        .form {
+            width: 25rem;
+        }    
+    }
+
+    @include large { 
+        .form {
+            left: 80%;
+            width: 30rem;
+            height: 40rem;
+        }    
+    }
+}

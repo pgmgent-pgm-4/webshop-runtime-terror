@@ -20,3 +20,14 @@
     text-decoration: none;
     color: $white-color;
 }
+
+.form-button {
+    font-size: $text-btn;
+    background-color: $black-color;
+    border-radius: $border-radius-sm;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: $white-color;
+}
