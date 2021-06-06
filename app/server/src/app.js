@@ -15,7 +15,7 @@ Custom modules
 import { EnvironmentVariables } from './config';
 import { morganMiddleware, authMiddleware, swaggerSpec } from './middleware';
 import apiRoutes from './api/routes';
-import indexRouter from './rout/index';
+import indexRouter from './publicRoutes/index';
 import authenticationEndpoints from './authentication/index'
 
 /*

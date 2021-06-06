@@ -1,0 +1,18 @@
+{% extends  base %}
+{% block  content %}
+
+<h1> Women watches</h1>
+
+<ul>
+    {% for watch in watches %}
+        <li>
+            <a href="/{{watch.id}}"> 
+                <span class="card_title">{{watch.title}}</span>
+                <span class="card_price">{{watch.price}}</span>
+                <img src="media/products/{{watch.image}}">
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends  base %}
+{% block  content %}
+
+<h1> Watch storages</h1>
+
+<ul>
+    {% for storage in storages %}
+        <li>
+            <a href="/{{storage.id}}"> 
+                <span class="card_title">{{storage.title}}</span>
+                <span class="card_price">{{storage.price}}</span>
+                <img src="media/products/{{storage.image}}">
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

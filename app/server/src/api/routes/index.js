@@ -13,7 +13,8 @@ import * as paymentController from '../controllers/payment.controller.js';
 import * as product_mediaController from '../controllers/product_media.controller.js';
 import * as product_superlativeController from '../controllers/product_superlative.controller.js';
 import * as productController from '../controllers/product.controller.js';
-import * as product_colorController from '../controllers/product_color.controller.js';
+import * as order_productController from '../controllers/order_products.controller.js';
+// import * as product_colorController from '../controllers/product_color.controller.js';
 import * as profileController from '../controllers/profile.controller.js';
 import * as promotionController from '../controllers/promotion.controller.js';
 import * as reviewController from '../controllers/review.controller.js';
@@ -30,6 +31,38 @@ const router = express.Router();
 /*
 Routes
 */
+
+
+/**
+ * @swagger
+ * components:
+ *  shemas:
+ *    users:
+ *      type: array
+ *        items:
+ *          type: object
+ *            properties:
+ *              id:
+ *                type: integer
+ *                description: The user ID.
+ *                example: 1
+ *              username:
+ *                type: string
+ *                description: The users username.
+ *                example: ph
+ *              email:
+ *                type: string
+ *                description: The users email
+ *                example: myEmail@hotmail.com
+ *              password:
+ *                type: string
+ *                description: The users password
+ *                example: myPassword123
+ */     
+
+
+
+
 
 
 /**
@@ -264,14 +297,25 @@ router.put('/products/:productId', productController.updateProduct);
 router.delete('/products/:productId', productController.deleteProduct);
  
 /**
+ * Order_products routes
+ */
+
+ router.get('/order_products', pagination, order_productController.getOrder_products);
+ router.get('/order_products/:order_productId', order_productController.getOrder_productById);
+ router.post('/order_products', order_productController.addOrder_product);
+ router.put('/order_products/:order_productId', order_productController.updateOrder_product);
+ router.delete('/order_products/:order_productId', order_productController.deleteOrder_product);
+
+
+/**
  * Products routes
  */
 
-router.get('/product_colors', pagination, product_colorController.getProduct_colors);
-router.get('/product_colors/:product_colorId', product_colorController.getProduct_colorById);
-router.post('/product_colors', product_colorController.addProduct_color);
-router.put('/product_colors/:product_colorId', product_colorController.updateProduct_color);
-router.delete('/product_colors/:product_colorId', product_colorController.deleteProduct_color);
+// router.get('/product_colors', pagination, product_colorController.getProduct_colors);
+// router.get('/product_colors/:product_colorId', product_colorController.getProduct_colorById);
+// router.post('/product_colors', product_colorController.addProduct_color);
+// router.put('/product_colors/:product_colorId', product_colorController.updateProduct_color);
+// router.delete('/product_colors/:product_colorId', product_colorController.deleteProduct_color);
 
 /**
  * Profiles routes

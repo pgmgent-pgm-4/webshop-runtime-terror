@@ -36,7 +36,6 @@ export default {
     const products = await queryInterface.sequelize.query("SELECT id, image FROM 'products'");
     products[0].forEach(product => {
       const category = splitter(product.image, '__',  0, 1).toLowerCase();
-      console.log(category);
       const cat = getCategory(category);
       product_has_categories.push({
         createdAt: new Date(),
@@ -45,7 +44,6 @@ export default {
         ProductId: product.id,
       }); 
     });
-    console.log(product_has_categories);
     await queryInterface.bulkInsert(
 			"Product_has_categories", product_has_categories, {});
   },

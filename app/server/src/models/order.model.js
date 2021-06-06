@@ -4,9 +4,7 @@ export default (sequelize) => {
 	class Order extends Model {
 		static associate(models) {
 			this.belongsTo(models.User);
-      this.belongsToMany(models.Product, {through: 'Order_products', foreignKey: {name: "order_id",
-        allowNull:false
-      }})
+      this.hasOne(models.Order_products);
 		}
 	}
 
