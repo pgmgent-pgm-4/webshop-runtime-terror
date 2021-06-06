@@ -3,9 +3,7 @@ import { Model, DataTypes } from 'sequelize';
 export default (sequelize) => {
 	class Product extends Model {
 		static associate(models) {
-			this.belongsToMany(models.Order, {through: "Order_products", foreignKey: {name: "product_id",
-        allowNull: false
-      }});
+			this.hasOne(models.Order_products);
       this.belongsToMany(models.Category, {through: "Product_has_categories"});
       this.hasOne(models.Promotion, {
         foreignKey: {

@@ -24,6 +24,42 @@ router.get('/men', async  function(req, res, next) {
   res.render('./products/men.njk', data)
 })
 
+router.get('/women', async  function(req, res, next) {
+  const response = await fetch('http://localhost:8080/api/productsCategory/2');
+  const watches = await response.json();
+  let  data = {
+    base:  'base.njk',
+    title: 'women',
+    watches,
+  }
+
+  res.render('./products/women.njk', data)
+})
+
+router.get('/watch-storages', async  function(req, res, next) {
+  const response = await fetch('http://localhost:8080/api/productsCategory/3');
+  const storages = await response.json();
+  let  data = {
+    base:  'base.njk',
+    title: 'watch storages',
+    storages,
+  }
+
+  res.render('./products/storages.njk', data)
+})
+
+
+router.get('/bands', async  function(req, res, next) {
+  const response = await fetch('http://localhost:8080/api/productsCategory/4');
+  const bands = await response.json();
+  let  data = {
+    base:  'base.njk',
+    title: 'bands',
+    bands,
+  }
+
+  res.render('./products/bands.njk', data)
+})
 
 
 router.get('/contact', async  function(req, res, next) {

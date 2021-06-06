@@ -24,7 +24,6 @@ const batteries = ['Renata 371 1.55v Silver Oxide', 'Renata 456 1.60v Silver Oxi
 const storageMaterial = ['Carbon', 'Ceramic', 'Leather'];
 const storageStyles = ['Case', 'Pouch', 'Roll'];
 const collection = ['new', 'all'];
-console.log('products')
 
 
 const images = fs.readdirSync(path.join(__dirname, '../../public/media/products'));

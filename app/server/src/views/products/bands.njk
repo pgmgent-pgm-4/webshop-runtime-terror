@@ -1,0 +1,18 @@
+{% extends  base %}
+{% block  content %}
+
+<h1>Bands</h1>
+
+<ul>
+    {% for band in bands %}
+        <li>
+            <a href="/{{watch.id}}"> 
+                <span class="card_title">{{band.title}}</span>
+                <span class="card_price">{{band.price}}</span>
+                <img src="media/products/{{band.image}}">
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
