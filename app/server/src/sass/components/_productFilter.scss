@@ -1,0 +1,55 @@
+.check__container {
+    padding-right: 1.5rem;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.check__input {
+    position: absolute;
+    opacity: 0;
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+}
+
+.check__label {
+    cursor: pointer;
+    padding-left: 1rem;
+}
+
+.label__helper {
+    position: absolute;
+    top: -0.1rem;
+    left: 0;
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    border: 2px solid $white-color;
+    background-color: transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+.check__input:focus + .check__label .label__helper {
+    background-color: transparent;
+
+}
+
+.check__input:hover + .check__label .label__helper {
+    background-color: transparent;
+}
+
+.check__input:checked + .check__label .label__helper {
+    border-radius: 0px;
+    border-top: none;
+    border-left: none;
+    border-right-width: 5px;
+    border-bottom-width: 3px;
+    border-color: $accent-color;
+    background-color: transparent;
+    transform: rotate(45deg) scaleX(0.5);
+}
+
+.label__text {
+    padding-left: 1rem;
+    color: $white-color;
+}

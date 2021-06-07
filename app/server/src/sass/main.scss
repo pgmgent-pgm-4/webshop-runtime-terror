@@ -7,6 +7,7 @@
 @import "./components/navigation";
 @import "./components/loginAndSignup";
 @import "./components/productCard";
+@import "./components/productFilter";
 
 @import "./vendors/normalize";
 
@@ -22,9 +23,3 @@
 @import "./pages/contact";
 @import "./pages/login";
 @import "./pages/register";
-
-
-
-
-// mag weg ze 
-@import "./layout/productsList";

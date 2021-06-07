@@ -62,7 +62,6 @@
                     max-height: 20rem;
                     width: 17rem;
                 }
-                
             }
         }
             
@@ -91,6 +90,11 @@
                     font-weight: func.weight(bold);
                     font-size: 1.2rem;
                     margin-bottom: 1rem;
+                    color: $white-color;
+                }
+                
+                .card_price {
+                    color: $white-color;
                 }
             }
 
