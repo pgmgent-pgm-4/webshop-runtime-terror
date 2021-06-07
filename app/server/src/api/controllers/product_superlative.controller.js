@@ -43,6 +43,26 @@ const getProduct_superlativeById = async (req, res, next) => {
   }
 };
 
+/*
+Get a specific product_superlative by productId
+*/
+const getProduct_superlativeByproductId = async (req, res, next) => {
+  try {
+    // Get product_superlativeId parameter
+    const { productId } = req.params;
+    // Get specific product_superlative
+    const product_superlatives = await database.Product_superlative.findAll({
+      where: {
+        ProductId: productId
+      }
+    });
+    // Send response
+    res.status(200).json(product_superlatives);
+  } catch (error) {
+    handleHTTPError(error, next);
+  }
+};
+
 /**
  * Creates a new product_superlative
  */
@@ -123,6 +143,7 @@ const deleteProduct_superlative = async (req, res, next) => {
 
 export {
   getProduct_superlativeById,
+  getProduct_superlativeByproductId,
   getProduct_superlatives,
   addProduct_superlative,
   updateProduct_superlative,

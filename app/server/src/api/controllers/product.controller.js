@@ -2,6 +2,7 @@ import { handleHTTPError } from '../../utils';
 import database from '../../database';
 
 
+
 /*
 Get all products
 */
@@ -22,6 +23,30 @@ const getProducts = async (req, res, next) => {
     handleHTTPError(error, next);
   }
 };
+
+
+/*
+Get all products randomly
+*/
+const getProductsRandomly = async (req, res, next) => {
+  try {
+    const { page, size } = req.pagination
+    // Get products from database
+    const products = await database.Product.findAndCountAll({
+      limit: size,
+      offset: page * size,
+      order: database.sequelize.random()
+    });
+    // Send response
+    res.status(200).json({
+      content: products,
+      totalPages: Math.ceil(products.count / Number.parseInt(size))
+    });
+  } catch (error) {
+    handleHTTPError(error, next);
+  }
+};
+
 
 /*
 Get a specific product
@@ -170,6 +195,7 @@ export {
   getProductByCategoryId,
   getNewCollectionProducts,
   getProducts,
+  getProductsRandomly,
   addProduct,
   updateProduct,
   deleteProduct
