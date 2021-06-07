@@ -72,8 +72,7 @@
 
     .nav-overlay__bg {
         background-color: $nav-transparent-color;
-        -webkit-backdrop-filter: blur(4px);
-        backdrop-filter: blur(0px);
+        backdrop-filter: blur(4px);
         position: fixed;
         transform: translateX(-200rem);
         top: 0;
