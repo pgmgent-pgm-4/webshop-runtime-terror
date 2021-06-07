@@ -9,6 +9,12 @@
     justify-content: space-between;
 }
 
+@media (min-width: 1616px) {
+    .product__list {
+      justify-content: flex-start;
+    }
+}
+
 .product__list-item {
     flex-grow: 1;
     margin: 0 1rem;
@@ -119,9 +125,15 @@
       }  
 }
 
-@media (min-width: 977px) {
+@media (min-width: 1008px) and (max-width: 1280px){
     .product__list-item {
-      max-width: calc(30% - 2rem);
+      max-width: 30%;
+    }
+}
+
+@media (min-width: 1328px) {
+    .product__list-item {
+      max-width: 30%;
     }
 }
 
