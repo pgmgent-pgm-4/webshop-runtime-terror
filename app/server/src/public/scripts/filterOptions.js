@@ -9,6 +9,8 @@
       this.filterOptionColorsList = document.querySelector('.filter-option-colors-list');
       this.filterOptionBrands = document.getElementById('filter-option-brands');
       this.filterOptionBrandsList = document.querySelector('.filter-option-brands-list');
+      this.filterOptionPrice = document.getElementById('filter-option-price');
+      this.filterOptionPriceContainer = document.querySelector('.filter-option-price-container');
       
     },
     registerEventListeners () {
@@ -20,6 +22,11 @@
       if (this.filterOptionBrands !== null) {
         this.filterOptionBrands.addEventListener('click', (e) => {
           this.filterOptionBrandsList.classList.toggle('filter-option-open');
+        });
+      };
+      if (this.filterOptionPrice !== null) {
+        this.filterOptionPrice.addEventListener('click', (e) => {
+          this.filterOptionPriceContainer.classList.toggle('filter-option-price-container-open');
         });
       };
 

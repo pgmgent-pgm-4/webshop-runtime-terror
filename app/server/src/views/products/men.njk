@@ -13,9 +13,14 @@
 <section class="products">
     <button id="filter-toggle" class="secondary-button">Filter</button>
 
+    <div class="filter-overlay"></div>
+
     <div class="filter">
         <form id="filter-men" action="">
-            <h2>Filter</h2>
+            <div class="filter-header">
+                <h2>Filter</h2>
+                <svg id="filter-close" xmlns="http://www.w3.org/2000/svg" width="24" height="23.999"><path data-name="close (1)" d="M14.2 12l9.345-9.345a1.55563 1.55563 0 00-2.2-2.2L12 9.801 2.655.456a1.55563 1.55563 0 10-2.2 2.2L9.8 12 .456 21.345a1.55563 1.55563 0 102.2 2.2L12 14.199l9.345 9.345a1.55563 1.55563 0 102.2-2.2zm0 0" fill="#fff"/></svg>
+            </div>
     
             <div class="filter__container">
                 <div class="filter__container__flex" id="filter-option-colors">
@@ -24,17 +29,67 @@
                 </div>
     
                 <ul class="filter-option-colors-list">
-                    <li class="check__container__color check__container__color--white">
-                        <input class="check__input check__input__color" type="checkbox" id="white" name="white">
-                        <label class="check__label check__label__color" for="white">
-                            <span class="label__helper label__helper__color"></span>
+                    <li class="check__container">
+                        <input class="check__input" type="checkbox" id="black" name="black">
+                        <label class="check__label" for="black">
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">Black</span>
                         </label>
                     </li>
     
-                    <li class="check__container__color check__container__color--dark-gray ">
-                        <input class="check__input" type="checkbox" id="all" name="all">
-                        <label class="check__label__color" for="all">
-                            <span class="label__helper__color"></span>
+                    <li class="check__container">
+                        <input class="check__input" type="checkbox" id="white" name="white">
+                        <label class="check__label" for="white">
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">White</span>
+                        </label>
+                    </li>
+
+                    <li class="check__container">
+                        <input class="check__input" type="checkbox" id="brown" name="brown">
+                        <label class="check__label" for="brown">
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">Brown</span>
+                        </label>
+                    </li>
+
+                    <li class="check__container">
+                        <input class="check__input" type="checkbox" id="silver" name="silver">
+                        <label class="check__label" for="silver">
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">Silver</span>
+                        </label>
+                    </li>
+
+                    <li class="check__container">
+                        <input class="check__input" type="checkbox" id="gold" name="gold">
+                        <label class="check__label" for="gold">
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">Gold</span>
+                        </label>
+                    </li>
+
+                    <li class="check__container">
+                        <input class="check__input" type="checkbox" id="blue" name="blue">
+                        <label class="check__label" for="blue">
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">Blue</span>
+                        </label>
+                    </li>
+
+                    <li class="check__container">
+                        <input class="check__input" type="checkbox" id="red" name="red">
+                        <label class="check__label" for="red">
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">Red</span>
+                        </label>
+                    </li>
+    
+                    <li class="check__container">
+                        <input class="check__input" type="checkbox" id="beige" name="beige">
+                        <label class="check__label" for="beige">
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">Beige</span>
                         </label>
                     </li>
                 </ul>  
@@ -50,39 +105,56 @@
                     <li class="check__container">
                         <input class="check__input" type="checkbox" id="all" name="all" checked>
                         <label class="check__label" for="all">
-                            <span class="label__helper"></span>
-                            <span class="label__text">All</span>
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">All</span>
                         </label>
                     </li>
                     <li class="check__container">
                         <input class="check__input" type="checkbox" id="omega" name="omega">
                         <label class="check__label" for="omega">
-                            <span class="label__helper"></span>
-                            <span class="label__text">Omega</span>
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">Omega</span>
                         </label>
                     </li>
                     <li class="check__container">
                         <input class="check__input" type="checkbox" id="breitling" name="breitling">
                         <label class="check__label" for="breitling">
-                            <span class="label__helper"></span>
-                            <span class="label__text">Breitling</span>
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">Breitling</span>
                         </label>
                     </li>
                     <li class="check__container">
                         <input class="check__input" type="checkbox" id="hublot" name="hublot">
                         <label class="check__label" for="hublot">
-                            <span class="label__helper"></span>
-                            <span class="label__text">Hublot</span>
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">Hublot</span>
                         </label>
                     </li>
                 </ul>
                 
             </div>
+
+            <div class="filter__container">
+                <div class="filter__container__flex" id="filter-option-price">
+                    <h3>Price</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="5.143"><path data-name="Icon awesome-minus" d="M22.286 0H1.714A1.714 1.714 0 000 1.714v1.714a1.714 1.714 0 001.714 1.714h20.572A1.714 1.714 0 0024 3.429V1.714A1.714 1.714 0 0022.286 0z" fill="#fff"/></svg>            
+                </div>
+    
+                <div class="filter-option-price-container">
+                    <span>€</span> 
+                    <input class="price__input" type="text" id="min" name="min" required placeholder="39">
+                    <span>to</span>
+                    <input class="price__input" type="text" id="max" name="max" required placeholder="10000">
+                </div>
+                
+            </div>
             
-            <button class="form-button">Apply</button>
+            <button class="secondary-button">Apply</button>
         </form>
     
     </div>
+
+ 
     
     <ul class="product__list">
         {% for watch in watches %}
