@@ -1,0 +1,56 @@
+#cookie-popup {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background-color: $accent-color;
+    transition: opacity 1s ease;
+    transition-delay: 4s;
+    z-index: 99999;
+
+    a {
+        color: blue;
+    }
+
+    p {
+        color: $black-color;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    &.hidden {
+        opacity: 0;
+        transition-delay: 0s;
+    }
+}
+
+@include medium { 
+    #cookie-popup {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        button {
+            width: 10rem;
+            height: 3rem;
+            margin-left: 2rem;
+        }
+    }   
+}
+
+@include large { 
+    #cookie-popup {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        button {
+            width: 10rem;
+            height: 3rem;
+            margin-left: 2rem;
+        }
+    }   
+}

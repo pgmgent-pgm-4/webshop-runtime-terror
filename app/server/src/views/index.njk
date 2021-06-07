@@ -23,15 +23,6 @@
 
 </section>
 
-
-
-
-
-
-
-
-
-
 <section class="home__brands">
     <div class="home__brands__outer-container">
         <div class="home__brands__inner-container">
@@ -170,7 +161,7 @@
     <div class="home__buying-process__band"></div>
 </section>
 
-<div class="page-loader">
+<div class="page-loader hide-page-loader">
     <div class="page-loader__text">
         <div class="page-loader__text__hide">
             <span class="page-loader__text__hide__inner-text">“Time is a resource. One that must be</span>
@@ -186,7 +177,14 @@
         </div>
     </div>
 </div>
-<div class="slider"></div>
+<div class="slider hide-page-loader"></div>
+
+<div id="cookie-popup" class="hidden">
+    <p>
+    This website uses cookies to Ensure you get the best experience on our website. This is a fictional website as an assignement of Graduat Programming Artevelde univeristy. By using this site you agree to our <a href="#">Terms and Conditions</a>.
+    </p>
+    <button class="form-button" id="accept" href="#">Accept</button>
+</div>
 {% endblock %}
 
 

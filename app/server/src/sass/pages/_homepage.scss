@@ -307,7 +307,7 @@
                 }
 
                 &__image {
-                    width: 90%;
+                    max-width: 20rem;
                     height: 20rem;
                     transition: $transition-regular;
                 }
@@ -706,7 +706,6 @@
 .swiper-button-prev {
     color: $black-color !important;
     position: absolute !important;
-    top: 95% !important;
     background-color: $accent-color;
     border-radius: $border-radius-sm;
     height: 2rem !important;
@@ -716,6 +715,7 @@
         font-size: $text-btn !important;
     }
 }
+
 
 
 

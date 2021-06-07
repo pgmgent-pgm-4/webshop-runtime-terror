@@ -7,21 +7,21 @@ const swiper = new Swiper(".mySwiper", {
     clickable: true,
   },
   breakpoints: {
-    430: {
+    640: {
       slidesPerView: 2,
       spaceBetween: 20,
     },
-    640: {
+    1000: {
       slidesPerView: 3,
-      spaceBetween: 20,
+      spaceBetween: 30,
     },
-    800: {
+    1350: {
       slidesPerView: 4,
       spaceBetween: 40,
     },
-    1280: {
+    2000: {
       slidesPerView: 5,
-      spaceBetween: 50,
+      spaceBetween: 40,
     },
   },
   navigation: {

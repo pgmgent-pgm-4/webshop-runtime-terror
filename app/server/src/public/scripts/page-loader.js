@@ -28,3 +28,31 @@ timeline.fromTo('.hero__title', {
 }, {
   opacity: 1,
 })
+
+
+const PageLoadCookieTT = 'page-loader';
+
+const showPageLoad = () => !sessionStorage.getItem(PageLoadCookieTT);
+const saveToStorage = () => sessionStorage.setItem(PageLoadCookieTT, true);
+
+
+const cookiePageLoader = document.querySelector('.page-loader');
+const cookiePageLoaderSlider = document.querySelector('.slider');
+
+window.setTimeout(function() {
+  cookiePageLoader.classList.add('hide-page-loader');
+  cookiePageLoaderSlider.classList.add('hide-page-loader');
+  saveToStorage(sessionStorage);
+}, 7000);
+
+// window.addEventListener('DOMContentLoaded', e => {
+//   cookiePageLoader.classList.add('hide-page-loader');
+//   cookiePageLoaderSlider.classList.add('hide-page-loader');
+//   saveToStorage(sessionStorage);
+// })
+
+if (showPageLoad()) {
+  cookiePageLoader.classList.remove('hide-page-loader');
+  cookiePageLoaderSlider.classList.remove('hide-page-loader');
+}
+
