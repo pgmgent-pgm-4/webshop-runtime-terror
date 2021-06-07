@@ -6,6 +6,7 @@
     },
     cacheElements () {
       this.$form = document.querySelector('#registrationForm');
+      this.$registrationButton = document.querySelector('#registrationButton')
     },
     registerEventListeners () {
       if (this.$form !== null) {
@@ -28,6 +29,11 @@
           let result = await response.json();
           console.log(result);
         }
+
+
+        this.$registrationButton.addEventListener('click', (e) => {
+          window.history.back();
+        });
 
 
       };

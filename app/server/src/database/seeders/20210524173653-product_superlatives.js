@@ -6,7 +6,7 @@ import database from '../index.js';
 import _ from 'underscore';
 
 let product_superlatives = [];
-let amount = 50;
+
 const superlatives = [
   {
     name:'Superior precision',
@@ -40,16 +40,18 @@ const superlatives = [
 export default {
   up: async (queryInterface, Sequelize) => {
     const products = await queryInterface.sequelize.query("SELECT id FROM `products`");
-    while (amount--) {
-      const superlative = _.sample(superlatives);
-      product_superlatives.push({
-        superlative: superlative.name,
-        img: superlative.img,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        ProductId: _.sample(products[0]).id,
-      })
-    }
+    products[0].forEach(product => {
+      superlatives.forEach(superlative => {
+        product_superlatives.push({
+          superlative: superlative.name,
+          img: superlative.img,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          ProductId: product.id,
+        });
+      });
+    });
+    console.log(product_superlatives.length);
     await queryInterface.bulkInsert(
 			"Product_superlatives", product_superlatives, {});
   },

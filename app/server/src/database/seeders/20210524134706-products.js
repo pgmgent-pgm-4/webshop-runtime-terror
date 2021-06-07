@@ -10,11 +10,7 @@ import { splitter } from '../../utils/index'
 
 
 const products = [];
-// let amount = 50;
-// const brands = ['Audemars Piguet', 'Breitling', 'Cartier', 'Certina', 'Hublot', 'Jaeger_lecoultre', 'Panerai', 'Omega', 'Rolex', 'Cady Bay', 'Case Elegance', 'Invicta', 'Monochrome', 'Orbita', 'Scatola Del Tempo', 'Volta', 'Wolf', 'Rios', 'Kuki', 'Vollmer', 'Xeric']
-// const watchBrands= ['Audemars Piguet', 'Breitling', 'Cartier', 'Certina', 'Hublot', 'Jaeger_lecoultre', 'Panerai', 'Omega', 'Rolex'];
-// const watchStoragesBrands = ['Cady Bay', 'Case Elegance', 'Invicta', 'Monochrome', 'Orbita', 'Scatola Del Tempo', 'Volta', 'Wolf'];
-// const watchBandsBrands = ['Rios', 'Kuki', 'Vollmer', 'Xeric'];
+
 const watchMaterial = ['Carbon', 'Ceramic', 'King Gold', 'Leather', 'Magic Gold', 'Metal', 'Resin', 'Sapphire', 'Titanium'];
 const colors = ['black', 'white', 'brown', 'silver', 'gold', 'blue', 'red', 'beige'];
 const shapes = ['Round', 'Square', 'Rectangle', 'Other'];
@@ -23,7 +19,6 @@ const movementTypes = ['quartz', 'mechanical', 'automatic'];
 const batteries = ['Renata 371 1.55v Silver Oxide', 'Renata 456 1.60v Silver Oxide', 'Renata 589 1.55v Silver Oxide', 'Renata 123 1.60v Silver Oxide ']
 const storageMaterial = ['Carbon', 'Ceramic', 'Leather'];
 const storageStyles = ['Case', 'Pouch', 'Roll'];
-const collection = ['new', 'all'];
 
 
 const images = fs.readdirSync(path.join(__dirname, '../../public/media/products'));
@@ -39,8 +34,9 @@ const porductInfos = images.map(image => {
 
 
 porductInfos.forEach((product) => {
-  // 85% chance for admin user
+  // 85% chance for in stock
   const boolean = Math.random() < 0.85;
+  const col = Math.random() < 0.05 ? 'new' : 'all';
   products.push({
     title: product.name,
     brand: product.brand,
@@ -77,7 +73,7 @@ porductInfos.forEach((product) => {
     storage_thickness: product.category === 'storage' ? faker.random.number({min: 100, max: 400, precision:2}) : null,
     capacity: product.category === 'storage' ? faker.random.number({min: 1, max: 16}) : null,
     storage_style: product.category === 'storage' ? _.sample(storageStyles) : null,
-    collection: _.sample(collection), 
+    collection: col, 
     createdAt: new Date(),
     updatedAt: new Date(), 
   })

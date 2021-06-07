@@ -44,6 +44,20 @@ const getProductById = async (req, res, next) => {
 };
 
 
+const getNewCollectionProducts = async (req, res, next) => {
+  try {
+    const products = await database.Product.findAll({
+      where: {
+        collection: "new",
+      }
+    });
+    res.status(200).json(products);
+  } catch (error) {
+    handleHTTPError(error, next);
+  }
+} 
+
+
 const getProductByCategoryId = async (req, res, next) => {
   try {
     // Get categoryId parameter
@@ -52,7 +66,7 @@ const getProductByCategoryId = async (req, res, next) => {
 
     console.log(categoryId)
 
-    const test = await database.Product.findAll({
+    const products = await database.Product.findAll({
       include: [{
         model: database.Category,
         through: {
@@ -66,23 +80,7 @@ const getProductByCategoryId = async (req, res, next) => {
       }
     });
 
-    //{
-      //   include: [{
-      //     model: database.Category,
-      //     attributes: []
-      //     // through: {
-      //     //   where: {
-      //     //     category_id: categoryId
-      //     //   }
-      //     // }
-      //   }]
-      // }
-
-    // const test = database.Product.findOne({ include: database.Category });
-
-
-
-    res.status(200).json(test);
+    res.status(200).json(products);
   } catch (error) {
     handleHTTPError(error, next);
   }
@@ -170,6 +168,7 @@ const deleteProduct = async (req, res, next) => {
 export {
   getProductById,
   getProductByCategoryId,
+  getNewCollectionProducts,
   getProducts,
   addProduct,
   updateProduct,

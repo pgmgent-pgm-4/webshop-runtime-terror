@@ -43,6 +43,28 @@ const getProduct_colorById = async (req, res, next) => {
   }
 };
 
+
+/*
+Get a all product_colors by product_id
+*/
+const getProduct_colorByProductId = async (req, res, next) => {
+  try {
+    // Get productId parameter
+    const { productId } = req.params;
+    // Get all product_colors by product_id
+    const product_colors = await database.Product_color.findAll({
+      where: {
+        ProductId: productId      
+      }
+    });
+    // Send response
+    res.status(200).json(product_colors);
+  } catch (error) {
+    handleHTTPError(error, next);
+  }
+};
+
+
 /**
  * Creates a new product_color
  */
@@ -123,6 +145,7 @@ const deleteProduct_color = async (req, res, next) => {
 
 export {
   getProduct_colorById,
+  getProduct_colorByProductId,
   getProduct_colors,
   addProduct_color,
   updateProduct_color,

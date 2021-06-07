@@ -23,6 +23,15 @@
 
 </section>
 
+
+
+
+
+
+
+
+
+
 <section class="home__brands">
     <div class="home__brands__outer-container">
         <div class="home__brands__inner-container">
@@ -94,80 +103,17 @@
 
     <div class="swiper-container mySwiper">
       <ul class="home__explore__watches swiper-wrapper">
-        <li class="watch swiper-slide">
-            <a href="#">
-                <span class="watch__brand">Hublot</span>
-                <img class="watch__image" src="media/watches/Big-Bang-Sang-Bleu-II-blue-ceramic-45-mm-soldier-shot.png" alt="">
-                <span class="watch__devider"></span>
-                <span class="watch__name">Explorer</span>
-                <div class="watch__background"></div>
-            </a>
-        </li>
-        <li class="watch swiper-slide">
-            <a href="#">
-                <span class="watch__brand">Hublot</span>
-                <img class="watch__image" src="media/watches/Big-Bang-Sang-Bleu-II-blue-ceramic-45-mm-soldier-shot.png" alt="">
-                <span class="watch__devider"></span>
-                <span class="watch__name">Explorer</span>
-                <div class="watch__background"></div>
-            </a>
-        </li>
-        <li class="watch swiper-slide">
-            <a href="#">
-                <span class="watch__brand">Hublot</span>
-                <img class="watch__image" src="media/watches/Big-Bang-Sang-Bleu-II-blue-ceramic-45-mm-soldier-shot.png" alt="">
-                <span class="watch__devider"></span>
-                <span class="watch__name">Explorer</span>
-                <div class="watch__background"></div>
-            </a>
-        </li>
-        <li class="watch swiper-slide">
-            <a href="#">
-                <span class="watch__brand">Hublot</span>
-                <img class="watch__image" src="media/watches/Big-Bang-Sang-Bleu-II-blue-ceramic-45-mm-soldier-shot.png" alt="">
-                <span class="watch__devider"></span>
-                <span class="watch__name">Explorer</span>
-                <div class="watch__background"></div>
-            </a>
-        </li>
-        <li class="watch swiper-slide">
-            <a href="#">
-                <span class="watch__brand">Hublot</span>
-                <img class="watch__image" src="media/watches/Big-Bang-Sang-Bleu-II-blue-ceramic-45-mm-soldier-shot.png" alt="">
-                <span class="watch__devider"></span>
-                <span class="watch__name">Explorer</span>
-                <div class="watch__background"></div>
-            </a>
-        </li>
-        <li class="watch swiper-slide">
-            <a href="#">
-                <span class="watch__brand">Hublot</span>
-                <img class="watch__image" src="media/watches/Big-Bang-Sang-Bleu-II-blue-ceramic-45-mm-soldier-shot.png" alt="">
-                <span class="watch__devider"></span>
-                <span class="watch__name">Explorer</span>
-                <div class="watch__background"></div>
-            </a>
-        </li>
-        <li class="watch swiper-slide">
-            <a href="#">
-                <span class="watch__brand">Hublot</span>
-                <img class="watch__image" src="media/watches/Big-Bang-Sang-Bleu-II-blue-ceramic-45-mm-soldier-shot.png" alt="">
-                <span class="watch__devider"></span>
-                <span class="watch__name">Explorer</span>
-                <div class="watch__background"></div>
-            </a>
-        </li>
-        <li class="watch swiper-slide">
-            <a href="#">
-                <span class="watch__brand">Hublot</span>
-                <img class="watch__image" src="media/watches/Big-Bang-Sang-Bleu-II-blue-ceramic-45-mm-soldier-shot.png" alt="">
-                <span class="watch__devider"></span>
-                <span class="watch__name">Explorer</span>
-                <div class="watch__background"></div>
-            </a>
-        </li>
-        
-       
+        {% for watch in watches %}
+            <li class="watch swiper-slide">
+                <a href="/products/{{watch.id}}">
+                    <span class="watch__brand">{{watch.brand}}</span>
+                    <img class="watch__image" src="media/products/{{watch.image}}" alt="{{watch.title}}">
+                    <span class="watch__devider"></span>
+                    <span class="watch__name">{{watch.title}}</span>
+                    <div class="watch__background"></div>
+                </a>
+            </li>
+        {% endfor %}   
       </ul>
       <div class="swiper-pagination"></div>
        <div class="swiper-button-next"></div>

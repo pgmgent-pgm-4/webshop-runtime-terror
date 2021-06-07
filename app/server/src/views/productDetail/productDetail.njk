@@ -1,0 +1,103 @@
+{% extends  base %}
+{% block  content %}
+
+<h1>product detail</h1>
+
+
+<ul>
+    {% for productColor in productColors %}
+        <li>
+            <span style="color:white">{{productColor.color}}</span>
+        </li>
+    {% endfor %}
+</ul>
+
+
+<p>{{producDetails}}</p>
+<img src='/media/products/{{productDetails[0].image}}'>
+<h2>{{productDetails[0].title}}</h2>
+<p>{{productDetails[0].brand}}</p>
+<p>{{productDetails[0].price}}</p>
+<p>{{productDetails[0].description}}</p>
+{% if productDetails[0].watch_thickness %}
+    <p>{{ productDetails[0].watch_thickness }}</p>
+{% endif %}
+{% if productDetails[0].watch_length %}
+    <p>{{ productDetails[0].watch_length }}</p>
+{% endif %}
+{% if productDetails[0].watch_width %}
+    <p>{{ productDetails[0].watch_width }}</p>
+{% endif %}
+{% if productDetails[0].case_material %}
+    <p>{{ productDetails[0].case_material }}</p>
+{% endif %}
+{% if productDetails[0].case_width %}
+    <p>{{ productDetails[0].case_width }}</p>
+{% endif %}
+{% if productDetails[0].case_length %}
+    <p>{{ productDetails[0].case_length }}</p>
+{% endif %}
+{% if productDetails[0].case_thickness %}
+    <p>{{ productDetails[0].case_thickness }}</p>
+{% endif %}
+{% if productDetails[0].case_shape %}
+    <p>{{ productDetails[0].case_shape }}</p>
+{% endif %}
+{% if productDetails[0].glass_material %}
+    <p>{{ productDetails[0].glass_material }}</p>
+{% endif %}
+{% if productDetails[0].glass_opening_diameter %}
+    <p>{{ productDetails[0].glass_opening_diameter }}</p>
+{% endif %}
+{% if productDetails[0].band_material %}
+    <p>{{ productDetails[0].band_material }}</p>
+{% endif %}
+{% if productDetails[0].band_width %}
+    <p>{{ productDetails[0].band_width }}</p>
+{% endif %}
+{% if productDetails[0].band_length %}
+    <p>{{ productDetails[0].band_length }}</p>
+{% endif %}
+{% if productDetails[0].circumference_range %}
+    <p>{{ productDetails[0].circumference_range }}</p>
+{% endif %}
+{% if productDetails[0].movement_type %}
+    <p>{{ productDetails[0].movement_type }}</p>
+{% endif %}
+{% if productDetails[0].battery %}
+    <p>{{ productDetails[0].battery }}</p>
+{% endif %}
+{% if productDetails[0].battery_life %}
+    <p>{{ productDetails[0].battery_life }}</p>
+{% endif %}
+{% if productDetails[0].weight %}
+    <p>{{ productDetails[0].weight }}</p>
+{% endif %}
+{% if productDetails[0].water_resistance %}
+    <p>{{ productDetails[0].water_resistance }}</p>
+{% endif %}
+{% if productDetails[0].storage_material %}
+    <p>{{ productDetails[0].storage_material }}</p>
+{% endif %}
+{% if productDetails[0].storage_width %}
+    <p>{{ productDetails[0].storage_width }}</p>
+{% endif %}
+{% if productDetails[0].storage_length %}
+    <p>{{ productDetails[0].storage_length }}</p>
+{% endif %}
+{% if productDetails[0].storage_thickness %}
+    <p>{{ productDetails[0].storage_thickness }}</p>
+{% endif %}
+{% if productDetails[0].capacity %}
+    <p>{{ productDetails[0].capacity }}</p>
+{% endif %}
+{% if productDetails[0].storage_style %}
+    <p>{{ productDetails[0].storage_style }}</p>
+{% endif %}
+<p>{{productDetails[0].collection}}</p>
+
+
+
+
+
+{% endblock %}

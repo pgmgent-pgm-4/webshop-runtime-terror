@@ -1,19 +1,47 @@
 import  express from 'express';
 let  router = express.Router();
 import fetch from 'node-fetch';
+import { EnvironmentVariables } from '../config'
+
+
+const baseUrl = `http://${EnvironmentVariables.HOSTNAME}:${EnvironmentVariables.PORT}/api`
 
 router.get('/', async  function(req, res, next) {
+  const response = await fetch(`${baseUrl}/newCollectionProducts`);
+  const watches = await response.json();
   let  data = {
     base:  'base.njk',
-    title: 'Home'
+    title: 'Home',
+    watches
   }
 
   res.render('index.njk', data)
 })
 
+router.get('/products/:productId', async  function(req, res, next) {
+   // Get productId parameter
+   const { productId } = req.params;
+   console.log(productId);
+  const details = await fetch(`${baseUrl}/products/${productId}`);
+  const productDetails= await details.json();
+  const colors = await fetch(`${baseUrl}/product_colorsByProductId/${productId}`);
+  const productColors= await colors.json();
+  console.log(productColors);
+  let  data = {
+    base:  'base.njk',
+    title: 'ProductDetail',
+    productDetails,
+    productColors,
+
+  }
+
+  res.render('./productDetail/productDetail.njk', data)
+})
+
+
 
 router.get('/men', async  function(req, res, next) {
-  const response = await fetch('http://localhost:8080/api/productsCategory/1');
+  const response = await fetch(`${baseUrl}/productsCategory/1`);
   const watches = await response.json();
   let  data = {
     base:  'base.njk',
@@ -25,7 +53,7 @@ router.get('/men', async  function(req, res, next) {
 })
 
 router.get('/women', async  function(req, res, next) {
-  const response = await fetch('http://localhost:8080/api/productsCategory/2');
+  const response = await fetch(`${baseUrl}/productsCategory/2`);
   const watches = await response.json();
   let  data = {
     base:  'base.njk',
@@ -37,7 +65,7 @@ router.get('/women', async  function(req, res, next) {
 })
 
 router.get('/watch-storages', async  function(req, res, next) {
-  const response = await fetch('http://localhost:8080/api/productsCategory/3');
+  const response = await fetch(`${baseUrl}/productsCategory/3`);
   const storages = await response.json();
   let  data = {
     base:  'base.njk',
@@ -50,7 +78,7 @@ router.get('/watch-storages', async  function(req, res, next) {
 
 
 router.get('/bands', async  function(req, res, next) {
-  const response = await fetch('http://localhost:8080/api/productsCategory/4');
+  const response = await fetch(`${baseUrl}/productsCategory/4`);
   const bands = await response.json();
   let  data = {
     base:  'base.njk',
@@ -61,6 +89,18 @@ router.get('/bands', async  function(req, res, next) {
   res.render('./products/bands.njk', data)
 })
 
+router.get('/', async  function(req, res, next) {
+  console.log(`${baseUrl}/newCollectionProducts`)
+  const response = await fetch(`${baseUrl}/newCollectionProducts`);
+  const watches = await response.json();
+  let  data = {
+    base:  'base.njk',
+    title: 'Home',
+    watches
+  }
+
+  res.render('index.njk', data)
+})
 
 router.get('/contact', async  function(req, res, next) {
   let  data = {

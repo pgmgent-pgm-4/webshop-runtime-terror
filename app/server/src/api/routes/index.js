@@ -10,11 +10,11 @@ import * as  userController from '../controllers/user.controller.js';
 import * as categoryController from '../controllers/category.controller.js';
 import * as orderController from '../controllers/order.controller.js';
 import * as paymentController from '../controllers/payment.controller.js';
-import * as product_mediaController from '../controllers/product_media.controller.js';
+// import * as product_mediaController from '../controllers/product_media.controller.js';
 import * as product_superlativeController from '../controllers/product_superlative.controller.js';
 import * as productController from '../controllers/product.controller.js';
 import * as order_productController from '../controllers/order_products.controller.js';
-// import * as product_colorController from '../controllers/product_color.controller.js';
+import * as product_colorController from '../controllers/product_color.controller.js';
 import * as profileController from '../controllers/profile.controller.js';
 import * as promotionController from '../controllers/promotion.controller.js';
 import * as reviewController from '../controllers/review.controller.js';
@@ -268,11 +268,11 @@ router.delete('/payments/:paymentId', paymentController.deletePayment);
  * Product_medias routes
  */
 
-router.get('/product_medias', pagination, product_mediaController.getProduct_medias);
-router.get('/product_medias/:product_mediaId', product_mediaController.getProduct_mediaById);
-router.post('/product_medias', product_mediaController.addProduct_media);
-router.put('/product_medias/:product_mediaId', product_mediaController.updateProduct_media);
-router.delete('/product_medias/:product_mediaId', product_mediaController.deleteProduct_media);
+// router.get('/product_medias', pagination, product_mediaController.getProduct_medias);
+// router.get('/product_medias/:product_mediaId', product_mediaController.getProduct_mediaById);
+// router.post('/product_medias', product_mediaController.addProduct_media);
+// router.put('/product_medias/:product_mediaId', product_mediaController.updateProduct_media);
+// router.delete('/product_medias/:product_mediaId', product_mediaController.deleteProduct_media);
 
 
  /**
@@ -291,11 +291,12 @@ router.delete('/product_superlatives/:product_superlativeId', product_superlativ
 
 router.get('/products', pagination, productController.getProducts);
 router.get('/products/:productId', productController.getProductById);
+router.get('/newCollectionProducts', productController.getNewCollectionProducts);
 router.get('/productsCategory/:categoryId', productController.getProductByCategoryId);
 router.post('/products', productController.addProduct);
 router.put('/products/:productId', productController.updateProduct);
 router.delete('/products/:productId', productController.deleteProduct);
- 
+
 /**
  * Order_products routes
  */
@@ -308,14 +309,15 @@ router.delete('/products/:productId', productController.deleteProduct);
 
 
 /**
- * Products routes
+ * Product_colors routes
  */
 
-// router.get('/product_colors', pagination, product_colorController.getProduct_colors);
-// router.get('/product_colors/:product_colorId', product_colorController.getProduct_colorById);
-// router.post('/product_colors', product_colorController.addProduct_color);
-// router.put('/product_colors/:product_colorId', product_colorController.updateProduct_color);
-// router.delete('/product_colors/:product_colorId', product_colorController.deleteProduct_color);
+router.get('/product_colors', pagination, product_colorController.getProduct_colors);
+router.get('/product_colors/:product_colorId', product_colorController.getProduct_colorById);
+router.get('/product_colorsByProductId/:productId', product_colorController.getProduct_colorByProductId);
+router.post('/product_colors', product_colorController.addProduct_color);
+router.put('/product_colors/:product_colorId', product_colorController.updateProduct_color);
+router.delete('/product_colors/:product_colorId', product_colorController.deleteProduct_color);
 
 /**
  * Profiles routes
