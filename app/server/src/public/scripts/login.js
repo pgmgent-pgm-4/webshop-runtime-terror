@@ -29,8 +29,8 @@
           const result = await response.json();
           console.log(result.user.username);
           console.log(result.token);
-          this.$token.innerHTML = result.token;
-          this.$userName.innerHTML = result.user.username;
+          localStorage.setItem('username', result.user.username);
+          localStorage.setItem('token', result.token);
 
         }
 

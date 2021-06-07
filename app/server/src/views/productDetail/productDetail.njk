@@ -3,7 +3,7 @@
 
 <h1>product detail</h1>
 
-
+<h2>colors</h2>
 <ul>
     {% for productColor in productColors %}
         <li>
@@ -96,8 +96,41 @@
 {% endif %}
 <p>{{productDetails[0].collection}}</p>
 
+{% if productSuperlatives %}
+<h2>superlatives</h2>
+<ul>
+    {% for productSuperlative in productSuperlatives %}
+        <li>
+            <span style="color:white">{{productSuperlative.superlative}}</span>
+            <img src="/media/superlatives/{{productSuperlative.img}}">
+        </li>
+    {% endfor %}
+</ul>
+{% endif %}
 
+<h2>reviews</h2>
+<ul>
+    {% for review in reviews %}
+        <li>
+            <p style="color:white">{{review.email}}</p>
+            <p style="color:white">{{review.username}}</p>
+            <p style="color:white">{{review.rating}}</p>
+            <p style="color:white">{{review.title}}</p>
+            <p style="color:white">{{review.text}}</p>
+            <p style="color:white">{{review.createdAt}}</p>
+        </li>
+    {% endfor %}
+</ul>
 
-
+<h2>related Products</h2>
+<ul>
+    {% for relatedProduct in relatedProducts %}
+        <li>
+            <p style="color:white">{{relatedProduct.brand}}</p>
+            <p style="color:white">{{relatedProduct.title}}</p>
+            <img src="/media/products/{{relatedProduct.image}}"/>
+        </li>
+    {% endfor %}
+</ul>
 
 {% endblock %}

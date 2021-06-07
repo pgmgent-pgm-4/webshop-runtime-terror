@@ -17,7 +17,6 @@ export default {
     products[0].forEach(product => {
       for(let i=faker.random.number({min: 1, max: 5}); i > 0; i--) {
         reviews.push({
-          email: faker.internet.email(),
           rating: faker.random.number({min:1, max:5}),
           title: faker.lorem.sentence(5),
           text: faker.lorem.paragraph(5),

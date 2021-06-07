@@ -43,6 +43,48 @@ const getReviewById = async (req, res, next) => {
   }
 };
 
+/*
+Get all reviews with a specific productId
+*/
+const getReviewByProductId = async (req, res, next) => {
+  try {
+    // Get productId parameter
+    const { productId } = req.params;
+    // Get all reviews
+    const reviews = await database.Review.findAll({
+      where: {
+        ProductId: productId
+      }
+    });
+    // Send response
+    res.status(200).json(reviews);
+  } catch (error) {
+    handleHTTPError(error, next);
+  }
+};
+
+/*
+Get all reviews with a specific userId
+*/
+const getReviewByUserId = async (req, res, next) => {
+  try {
+    // Get productId parameter
+    const { userId } = req.params;
+    // Get all reviews
+    const reviews = await database.Review.findAll({
+      where: {
+        UserId: userId
+      }
+    });
+    // Send response
+    res.status(200).json(reviews);
+  } catch (error) {
+    handleHTTPError(error, next);
+  }
+};
+
+
+
 /**
  * Creates a new review
  */
@@ -123,6 +165,8 @@ const deleteReview = async (req, res, next) => {
 
 export {
   getReviewById,
+  getReviewByProductId,
+  getReviewByUserId,
   getReviews,
   addReview,
   updateReview,

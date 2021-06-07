@@ -19,22 +19,51 @@ router.get('/', async  function(req, res, next) {
 })
 
 router.get('/products/:productId', async  function(req, res, next) {
-   // Get productId parameter
-   const { productId } = req.params;
-   console.log(productId);
+  // Get productId parameter
+  const { productId } = req.params;
+  console.log(productId);
   const details = await fetch(`${baseUrl}/products/${productId}`);
   const productDetails= await details.json();
   const colors = await fetch(`${baseUrl}/product_colorsByProductId/${productId}`);
   const productColors= await colors.json();
-  console.log(productColors);
+  const superlatives = await fetch(`${baseUrl}/product/product_superlatives/${productId}`);
+  const productSuperlatives= await superlatives.json();
+  const related = await fetch(`${baseUrl}/productsRandomly?page=0&size=5`);
+  console.log(related);
+  let relatedProducts= await related.json();
+  relatedProducts = relatedProducts.content.rows;
+  console.log(relatedProducts);
+  
+  const rev = await fetch(`${baseUrl}/product/reviews/${productId}`);
+  let reviews= await rev.json();
+  let users;
+  await Promise.all(
+    reviews.map(review => fetch(`${baseUrl}/users/${review.UserId}`)) 
+  ).then(values => {
+    return Promise.all(values.map(v => v.json()));
+  }).then(values => {
+    users = [].concat.apply([], values);
+  }).catch(e => {
+    console.log(e.message);
+  })
+  reviews = await reviews.map(review => {
+    let obj = users.find(user => user.id === review.UserId);
+    review["username"] = obj.username;
+    review["email"] = obj.email;
+    return review;
+  });
+
+
   let  data = {
     base:  'base.njk',
     title: 'ProductDetail',
     productDetails,
     productColors,
-
+    productSuperlatives,
+    reviews,
+    relatedProducts
   }
-
+ 
   res.render('./productDetail/productDetail.njk', data)
 })
 

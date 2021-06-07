@@ -281,6 +281,7 @@ router.delete('/payments/:paymentId', paymentController.deletePayment);
 
 router.get('/product_superlatives', pagination, product_superlativeController.getProduct_superlatives);
 router.get('/product_superlatives/:product_superlativeId', product_superlativeController.getProduct_superlativeById);
+router.get('/product/product_superlatives/:productId', product_superlativeController.getProduct_superlativeByproductId);
 router.post('/product_superlatives', product_superlativeController.addProduct_superlative);
 router.put('/product_superlatives/:product_superlativeId', product_superlativeController.updateProduct_superlative);
 router.delete('/product_superlatives/:product_superlativeId', product_superlativeController.deleteProduct_superlative);
@@ -290,6 +291,7 @@ router.delete('/product_superlatives/:product_superlativeId', product_superlativ
  */
 
 router.get('/products', pagination, productController.getProducts);
+router.get('/productsRandomly', pagination, productController.getProductsRandomly);
 router.get('/products/:productId', productController.getProductById);
 router.get('/newCollectionProducts', productController.getNewCollectionProducts);
 router.get('/productsCategory/:categoryId', productController.getProductByCategoryId);
@@ -325,6 +327,7 @@ router.delete('/product_colors/:product_colorId', product_colorController.delete
 
  router.get('/profiles', pagination, profileController.getProfiles);
  router.get('/profiles/:profileId', profileController.getProfileById);
+ router.get('/user/profiles/:userId', profileController.getProfileByUserId);
  router.post('/profiles', profileController.addProfile);
  router.put('/profiles/:profileId', profileController.updateProfile);
  router.delete('/profiles/:profileId', profileController.deleteProfile);
@@ -345,6 +348,8 @@ router.delete('/product_colors/:product_colorId', product_colorController.delete
 
  router.get('/reviews', pagination, reviewController.getReviews);
  router.get('/reviews/:reviewId', reviewController.getReviewById);
+ router.get('/product/reviews/:productId', reviewController.getReviewByProductId);
+ router.get('/users/reviews/:productId', reviewController.getReviewByUserId);
  router.post('/reviews', reviewController.addReview);
  router.put('/reviews/:reviewId', reviewController.updateReview);
  router.delete('/reviews/:reviewId', reviewController.deleteReview);

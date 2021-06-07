@@ -4,6 +4,7 @@ import faker from 'faker';
 import 'babel-polyfill';
 import database from '../index.js';
 import _ from 'underscore';
+import { splitter } from '../../utils/index';
 
 let product_superlatives = [];
 
@@ -39,17 +40,20 @@ const superlatives = [
 
 export default {
   up: async (queryInterface, Sequelize) => {
-    const products = await queryInterface.sequelize.query("SELECT id FROM `products`");
+    const products = await queryInterface.sequelize.query("SELECT id, image FROM `products`");
     products[0].forEach(product => {
-      superlatives.forEach(superlative => {
-        product_superlatives.push({
-          superlative: superlative.name,
-          img: superlative.img,
-          createdAt: new Date(),
-          updatedAt: new Date(),
-          ProductId: product.id,
+      const category = splitter(product.image, '__',  0, 1).toLowerCase();
+      if (category === 'men' || category === 'women') {
+        superlatives.forEach(superlative => {
+          product_superlatives.push({
+            superlative: superlative.name,
+            img: superlative.img,
+            createdAt: new Date(),
+            updatedAt: new Date(),
+            ProductId: product.id,
+          });
         });
-      });
+      }
     });
     console.log(product_superlatives.length);
     await queryInterface.bulkInsert(

@@ -43,6 +43,26 @@ const getProfileById = async (req, res, next) => {
   }
 };
 
+/*
+Get a specific profile by userId
+*/
+const getProfileByUserId = async (req, res, next) => {
+  try {
+    // Get userId parameter
+    const { userId } = req.params;
+    // Get specific profile
+    const profile = await database.Profile.findAll({
+      where: {
+        UserId: userId
+      }
+    });
+    // Send response
+    res.status(200).json(profile);
+  } catch (error) {
+    handleHTTPError(error, next);
+  }
+};
+
 /**
  * Creates a new profile
  */
@@ -123,6 +143,7 @@ const deleteProfile = async (req, res, next) => {
 
 export {
   getProfileById,
+  getProfileByUserId,
   getProfiles,
   addProfile,
   updateProfile,
