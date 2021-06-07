@@ -1,0 +1,141 @@
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+#filter-toggle {
+    width: calc(100% - 1rem);
+    max-width: 17rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.filter {
+    display: none;
+    background-color: $body-bg;
+    width: 17rem;
+    padding: 0 1rem;
+
+    h3 {
+        color: $white-color;
+    }
+
+    &__container {
+        border-bottom: 1px solid $white-color;
+
+        &__flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+    }
+
+    .filter-option-brands-list,
+    .filter-option-colors-list {
+        display: none;
+    }
+
+    .filter-option-colors-list-open {
+        display: flex;
+
+        
+    }
+
+    .filter-option-open {
+        display: block;
+    }
+}
+
+.filter--open {
+    display: block;
+}
+
+.check {
+
+    &__container {
+        padding-right: 1.5rem;
+        position: relative;
+        margin-bottom: 1rem;
+
+        &__color {
+            border-radius: $border-radius-circle;
+            width: 2rem;
+            height: 2rem;
+
+            &--dark-gray {
+                background-color: $filter-dark-gray;
+            }
+
+            &--white {
+                background-color: $filter-white;
+            }
+
+            
+        }
+
+        
+    }
+
+    &__input {
+        position: absolute;
+        opacity: 0;
+        width: 1rem;
+        height: 1rem;
+        cursor: pointer;
+
+        &__color {
+            
+        }
+    }
+
+    &__label {
+        cursor: pointer;
+        padding-left: 1rem;
+
+        &__color {
+            
+        }
+
+        .label__helper {
+            position: absolute;
+            top: -0.1rem;
+            left: 0;
+            width: 1rem;
+            height: 1rem;
+            display: inline-block;
+            border: 2px solid $white-color;
+            background-color: transparent;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .label__text {
+            padding-left: 1rem;
+            color: $white-color;
+        }
+    }
+
+    &__input:focus + .check__label .label__helper {
+        background-color: transparent;
+    }
+
+    &__input:hover + .check__label .label__helper {
+        background-color: transparent;
+    }
+
+    &__input:checked + .check__label .label__helper {
+        border-radius: 0px;
+        border-top: none;
+        border-left: none;
+        border-right-width: 5px;
+        border-bottom-width: 3px;
+        border-color: $accent-color;
+        background-color: transparent;
+        transform: rotate(45deg) scaleX(0.5);
+    }
+}
+
+
+
+
