@@ -235,19 +235,29 @@
 
 </section>
 
-{# <h2>reviews</h2>
-<ul>
-    {% for review in reviews %}
-        <li>
-            <p style="color:white">{{review.email}}</p>
-            <p style="color:white">{{review.username}}</p>
-            <p style="color:white">{{review.rating}}</p>
-            <p style="color:white">{{review.title}}</p>
-            <p style="color:white">{{review.text}}</p>
-            <p style="color:white">{{review.createdAt}}</p>
-        </li>
-    {% endfor %}
-</ul> #}
+<section class="detail__reviews h-layout">
+    <div class="title__flex-container">
+        <h2>Reviews</h2>
+        <button class="secondary-button">Share your experience</button>
+    </div>
+
+    <ul class="detail__reviews__list">
+        {% for review in reviews %}
+            <li>
+                <div class="flex-container">
+                    <p>{{review.username}}</p>
+                    <span>{{review.rating}} / 5</span>
+                </div>
+                <span class="review-title">{{review.title}}</span>
+                <p>{{review.text}}</p>
+                <small>{{review.createdAt}}</small>
+            </li>
+        {% endfor %}
+    </ul> 
+
+    {# <p>{{review.email}}</p> #}
+
+</section>
 
 <section class="detail__related h-layout">
     <h2>Related Products</h2>
