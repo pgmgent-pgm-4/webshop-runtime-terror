@@ -1,136 +1,286 @@
 {% extends  base %}
 {% block  content %}
 
-<h1>product detail</h1>
+<section class="detail__product h-layout">
+    <img src='/media/products/{{productDetails[0].image}}' alt={{productDetails[0].title}}>
 
-<h2>colors</h2>
-<ul>
-    {% for productColor in productColors %}
-        <li>
-            <span style="color:white">{{productColor.color}}</span>
-        </li>
-    {% endfor %}
-</ul>
+    <div class="detail__product__description">
+        <h1>{{productDetails[0].title}}</h1>
+        <ul>
+            <li>
+                <span class="description__info">Brand:</span>
+                <span>{{productDetails[0].brand}}</span>
+            </li>
+            <li>
+                <span class="description__info">Price:</span>
+                <span>{{productDetails[0].price}}</span>
+            </li>
+            <li>
+                <span class="description__info">Colors:</span>
+                {% for productColor in productColors %}
+                    <span class="description__colors" style="background: #{{productColor.color}}"></span>
+                {% endfor %}
+            </li>
+        </ul>
 
+        <p>{{productDetails[0].description}}</p>
 
-<p>{{producDetails}}</p>
-<img src='/media/products/{{productDetails[0].image}}'>
-<h2>{{productDetails[0].title}}</h2>
-<p>{{productDetails[0].brand}}</p>
-<p>{{productDetails[0].price}}</p>
-<p>{{productDetails[0].description}}</p>
-{% if productDetails[0].watch_thickness %}
-    <p>{{ productDetails[0].watch_thickness }}</p>
-{% endif %}
-{% if productDetails[0].watch_length %}
-    <p>{{ productDetails[0].watch_length }}</p>
-{% endif %}
-{% if productDetails[0].watch_width %}
-    <p>{{ productDetails[0].watch_width }}</p>
-{% endif %}
-{% if productDetails[0].case_material %}
-    <p>{{ productDetails[0].case_material }}</p>
-{% endif %}
-{% if productDetails[0].case_width %}
-    <p>{{ productDetails[0].case_width }}</p>
-{% endif %}
-{% if productDetails[0].case_length %}
-    <p>{{ productDetails[0].case_length }}</p>
-{% endif %}
-{% if productDetails[0].case_thickness %}
-    <p>{{ productDetails[0].case_thickness }}</p>
-{% endif %}
-{% if productDetails[0].case_shape %}
-    <p>{{ productDetails[0].case_shape }}</p>
-{% endif %}
-{% if productDetails[0].glass_material %}
-    <p>{{ productDetails[0].glass_material }}</p>
-{% endif %}
-{% if productDetails[0].glass_opening_diameter %}
-    <p>{{ productDetails[0].glass_opening_diameter }}</p>
-{% endif %}
-{% if productDetails[0].band_material %}
-    <p>{{ productDetails[0].band_material }}</p>
-{% endif %}
-{% if productDetails[0].band_width %}
-    <p>{{ productDetails[0].band_width }}</p>
-{% endif %}
-{% if productDetails[0].band_length %}
-    <p>{{ productDetails[0].band_length }}</p>
-{% endif %}
-{% if productDetails[0].circumference_range %}
-    <p>{{ productDetails[0].circumference_range }}</p>
-{% endif %}
-{% if productDetails[0].movement_type %}
-    <p>{{ productDetails[0].movement_type }}</p>
-{% endif %}
-{% if productDetails[0].battery %}
-    <p>{{ productDetails[0].battery }}</p>
-{% endif %}
-{% if productDetails[0].battery_life %}
-    <p>{{ productDetails[0].battery_life }}</p>
-{% endif %}
-{% if productDetails[0].weight %}
-    <p>{{ productDetails[0].weight }}</p>
-{% endif %}
-{% if productDetails[0].water_resistance %}
-    <p>{{ productDetails[0].water_resistance }}</p>
-{% endif %}
-{% if productDetails[0].storage_material %}
-    <p>{{ productDetails[0].storage_material }}</p>
-{% endif %}
-{% if productDetails[0].storage_width %}
-    <p>{{ productDetails[0].storage_width }}</p>
-{% endif %}
-{% if productDetails[0].storage_length %}
-    <p>{{ productDetails[0].storage_length }}</p>
-{% endif %}
-{% if productDetails[0].storage_thickness %}
-    <p>{{ productDetails[0].storage_thickness }}</p>
-{% endif %}
-{% if productDetails[0].capacity %}
-    <p>{{ productDetails[0].capacity }}</p>
-{% endif %}
-{% if productDetails[0].storage_style %}
-    <p>{{ productDetails[0].storage_style }}</p>
-{% endif %}
-<p>{{productDetails[0].collection}}</p>
+        <div class="detail__product__description__call-to-action">
+            <button class="primary-button add">Add to bag</button>
+            <button class="secondary-button wishlist">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28.564" height="25"><path d="M25.573 1.803a8.4 8.4 0 00-11.292.837A8.4 8.4 0 002.99 1.803a8.441 8.441 0 00-.59 12.341l9.785 9.969a2.93 2.93 0 004.2.006l9.785-9.969a8.447 8.447 0 00-.597-12.347zm-1.317 10.46l-9.785 9.969a.229.229 0 01-.379 0l-9.785-9.968a5.753 5.753 0 01.407-8.407 5.656 5.656 0 017.615.586l1.953 1.992 1.953-1.992a5.652 5.652 0 017.615-.591 5.778 5.778 0 01.407 8.412z" fill="#f1f1f1"/></svg>
+            </button>
+        </div>
+    </div>
+</section>
 
-{% if productSuperlatives %}
-<h2>superlatives</h2>
-<ul>
-    {% for productSuperlative in productSuperlatives %}
-        <li>
-            <span style="color:white">{{productSuperlative.superlative}}</span>
-            <img src="/media/superlatives/{{productSuperlative.img}}">
-        </li>
-    {% endfor %}
-</ul>
-{% endif %}
+<section class="detail__specifications h-layout">
+    <h2>Specifications</h2>
 
-<h2>reviews</h2>
-<ul>
-    {% for review in reviews %}
-        <li>
-            <p style="color:white">{{review.email}}</p>
-            <p style="color:white">{{review.username}}</p>
-            <p style="color:white">{{review.rating}}</p>
-            <p style="color:white">{{review.title}}</p>
-            <p style="color:white">{{review.text}}</p>
-            <p style="color:white">{{review.createdAt}}</p>
-        </li>
-    {% endfor %}
-</ul>
+    {% if productSuperlatives.length > 0 %}
+        <div class="detail__superlatives">
+            <img class="detail__superlatives__image" src="/media/superlatives/watch-specs.svg" alt="product superlatives">
+        
+            <ul class="detail__superlatives__list">
+                {% for productSuperlative in productSuperlatives %}
+                    <li>
+                        <img src="/media/superlatives/{{productSuperlative.img}}">
+                        <span>{{productSuperlative.superlative}}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
 
-<h2>related Products</h2>
-<ul>
-    {% for relatedProduct in relatedProducts %}
-        <li>
-            <p style="color:white">{{relatedProduct.brand}}</p>
-            <p style="color:white">{{relatedProduct.title}}</p>
-            <img src="/media/products/{{relatedProduct.image}}"/>
-        </li>
-    {% endfor %}
-</ul>
+    <article class="detail__general">
+        <div class="dropdown" id="dropdown__general">
+            <h3>General</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="5.143"><path data-name="Icon awesome-minus" d="M22.286 0H1.714A1.714 1.714 0 000 1.714v1.714a1.714 1.714 0 001.714 1.714h20.572A1.714 1.714 0 0024 3.429V1.714A1.714 1.714 0 0022.286 0z" fill="#fff"/></svg>            
+        </div>
+
+        <div class="detail__general__info">
+
+            <div class="general__flex-container">
+                {% if productDetails[0].watch_length %}
+                    <span class="specifications__info">Watch length</span>
+                    <span>{{ productDetails[0].watch_length }} mm </span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].watch_width %}
+                    <span class="specifications__info">Watch width</span>
+                    <span>{{ productDetails[0].watch_width }} mm </span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].case_material %}
+                    <span class="specifications__info">Case material</span>
+                    <span>{{ productDetails[0].case_material }} </span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].case_width %}
+                    <span class="specifications__info">Case width</span>
+                    <span>{{ productDetails[0].case_width }} mm</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].case_length %}
+                    <span class="specifications__info">Case length</span>
+                    <span>{{ productDetails[0].case_length }} mm</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].case_thickness %}
+                    <span class="specifications__info">Case thickness</span>
+                    <span>{{ productDetails[0].case_thickness }} mm</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].case_shape %}
+                    <span class="specifications__info">Case thickness</span>
+                    <span>{{ productDetails[0].case_shape }} </span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].glass_material %}
+                    <span class="specifications__info">Glass material</span>
+                    <span>{{ productDetails[0].glass_material }} </span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].glass_opening_diameter %}
+                    <span class="specifications__info">Glass diameter</span>
+                    <span>{{ productDetails[0].glass_opening_diameter }} mm</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].band_material %}
+                    <span class="specifications__info">Band material</span>
+                    <span>{{ productDetails[0].band_material }}</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].band_width %}
+                    <span class="specifications__info">Band width</span>
+                    <span>{{ productDetails[0].band_width }} mm</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].band_length %}
+                    <span class="specifications__info">Band length</span>
+                    <span>{{ productDetails[0].band_length }} mm</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].circumference_range %}
+                    <span class="specifications__info">Circumference range</span>
+                    <span>{{ productDetails[0].circumference_range }} mm</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].movement_type %}
+                    <span class="specifications__info">Movement type</span>
+                    <span>{{ productDetails[0].movement_type }}</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].battery %}
+                    <span class="specifications__info">Battery</span>
+                    <span>{{ productDetails[0].battery }}</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].battery_life %}
+                    <span class="specifications__info">Battery life</span>
+                    <span>{{ productDetails[0].battery_life }} months</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].weight %}
+                    <span class="specifications__info">Weight</span>
+                    <span>{{ productDetails[0].weight }} g</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].watch_thickness %}
+                    <span class="specifications__info">Thickness</span>
+                    <span>{{ productDetails[0].watch_thickness }} mm </span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].water_resistance %}
+                    <span class="specifications__info">Water resistance</span>
+                    <span>{{ productDetails[0].water_resistance }} meters</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].storage_material %}
+                    <span class="specifications__info">Storage material</span>
+                    <span>{{ productDetails[0].storage_material }}</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].storage_width %}
+                    <span class="specifications__info">Storage width</span>
+                    <span>{{ productDetails[0].storage_width }} mm</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].storage_length %}
+                    <span class="specifications__info">Storage length</span>
+                    <span>{{ productDetails[0].storage_length }} mm</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].storage_thickness %}
+                    <span class="specifications__info">Storage thickness</span>
+                    <span>{{ productDetails[0].storage_thickness }} mm</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].capacity %}
+                    <span class="specifications__info">Storage capacity</span>
+                    <span>{{ productDetails[0].capacity }} watches</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].storage_style %}
+                    <span class="specifications__info">Storage style</span>
+                    <span>{{ productDetails[0].storage_style }}</span>
+                {% endif %}
+            </div>
+
+        </div>
+    </article>
+
+    <article class="detail__shipping">
+        <div class="dropdown" id="dropdown__shipping">
+            <h3>Shipping</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="5.143"><path data-name="Icon awesome-minus" d="M22.286 0H1.714A1.714 1.714 0 000 1.714v1.714a1.714 1.714 0 001.714 1.714h20.572A1.714 1.714 0 0024 3.429V1.714A1.714 1.714 0 0022.286 0z" fill="#fff"/></svg>            
+        </div>
+
+        <div class="detail__shipping__info">
+            <p><strong>**Important: Due to the impact of COVID-19 on fulfillment and shipping infrastructure, order delivery could be delayed up to an additional 3 business days for E.U. customers and an additional 21 business days for international customers**</strong></p>
+
+            <p>Timeless Taste will cover the cost for Standard International Mail* (orders over €999). Not all countries are eligible for free international shipping. Upgraded shipping options (estimated transit times and rates) will be quoted during checkout. </p>
+
+            <p>Timeless Taste has been shipping worldwide since 1999 and we ship internationally daily! All orders are processed and shipped out by 5pm (EST) Monday through Friday on regular business days. Orders placed/received after 12:00pm (EST) will be processed the next business day. </p>
+
+            <p>Because customs fees vary by country, we do not collect duties during checkout. If duties are due, your customs agency will let you know when the package arrives in your country. It is your responsibility to pay these fees to your country.</p>
+
+            <p>Once items are shipped, liability is covered by the terms of the carrier. We will ship to the address specified by the customer. If you did not provide us with an accurate address, neither Timeless Taste, nor the shipping carrier can be held responsible for the loss of an item. Please double check your shipping address. Any shipping damage must be reported to Watches.com within 48 hours of delivery, otherwise it is ineligible for any insurance or refund claims.</p>
+        </div>
+    </article>
+
+</section>
+
+<section class="detail__reviews h-layout">
+    <div class="title__flex-container">
+        <h2>Reviews</h2>
+        <button class="secondary-button">Share your experience</button>
+    </div>
+
+    <ul class="detail__reviews__list">
+        {% for review in reviews %}
+            <li>
+                <div class="flex-container">
+                    <p>{{review.username}}</p>
+                    <span>{{review.rating}} / 5</span>
+                </div>
+                <span class="review-title">{{review.title}}</span>
+                <p>{{review.text}}</p>
+                <small>{{review.createdAt}}</small>
+            </li>
+        {% endfor %}
+    </ul> 
+
+    {# <p>{{review.email}}</p> #}
+
+</section>
+
+<section class="detail__related h-layout">
+    <h2>Related Products</h2>
+
+    <div class="swiper-container mySwiper">
+      <ul class="swiper__watches swiper-wrapper">
+        {% for relatedProduct in relatedProducts %}
+            <li class="watch swiper-slide">
+                <a href="/products/{{watch.id}}">
+                    <span class="watch__brand">{{relatedProduct.brand}}</span>
+                    <img class="watch__image" src="/media/products/{{relatedProduct.image}}" alt="{{relatedProduct.title}}">
+                    <span class="watch__devider"></span>
+                    <span class="watch__name">{{relatedProduct.title}}</span>
+                    <div class="watch__background"></div>
+                </a>
+            </li>
+        {% endfor %}   
+      </ul>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+</section>
 
 {% endblock %}

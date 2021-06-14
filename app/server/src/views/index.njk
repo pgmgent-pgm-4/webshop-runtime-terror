@@ -93,12 +93,12 @@
     <h2>Explore our newest watches</h2>
 
     <div class="swiper-container mySwiper">
-      <ul class="home__explore__watches swiper-wrapper">
+      <ul class="swiper__watches swiper-wrapper">
         {% for watch in watches %}
             <li class="watch swiper-slide">
                 <a href="/products/{{watch.id}}">
                     <span class="watch__brand">{{watch.brand}}</span>
-                    <img class="watch__image" src="media/products/{{watch.image}}" alt="{{watch.title}}">
+                    <img class="watch__image" src="/media/products/{{watch.image}}" alt="{{watch.title}}">
                     <span class="watch__devider"></span>
                     <span class="watch__name">{{watch.title}}</span>
                     <div class="watch__background"></div>
@@ -107,7 +107,7 @@
         {% endfor %}   
       </ul>
       <div class="swiper-pagination"></div>
-       <div class="swiper-button-next"></div>
+      <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
     </div>
 
