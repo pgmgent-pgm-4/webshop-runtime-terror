@@ -1,7 +1,8 @@
 import  express from 'express';
 let  router = express.Router();
 import fetch from 'node-fetch';
-import { EnvironmentVariables } from '../config'
+import { EnvironmentVariables } from '../config';
+import { authMiddleware} from '../middleware';
 
 
 const baseUrl = `http://${EnvironmentVariables.HOSTNAME}:${EnvironmentVariables.PORT}/api`
@@ -167,5 +168,23 @@ router.get('/login', async  function(req, res, next) {
 
   res.render('./login/login.njk', data)
 })
+
+
+router.get('/profile/:userId',  async  function(req, res, next) {
+  const { userId } = req.params;
+  console.log(userId);
+  const response = await fetch(`${baseUrl}/user/profiles/${userId}`);
+  const profile = await response.json();
+  console.log(profile);
+  // /user/profiles/:userName
+  let  data = {
+    base:  'base.njk',
+    title: 'Profile',
+    profile
+  }
+
+  res.render('./profile/profile.njk', data);
+})
+
 
 module.exports = router

@@ -18,6 +18,7 @@
             email: formData.get('email'),
             password: formData.get('password'),
           };
+          console.log('data', data);
           let response = await fetch('/auth/register', {
             method: 'POST',
             mode: 'cors',

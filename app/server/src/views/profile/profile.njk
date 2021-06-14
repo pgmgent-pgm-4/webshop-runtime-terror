@@ -1,0 +1,16 @@
+{% extends  base %}
+{% block  content %}
+
+<p style="color:white">{{profile[0].first_name}}</p>
+<p style="color:white">{{profile[0].last_name}}</p>
+<p style="color:white">{{profile[0].street}}</p>
+<p style="color:white">{{profile[0].number}}</p>
+
+<p style="color:white">{{profile[0].zip_code}}</p>
+<p style="color:white">{{profile[0].city}}</p>
+<p style="color:white">{{profile[0].country}}</p>
+<p style="color:white">{{profile[0].phone}}</p>
+<p style="color:white">{{profile[0].birthday}}</p>
+<img src="{{profile[0].img}}" />
+
+{% endblock %}
