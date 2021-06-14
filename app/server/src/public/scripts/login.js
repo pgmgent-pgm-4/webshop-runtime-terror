@@ -5,7 +5,7 @@
       this.registerEventListeners();
     },
     cacheElements () {
-      this.$form = document.querySelector('#loginForm');
+      this.$form = document.querySelector('#loginAndSignup');
       this.$token = document.querySelector('#token');
       this.$userName = document.querySelector('#userName');
     },
@@ -18,6 +18,7 @@
             username: formData.get('username'),
             password: formData.get('password'),
           };
+          console.log('login', data);
           let response = await fetch('/auth/login', {
             method: 'POST',
             mode: 'cors',
@@ -29,7 +30,7 @@
           const result = await response.json();
           console.log(result.user.username);
           console.log(result.token);
-          localStorage.setItem('username', result.user.username);
+          localStorage.setItem('userId', result.user.id);
           localStorage.setItem('token', result.token);
 
         }

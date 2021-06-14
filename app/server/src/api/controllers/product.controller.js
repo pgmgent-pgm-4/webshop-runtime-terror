@@ -112,6 +112,23 @@ const getProductByCategoryId = async (req, res, next) => {
 };
 
 
+
+const getProductsByPromotion = async (req, res, next) => {
+  try {
+    // Get all products
+    const products = await database.Product.findAll({
+      include: [{
+        model: database.Promotion,
+      }],
+    });
+
+    res.status(200).json(products);
+  } catch (error) {
+    handleHTTPError(error, next);
+  }
+};
+
+
 /**
  * Creates a new product
  */
@@ -194,6 +211,7 @@ export {
   getProductById,
   getProductByCategoryId,
   getNewCollectionProducts,
+  getProductsByPromotion,
   getProducts,
   getProductsRandomly,
   addProduct,
