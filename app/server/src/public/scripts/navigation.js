@@ -11,6 +11,7 @@
       this.navOverlayBg = document.querySelector('.nav-overlay__bg');
       this.accesoiresDropdown = document.getElementById('accesoires-dropdown');
       this.accesoiresDropdownOptions = document.querySelector('.accesoires-dropdown__options');
+      this.profileLink = document.getElementById('profileLink');
     },
     registerEventListeners () {
       if (this.hamburgerButton !== null) {
@@ -31,6 +32,12 @@
         this.accesoiresDropdown.addEventListener('click', (e) => {
           this.accesoiresDropdownOptions.classList.toggle('accesoires-dropdown__options--open');
         });
+      };
+      if (this.profileLink !== null) {
+        this.profileLink.addEventListener('click', (e) => {
+          const login = localStorage.getItem('userId');
+          this.profileLink.setAttribute('href', login !== null ? `/profile/${login}` : '/login')
+        })
       }
     },
   };
