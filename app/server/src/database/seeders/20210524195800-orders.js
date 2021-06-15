@@ -6,7 +6,7 @@ import database from '../index.js';
 import _ from 'underscore';
 
 let orders = [];
-let amount = 50;
+let amount = 80;
 const orderStates = ['shopping bag', 'shipping', 'delivered']; 
 let orderNumber = 0;
 

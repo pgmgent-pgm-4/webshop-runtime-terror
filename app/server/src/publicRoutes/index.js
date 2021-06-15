@@ -211,7 +211,6 @@ router.get('/profile/:userId',  async  function(req, res, next) {
 router.get('/profile/orders/:userId',  async  function(req, res, next) {
   const { userId } = req.params;
   console.log(userId);
-  const o = [];
   const response = await fetch(`${baseUrl}/orders/user/${userId}`);
   const orders = await response.json();
   console.log('orders', orders);
@@ -222,6 +221,25 @@ router.get('/profile/orders/:userId',  async  function(req, res, next) {
   }
 
   res.render('./orders/order.njk', data);
+})
+
+router.get('/profile/wishlist/:userId',  async  function(req, res, next) {
+  const { userId } = req.params;
+  console.log(userId);
+  const response = await fetch(`${baseUrl}/users/wishlist/${userId}`);
+  const wishlist= await response.json();
+  console.log('wishlist', wishlist);
+  const wishlistId = wishlist.id;
+  const resp = await fetch(`${baseUrl}/wishlist/products/${wishlistId}`);
+  const wishlistProducts = await resp.json();
+  console.log(wishlistProducts);
+  let data = {
+    base:  'base.njk',
+    title: 'Wishlist',
+    wishlistProducts
+  }
+
+  res.render('./wishlist/wishlist.njk', data);
 })
 
 

@@ -1,0 +1,16 @@
+{% extends  base %}
+{% block  content %}
+
+<ul>
+        {% for  wishlistProduct in wishlistProducts %}
+            <li>
+                <p style="color:white;">{{wishlistProduct.title}}</p>
+                <p style="color:white;">{{wishlistProduct.brand}}</p>
+                <p style="color:white;">{{wishlistProduct.price}}</p>
+                <img src="/media/products/{{wishlistProduct.image}}" />
+            <li>
+        {% endfor %}
+    </ul>    
+
+
+{% endblock %}

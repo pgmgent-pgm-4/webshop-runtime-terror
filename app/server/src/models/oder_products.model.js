@@ -10,10 +10,6 @@ export default (sequelize) => {
 
 	Order_products.init(
 		{
-      price_item: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-      },
       quantity: {
         type: DataTypes.INTEGER,
         allowNull: false
