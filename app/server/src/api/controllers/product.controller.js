@@ -119,6 +119,7 @@ const getProductsByPromotion = async (req, res, next) => {
     const products = await database.Product.findAll({
       include: [{
         model: database.Promotion,
+        where: { active: true }
       }],
     });
 

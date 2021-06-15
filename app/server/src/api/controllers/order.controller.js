@@ -1,5 +1,6 @@
 import { handleHTTPError } from '../../utils';
 import database from '../../database';
+import { Op } from 'sequelize';
 
 
 /*
@@ -22,6 +23,39 @@ const getOrders = async (req, res, next) => {
     handleHTTPError(error, next);
   }
 };
+
+
+/*
+Get all orders from a specific user
+*/
+const getOrdersById = async (req, res, next) => {
+  try {
+    // Get orderId parameter
+    const { userId } = req.params;
+
+    // Get orders from database
+    const orders = await database.Order.findAll({
+      where: {
+        UserId: userId,
+        order_state: {
+          [Op.not]: 'shopping bag'
+        }
+      }, 
+      include: {
+        model: database.Order_products,
+        include: {
+          model: database.Product,
+        }
+      }
+    });
+    // Send response
+    res.status(200).json({orders});
+  } catch (error) {
+    handleHTTPError(error, next);
+  }
+};
+
+
 
 /*
 Get a specific order
@@ -123,6 +157,7 @@ const deleteOrder = async (req, res, next) => {
 
 export {
   getOrderById,
+  getOrdersById,
   getOrders,
   addOrder,
   updateOrder,

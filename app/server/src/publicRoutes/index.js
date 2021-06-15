@@ -119,6 +119,30 @@ router.get('/bands', async  function(req, res, next) {
   res.render('./products/bands.njk', data)
 })
 
+router.get('/outlet', async  function(req, res, next) {
+  const response = await fetch(`${baseUrl}/productsPromotions`);
+  const promotions = await response.json();
+  const newPrices = promotions.map(promotion => {
+    const price = promotion.price
+    const price2 = price.substring(1)
+    let newPrice = parseFloat(price2) * parseFloat(promotion.Promotion.discount_percent) / 100;
+    newPrice = (Math.round(newPrice * 100) / 100).toFixed(2);
+    return newPrice;
+  })
+  let i = 0;
+  promotions.forEach(promotion => {
+    promotion.newPrice = newPrices[i]
+    i++;
+  }) 
+  let  data = {
+    base:  'base.njk',
+    title: 'outlet',
+    promotions,
+  }
+
+  res.render('./products/outlet.njk', data)
+})
+
 router.get('/', async  function(req, res, next) {
   console.log(`${baseUrl}/newCollectionProducts`)
   const response = await fetch(`${baseUrl}/newCollectionProducts`);
@@ -172,11 +196,8 @@ router.get('/login', async  function(req, res, next) {
 
 router.get('/profile/:userId',  async  function(req, res, next) {
   const { userId } = req.params;
-  console.log(userId);
   const response = await fetch(`${baseUrl}/user/profiles/${userId}`);
   const profile = await response.json();
-  console.log(profile);
-  // /user/profiles/:userName
   let  data = {
     base:  'base.njk',
     title: 'Profile',
@@ -187,4 +208,58 @@ router.get('/profile/:userId',  async  function(req, res, next) {
 })
 
 
+router.get('/profile/orders/:userId',  async  function(req, res, next) {
+  const { userId } = req.params;
+  console.log(userId);
+  const o = [];
+  const response = await fetch(`${baseUrl}/orders/user/${userId}`);
+  const orders = await response.json();
+  console.log('orders', orders);
+  let  data = {
+    base:  'base.njk',
+    title: 'Orders',
+    orders: orders.orders
+  }
+
+  res.render('./orders/order.njk', data);
+})
+
+
 module.exports = router
+
+
+
+
+
+
+
+
+
+
+
+// const { userId } = req.params;
+//   console.log(userId);
+//   const o = [];
+//   const response = await fetch(`${baseUrl}/orders/user/${userId}`);
+//   const orders = await response.json();
+//   console.log('orders', orders);
+//   const test = orders.orders.map( async (order) => {
+//     // console.log('hello', order)
+//     const orderId = order.id;
+//     // console.log(orderId);
+//     // console.log(`${baseUrl}/order_products/order/${orderId}`);
+//     const response = await fetch(`${baseUrl}/order_products/order/${orderId}`);
+//     const order_products = await response.json();
+//     // order.orderProducts = order_products
+//     console.log('order_products', order_products);
+//     order_products.forEach( async (order_product) => {
+//       const productId = order_product.ProductId;
+//       const response = await fetch(`${baseUrl}/products/${productId}`);
+//       const product = await response.json();
+//       console.log('product', product);
+//       // order_product.prod = product
+//     });
+//     o.push(order);
+//   });
+//   // console.log(orders);
+//   // console.log('nu', o);

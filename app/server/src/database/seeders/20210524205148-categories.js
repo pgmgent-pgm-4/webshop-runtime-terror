@@ -24,11 +24,6 @@ const cat = [
     createdAt: new Date(),
     updatedAt: new Date(),
   },
-  {
-    name: "Outlet",
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
 ];
 
 

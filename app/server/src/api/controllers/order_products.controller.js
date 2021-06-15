@@ -43,6 +43,28 @@ const getOrder_productById = async (req, res, next) => {
   }
 };
 
+
+/*
+Get a all order_products by orderId
+*/
+const getOrder_productByOrderId = async (req, res, next) => {
+  try {
+    // Get order_product Id parameter
+    const { orderId } = req.params;
+    // Get specific order_product
+    const order_products = await database.Order_products.findAll({
+      where: {
+        OrderId: orderId
+      }
+    });
+    // Send response
+    res.status(200).json(order_products);
+  } catch (error) {
+    handleHTTPError(error, next);
+  }
+};
+
+
 /**
  * Creates a new order_product
  */
@@ -123,6 +145,7 @@ const deleteOrder_product = async (req, res, next) => {
 
 export {
   getOrder_productById,
+  getOrder_productByOrderId,
   getOrder_products,
   addOrder_product,
   updateOrder_product,

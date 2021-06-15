@@ -7,7 +7,7 @@ import _ from 'underscore';
 
 let orders = [];
 let amount = 50;
-const orderStates = ['preparation', 'shipping', 'delivered']; 
+const orderStates = ['shopping bag', 'shipping', 'delivered']; 
 let orderNumber = 0;
 
 export default {

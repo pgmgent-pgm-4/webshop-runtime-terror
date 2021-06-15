@@ -247,6 +247,7 @@ router.delete('/categories/:categoryId', categoryController.deleteCategory);
  */
 
 router.get('/orders',pagination, orderController.getOrders);
+router.get('/orders/user/:userId', orderController.getOrdersById);
 router.get('/orders/:orderId', orderController.getOrderById);
 router.post('/orders', orderController.addOrder);
 router.put('/orders/:orderId', orderController.updateOrder);
@@ -295,6 +296,7 @@ router.get('/productsRandomly', pagination, productController.getProductsRandoml
 router.get('/products/:productId', productController.getProductById);
 router.get('/newCollectionProducts', productController.getNewCollectionProducts);
 router.get('/productsCategory/:categoryId', productController.getProductByCategoryId);
+router.get('/productsPromotions', productController.getProductsByPromotion);
 router.post('/products', productController.addProduct);
 router.put('/products/:productId', productController.updateProduct);
 router.delete('/products/:productId', productController.deleteProduct);
@@ -305,6 +307,7 @@ router.delete('/products/:productId', productController.deleteProduct);
 
  router.get('/order_products', pagination, order_productController.getOrder_products);
  router.get('/order_products/:order_productId', order_productController.getOrder_productById);
+ router.get('/order_products/order/:orderId', order_productController.getOrder_productByOrderId);
  router.post('/order_products', order_productController.addOrder_product);
  router.put('/order_products/:order_productId', order_productController.updateOrder_product);
  router.delete('/order_products/:order_productId', order_productController.deleteOrder_product);
