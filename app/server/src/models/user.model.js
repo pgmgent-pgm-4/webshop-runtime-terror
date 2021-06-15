@@ -23,6 +23,12 @@ export default (sequelize) => {
           allowNull: false
         }
       });
+      this.hasOne(models.Wishlist, {
+        foreignKey: {
+          allowNull: false
+        }
+      });
+
 		}
 	}
 

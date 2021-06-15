@@ -70,6 +70,11 @@
                     max-height: 20rem;
                     width: 17rem;
                 }
+
+                &--outlet {
+                    max-width: 18rem;
+                    object-fit: contain;
+                }
             }
         }
             
@@ -103,6 +108,20 @@
                 
                 .card_price {
                     color: $white-color;
+                }
+
+                .card_price--old {
+                    font-size: 0.9rem;
+                    text-decoration: line-through;
+                    display: inline;
+                }
+
+                .card_price--new {
+                    font-size: 1.1rem;
+                    padding-left: 0.5rem;
+                    font-weight: bold;
+                    color: $accent-color;
+                    display: inline;
                 }
             }
 

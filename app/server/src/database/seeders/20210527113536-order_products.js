@@ -14,7 +14,6 @@ export default {
     const orders = await queryInterface.sequelize.query("SELECT id FROM 'orders'");
     orders[0].forEach(order => {
       order_products.push({
-        price_item: faker.commerce.price(30, 3000, 2, '€'),
         quantity: faker.random.number({min: 1, max: 5}),
         createdAt: new Date(),
         updatedAt: new Date(),

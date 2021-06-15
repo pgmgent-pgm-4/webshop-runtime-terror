@@ -10,6 +10,7 @@ export default (sequelize) => {
           allowNull: false
         }
       });
+      this.belongsToMany(models.Wishlist, {through: "Wishlist_has_products"});
       // this.hasMany(models.Product_media, {
       //   foreignKey: {
       //     allowNull: false

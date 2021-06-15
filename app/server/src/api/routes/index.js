@@ -18,7 +18,8 @@ import * as product_colorController from '../controllers/product_color.controlle
 import * as profileController from '../controllers/profile.controller.js';
 import * as promotionController from '../controllers/promotion.controller.js';
 import * as reviewController from '../controllers/review.controller.js';
-
+import * as wishlistController from '../controllers/wishlist.controller.js';
+import * as wishlist_has_productsController from '../controllers/wishlist_has_products.controller.js';
 import pagination from '../../utils/pagination.js';
 // import { validationUsers } from '../validation/user.validation.js';
 import { body  } from 'express-validator';
@@ -296,6 +297,7 @@ router.get('/productsRandomly', pagination, productController.getProductsRandoml
 router.get('/products/:productId', productController.getProductById);
 router.get('/newCollectionProducts', productController.getNewCollectionProducts);
 router.get('/productsCategory/:categoryId', productController.getProductByCategoryId);
+router.get('/wishlist/products/:wishlistId', productController.getProductsByWishlistId);
 router.get('/productsPromotions', productController.getProductsByPromotion);
 router.post('/products', productController.addProduct);
 router.put('/products/:productId', productController.updateProduct);
@@ -352,11 +354,24 @@ router.delete('/product_colors/:product_colorId', product_colorController.delete
  router.get('/reviews', pagination, reviewController.getReviews);
  router.get('/reviews/:reviewId', reviewController.getReviewById);
  router.get('/product/reviews/:productId', reviewController.getReviewByProductId);
- router.get('/users/reviews/:productId', reviewController.getReviewByUserId);
+ router.get('/users/reviews/:userId', reviewController.getReviewByUserId);
  router.post('/reviews', reviewController.addReview);
  router.put('/reviews/:reviewId', reviewController.updateReview);
  router.delete('/reviews/:reviewId', reviewController.deleteReview);
 
 
+ /**
+ * Wishlists routes
+ */
+
+  router.get('/wishlists', pagination, wishlistController.getWishlists);
+  router.get('/wishlists/:wishlistId', wishlistController.getWishlistById);
+  router.get('/users/wishlist/:userId', wishlistController.getWishlistByUserId);
+  router.post('/wishlists', wishlistController.addWishlist);
+  router.put('/wishlists/:wishlistId', wishlistController.updateWishlist);
+  router.delete('/wishlists/:wishlistId', wishlistController.deleteWishlist);
+
+
+  router.post('/wishlist_has_products', wishlist_has_productsController.addWishlist_has_products);
 
 export default router;

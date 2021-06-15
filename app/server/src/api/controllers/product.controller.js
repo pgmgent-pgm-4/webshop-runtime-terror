@@ -113,6 +113,36 @@ const getProductByCategoryId = async (req, res, next) => {
 
 
 
+
+const getProductsByWishlistId = async (req, res, next) => {
+  try {
+    // Get categoryId parameter
+    const { wishlistId } = req.params;
+    // Get all products with categoryId
+
+    console.log(wishlistId)
+
+    const products = await database.Product.findAll({
+      include: [{
+        model: database.Wishlist,
+        through: {
+          where: {
+            WishlistId: (wishlistId)
+          }
+        }
+      }],
+      where: {
+        '$Wishlists.id$': wishlistId
+      }
+    });
+
+    res.status(200).json(products);
+  } catch (error) {
+    handleHTTPError(error, next);
+  }
+};
+
+
 const getProductsByPromotion = async (req, res, next) => {
   try {
     // Get all products
@@ -212,6 +242,7 @@ export {
   getProductById,
   getProductByCategoryId,
   getNewCollectionProducts,
+  getProductsByWishlistId,
   getProductsByPromotion,
   getProducts,
   getProductsRandomly,
