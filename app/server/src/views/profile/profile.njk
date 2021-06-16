@@ -1,0 +1,65 @@
+{% extends  base %}
+{% block  content %}
+
+<section class="profile-overview h-layout">
+    <div class="profile-overview__nav">
+        <div class="profile-overview__nav__user">
+            <img src="{{profile[0].img}}" alt="{{profile[0].first_name}}" />
+        
+            <span>{{profile[0].first_name}} {{profile[0].last_name}}</span>
+        </div>
+
+        <ul class="profile-overview__nav__list">
+            <li class="active">
+                <a href="/profile/{{profile[0].UserId}}">Profile overview</a>
+            </li>
+            <li>
+                <a href="/profile/orders/{{profile[0].UserId}}">Order History</a>
+            </li>
+            <li>
+                <a href="">Log out</a>
+            </li>
+        </ul>
+
+
+    </div>
+
+    <div class="profile-overview__content">
+        <div class="profile-overview__content__greeting">
+            <span>Hello {{profile[0].first_name}}</span>
+            <p>Here you can view your last orders and change your account details</p>
+        </div>
+
+        <div class="profile-overview__content__info">
+            <h1>Profile Overview</h1>
+
+            <div class="profile-overview__content__info__flex">
+
+                <img src="{{profile[0].img}}" alt="{{profile[0].first_name}}" />
+
+                <ul class="details">
+                    <li>
+                        <span>Firstname</span>
+                        <p style="color:white">{{profile[0].first_name}}</p>
+                    </li>
+                    <li>
+                        <span>Lastname</span>
+                        <p style="color:white">{{profile[0].last_name}}</p>
+                    </li>
+                    <li>
+                        <span>Phone</span>
+                        <p style="color:white">{{profile[0].phone}}</p>
+                    </li>
+                    <li>
+                        <span>Address</span>
+                        <p style="color:white">{{profile[0].street}} {{profile[0].number}}, <br> {{profile[0].zip_code}} {{profile[0].city}} <br> {{profile[0].country}}</p>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

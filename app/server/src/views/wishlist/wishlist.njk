@@ -1,0 +1,23 @@
+{% extends  base %}
+{% block  content %}
+
+<section class="wishlist h-layout">
+    <span class="wishlist__decorative__title">Wishlist</span>
+    <h1 class="wishlist__title">Wishlist</h1>
+
+    <ul>
+        {% for  wishlistProduct in wishlistProducts %}
+            <li>
+                <span>{{wishlistProduct.title}}</span>
+                <img src="/media/products/{{wishlistProduct.image}}" />
+
+                <p class="brand">{{wishlistProduct.brand}}</p>
+                <p>{{wishlistProduct.price}}</p>
+
+            <li>
+        {% endfor %}
+    </ul>    
+
+</section>
+
+{% endblock %}

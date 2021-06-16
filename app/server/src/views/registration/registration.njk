@@ -1,0 +1,37 @@
+
+{% extends  base %}
+{% block  content %}
+
+<section class="register">
+    <div class='form--container'>
+        <div class="form">
+            <h1>Sign up</h1>
+            <form id="registrationForm" action="/auth/register">
+                <div>
+                    <input type="text"  name="username" id="username" required >
+                    <label class="label" for="username">Username</label>
+                    <span class="input-border"></span>
+                </div>
+                <div>
+                    <input type="email"  name="email" id="email" required >
+                    <label class="label" for="email">Email</label>
+                    <span class="input-border"></span>
+                </div>
+                <div>
+                    <input type="password" name="password" id="password" required >
+                    <label class="label" for="password">Password <small>(min 10 characters)</small></label>
+                    <span class="input-border"></span>
+                </div>
+                <button id="registrationButton" class="form-button">Send</button>
+            </form>
+
+            <div class="form__redirect">
+                <p>Already a Member? <a class="form__redirect__link" href="/login"><span class="form__redirect__link__text">Login here</span></a></p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+            
+{% endblock %}

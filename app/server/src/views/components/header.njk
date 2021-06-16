@@ -1,0 +1,44 @@
+<header class="header h-layout">
+
+    <div class="container">
+        <div class="header__hamburger">
+            <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="31" height="22" viewBox="0 0 31 22">
+                <g data-name="hamburger menu" transform="translate(1.5 1.5)">
+                    <line id="Line_1" data-name="Line 1" x2="20" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3"/>
+                    <line id="Line_2" data-name="Line 2" x2="20" transform="translate(8 19)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3"/>
+                    <line id="Line_3" data-name="Line 3" x2="28" transform="translate(0 9)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3"/>
+                </g>
+            </svg>
+
+        </div>
+
+        <div>
+            <a href="/"><img class="header__logo-mobile" src="/media/logo/logo-mobile.png" alt="Timeless Taste"></a> 
+            <a href="/"><img class="header__logo-desktop" src="/media/logo/logo_header.png" alt="Timeless Taste"></a>
+        </div>
+
+        <div>
+            <a id="profileLink" href="/login">
+                <svg class="header__actions__account" xmlns="http://www.w3.org/2000/svg" width="21.875" height="25"><path d="M15.312 14.844c-1.4 0-2.075.781-4.375.781s-2.969-.781-4.375-.781A6.564 6.564 0 000 21.406v1.25A2.344 2.344 0 002.344 25h17.187a2.344 2.344 0 002.344-2.344v-1.25a6.564 6.564 0 00-6.563-6.562zm4.219 7.813H2.344v-1.25a4.226 4.226 0 014.219-4.219c.713 0 1.87.781 4.375.781 2.524 0 3.657-.781 4.375-.781a4.226 4.226 0 014.219 4.219zm-8.594-8.594a7.031 7.031 0 10-7.031-7.032 7.033 7.033 0 007.032 7.032zm0-11.719A4.688 4.688 0 116.25 7.031a4.695 4.695 0 014.688-4.687z" fill="#f1f1f1" data-name="Group 1232"/></svg>
+            </a>
+            <a id="wishlistLink" href="#">
+                <svg class="header__wishlist" xmlns="http://www.w3.org/2000/svg" width="28.564" height="25"><path d="M25.573 1.803a8.4 8.4 0 00-11.292.837A8.4 8.4 0 002.99 1.803a8.441 8.441 0 00-.59 12.341l9.785 9.969a2.93 2.93 0 004.2.006l9.785-9.969a8.447 8.447 0 00-.597-12.347zm-1.317 10.46l-9.785 9.969a.229.229 0 01-.379 0l-9.785-9.968a5.753 5.753 0 01.407-8.407 5.656 5.656 0 017.615.586l1.953 1.992 1.953-1.992a5.652 5.652 0 017.615-.591 5.778 5.778 0 01.407 8.412z" fill="#f1f1f1"/></svg>
+            </a>
+            <a href="#">
+                <svg class="header__shopping-bag" xmlns="http://www.w3.org/2000/svg" width="22.64" height="26"><path data-name="shopping-bag (1)" d="M22.134 24.679l-1.9-18.094a.744.744 0 00-.74-.666h-3.571V5.1a4.604 4.604 0 00-9.207 0v.814H3.145a.744.744 0 00-.74.666L.501 24.679a.744.744 0 00.744.821h20.149a.744.744 0 00.74-.822zM8.201 5.1a3.115 3.115 0 016.23 0v.814h-6.23zm-6.13 18.912L3.815 7.406h2.9v1.64a.744.744 0 001.488 0v-1.64h6.23v1.64a.744.744 0 001.488 0v-1.64h2.9l1.744 16.606zm0 0" fill="#f1f1f1" stroke="#f1f1f1"/></svg>
+            </a>
+        </div>
+
+        <div class="nav-overlay__bg"></div>
+
+        <div class="nav-overlay" id="nav-overlay">
+            {% include "components/navigation.njk" %}
+        </div>
+
+
+    
+    </div>
+
+</header>
+
+

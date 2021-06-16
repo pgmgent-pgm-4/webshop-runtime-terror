@@ -1,0 +1,163 @@
+@use '../abstracts/functions' as func;
+
+.product__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0 1rem;
+    margin: 0;
+    justify-content: space-between;
+}
+
+@media (min-width: 1616px) {
+    .product__list {
+      justify-content: flex-start;
+    }
+}
+
+.product__list-item {
+    flex-grow: 1;
+    margin: 0 1rem;
+    margin-bottom: 2rem;
+    width: 18rem;
+    height: 25.85rem;
+    position: relative;
+    border-radius: $border-radius-sm;
+    background: linear-gradient(180deg, rgba(38,60,91,1) 0%, rgba(8,12,18,1) 100%);
+    background-image: url('https://images.unsplash.com/photo-1566041510394-cf7c8fe21800?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80');
+
+    &__link {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 100%;
+
+        &__options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0.2rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: calc(100% - 1rem);
+
+            button {
+                border: none;
+                background: transparentize($footer-bg-color, 0.1);
+                border-radius: $border-radius-circle;
+                cursor: pointer;
+                height: 2.5rem;
+                width: 2.5rem;
+                padding: 0.3rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        .product__list-item__link__image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            .card_image {
+                height: 20rem;
+
+                &--storages {
+                    height: 100%;
+                    max-height: 20rem;
+                    width: 17rem;
+                }
+
+                &--outlet {
+                    max-width: 18rem;
+                    object-fit: contain;
+                }
+            }
+        }
+            
+        &__info {
+            background-color: transparentize($accent-color-heading, 0.5) ;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            border-bottom-left-radius: $border-radius-sm;
+            border-bottom-right-radius: $border-radius-sm;
+            padding: 0.5rem;
+            height: 4.85rem;
+
+            &--flex {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                span {
+                    display: block;
+                    text-transform: capitalize;
+                }
+    
+                .card_title {
+                    font-weight: func.weight(bold);
+                    font-size: 1.2rem;
+                    margin-bottom: 1rem;
+                    color: $white-color;
+                }
+                
+                .card_price {
+                    color: $white-color;
+                }
+
+                .card_price--old {
+                    font-size: 0.9rem;
+                    text-decoration: line-through;
+                    display: inline;
+                }
+
+                .card_price--new {
+                    font-size: 1.1rem;
+                    padding-left: 0.5rem;
+                    font-weight: bold;
+                    color: $accent-color;
+                    display: inline;
+                }
+            }
+
+            svg {
+                min-width: 2rem;
+                width: 2rem;
+                fill: white;
+                
+                path {
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }   
+}
+
+@include large { 
+    .product__list-item {
+        margin-right: 1rem;
+      }  
+}
+
+@media (min-width: 1008px) and (max-width: 1280px){
+    .product__list-item {
+      max-width: 30%;
+    }
+}
+
+@media (min-width: 1328px) {
+    .product__list-item {
+      max-width: 30%;
+    }
+}
+
+@media (min-width: 1616px) {
+    .product__list-item {
+      max-width: 17rem;
+    }
+}
