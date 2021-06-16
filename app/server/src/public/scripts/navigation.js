@@ -12,6 +12,8 @@
       this.accesoiresDropdown = document.getElementById('accesoires-dropdown');
       this.accesoiresDropdownOptions = document.querySelector('.accesoires-dropdown__options');
       this.profileLink = document.getElementById('profileLink');
+      this.orderProfileLink = document.getElementById('orderProfileLink');
+      this.wishlistLink = document.getElementById('wishlistLink')
     },
     registerEventListeners () {
       if (this.hamburgerButton !== null) {
@@ -39,7 +41,20 @@
           this.profileLink.setAttribute('href', login !== null ? `/profile/${login}` : '/login')
         })
       }
+      if (this.orderProfileLink !== null) {
+        this.orderProfileLink.addEventListener('click', (e) => {
+          const login = localStorage.getItem('userId');
+          this.orderProfileLink.setAttribute('href', login !== null ? `/profile/${login}` : '/login')
+        })
+      }
+      if (this.wishlistLink !== null) {
+        this.wishlistLink.addEventListener('click', (e) => {
+          const login = localStorage.getItem('userId');
+          this.wishlistLink.setAttribute('href', login !== null ? `/profile/wishlist/${login}` : '/login')
+        })
+      }
     },
   };
   app.initialize();
 })();
+

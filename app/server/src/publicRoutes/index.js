@@ -22,7 +22,7 @@ router.get('/', async  function(req, res, next) {
 router.get('/products/:productId', async  function(req, res, next) {
   // Get productId parameter
   const { productId } = req.params;
-  
+
   console.log(productId);
   const details = await fetch(`${baseUrl}/products/${productId}`);
   const productDetails= await details.json();
@@ -109,22 +109,21 @@ router.get('/watch-storages', async  function(req, res, next) {
 
 
 router.get('/bands', async  function(req, res, next) {
-  const { brands, colors, min, max } = req.query;
-  console.log(brands);
-  let brandsQuery = '';
-  let colorsQuery = '';
-  if (typeof brands !== 'undefined') {
-    console.log(typeof brands);
-    console.log('mag niet')
-    if (typeof brands === 'array') {
-      brandsQuery = brands.join('&brands=');
-      brandsQuery = 'brands=' + brandsQuery;
-      console.log(brandsQuery)
-    } else {
-      brandsQuery = 'brands=' + brandsQuery;
-    }
+  // const { brands, colors, min, max } = req.query;
+  // console.log(brands);
+  // let brandsQuery = '';
+  // let colorsQuery = '';
+  // if (typeof brands !== 'undefined') {
+  //   console.log(typeof brands);
+  //   if (typeof brands === 'array') {
+  //     brandsQuery = brands.join('&brands=');
+  //     brandsQuery = 'brands=' + brandsQuery;
+  //     console.log(brandsQuery)
+  //   } else {
+  //     brandsQuery = 'brands=' + brandsQuery;
+  //   }
   
-  }
+  // }
   // if (typeof brands !== 'undefined') {
 
   //   if (colors.length > 0) {
@@ -136,9 +135,9 @@ router.get('/bands', async  function(req, res, next) {
   //     colorsQuery = 'colors=' + colorsQuery;
   //   }
   // }
-  console.log(min)
-  console.log(max)
-  const response = await fetch(`${baseUrl}/productsCategory/4?min=${min}&max=${max}${brandsQuery}${colorsQuery}`);
+  // console.log(min)
+  // console.log(max)
+  const response = await fetch(`${baseUrl}/productsCategory/4`);
   const bands = await response.json();
   let  data = {
     base:  'base.njk',
