@@ -22,6 +22,7 @@ router.get('/', async  function(req, res, next) {
 router.get('/products/:productId', async  function(req, res, next) {
   // Get productId parameter
   const { productId } = req.params;
+  
   console.log(productId);
   const details = await fetch(`${baseUrl}/products/${productId}`);
   const productDetails= await details.json();
