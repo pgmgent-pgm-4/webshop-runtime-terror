@@ -288,6 +288,27 @@ router.delete('/product_superlatives/:product_superlativeId', product_superlativ
  *        
  */
 router.get('/products', pagination, productController.getProducts);
+
+/**
+ * @swagger
+ * /api/productsRandomly:
+ *  get:
+ *    summary: Returns a list of products randomly
+ *    tags: [Products]
+ *    description: Retrieve a list of products randomly.
+ *    responses:
+ *      200:
+ *        description: The list of products
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#/components/schemas/Products'
+ *      404:
+ *        description: Could not get the Products!  
+ *        
+ */
 router.get('/productsRandomly', pagination, productController.getProductsRandomly);
 
 /**
@@ -317,14 +338,110 @@ router.get('/productsRandomly', pagination, productController.getProductsRandoml
  *        
  */
 router.get('/products/:productId', productController.getProductById);
+
+/**
+ * @swagger
+ * /api/newCollectionProducts:
+ *  get:
+ *    summary: Returns a list of products with new collection
+ *    tags: [Products]
+ *    description: Retrieve a list of new collection products.
+ *    responses:
+ *      200:
+ *        description: The list of new collection products
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#/components/schemas/Products'
+ *      404:
+ *        description: Could not get the new collection Products!  
+ *        
+ */
 router.get('/newCollectionProducts', productController.getNewCollectionProducts);
+
+/**
+ * @swagger
+ * /api/productsCategory/{categoryId}:
+ *  get:
+ *    summary: Returns a specific product by categoryId
+ *    tags: [Products]
+ *    parameters:
+ *      - in: path
+ *        name: CategoryId
+ *        schema:
+ *          type: string
+ *        required: true
+ *        description: category id.
+ *    responses:
+ *      200:
+ *        description: The products by categoryId
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#/components/schemas/Products'
+ *      404:
+ *        description: Could not found the product with categoryId!  
+ *        
+ */
 router.get('/productsCategory/:categoryId', productController.getProductByCategoryId);
+
+/**
+ * @swagger
+ * /api/wishlist/products/{wishlistId}:
+ *  get:
+ *    summary: Returns products by wishlistId
+ *    tags: [Products]
+ *    parameters:
+ *      - in: path
+ *        name: wishlistId
+ *        schema:
+ *          type: string
+ *        required: true
+ *        description: wishlist id.
+ *    responses:
+ *      200:
+ *        description: The products by wishlistId
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#/components/schemas/Products'
+ *      404:
+ *        description: Could not found the product with wishlistId!  
+ *        
+ */
 router.get('/wishlist/products/:wishlistId', productController.getProductsByWishlistId);
+
+/**
+ * @swagger
+ * /api/productsPromotions:
+ *  get:
+ *    summary: Returns a list of products in promotion
+ *    tags: [Products]
+ *    description: Retrieve a list of products in promotion.
+ *    responses:
+ *      200:
+ *        description: The list of products in promotion
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#/components/schemas/Products'
+ *      404:
+ *        description: Could not get the Products in promotions!  
+ *        
+ */
 router.get('/productsPromotions', productController.getProductsByPromotion);
 
  /**
  * @swagger
- * /api/reviews:
+ * /api/products:
  *  post:
  *    summary: Create a new product
  *    tags: [Products]
