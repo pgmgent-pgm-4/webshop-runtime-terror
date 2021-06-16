@@ -1,16 +1,42 @@
 {% extends  base %}
 {% block  content %}
 
-<ul>
-        {% for order in orders %}
+<section class="order-history h-layout">
+    <div class="order-history__nav">
+
+        <ul class="order-history__nav__list">
             <li>
-                <p style="color:white;">{{order.order_number}} ordernumber</p>
-                <p style="color:white;">{{order.Order_product.quantity}} quantity</p>
-                <p style="color:white;">{{order.delivery_date}} shipped</p>
-                <img src="/media/products/{{order.Order_product.Product.image}}" />
+                <a href="/profile/{{profile[0].UserId}}">Profile overview</a>
+            </li>
+            <li class="active">
+                <a href="/profile/orders/{{profile[0].UserId}}">Order History</a>
+            </li>
             <li>
-        {% endfor %}
-    </ul>    
+                <a href="">Log out</a>
+            </li>
+        </ul>
+
+
+    </div>
+
+    <div class="order-history__content">
+        <h1>Order history</h1>
+        <ul class="order-history__content__list">
+            {% for order in orders %}
+                <li>
+                    <img src="/media/products/{{order.Order_product.Product.image}}" alt=""/>
+                    <div class="flex">
+                        <p>{{order.order_number}} ordernumber</p>
+                        <p>{{order.Order_product.quantity}} quantity</p>
+                    </div>
+                    <p>{{order.delivery_date}} shipped</p>
+                <li>
+            {% endfor %}
+        </ul>    
+        
+    </div>
+</section>
+
 
 
 {% endblock %}

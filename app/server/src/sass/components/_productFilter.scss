@@ -38,7 +38,7 @@ ul {
         left: 0;
         top: 0;
         transform: translateX(-120%);
-        z-index:999;
+        z-index: 999;
         background-color: $body-bg;
         width: 70%;
         height: calc(100vh - 2rem);
@@ -194,6 +194,7 @@ ul {
             overflow-y: auto;
             height: 100%;
             padding-top: 0;
+            z-index: auto;
         }    
     }
 

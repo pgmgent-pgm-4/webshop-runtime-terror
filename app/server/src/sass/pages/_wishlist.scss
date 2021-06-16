@@ -1,0 +1,100 @@
+@use '../abstracts/functions' as func;
+
+.wishlist {
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+
+    &__decorative__title {
+        color: $accent-color-heading;
+        font-family: $font-family-source-serif-pro;
+        font-size: $text-decorative;
+        text-align: center;
+        display: none;
+    }
+
+    @include medium { 
+        &__decorative__title {
+            display: block;
+        }    
+    }
+    @include large { 
+        &__decorative__title {
+            display: block;
+        }    
+    }
+
+    &__title {
+        color: $white-color;
+        font-weight: func.weight(normal);
+        text-align: center;
+        font-size: $text-elg;
+        transform: translateY(0rem);
+        margin-bottom: 4rem;
+    }
+
+    @include medium { 
+        &__title {
+            transform: translateY(-4rem);
+            margin: 0;
+        }   
+    }
+    @include large { 
+        &__title {
+            transform: translateY(-4rem);
+            margin: 0;
+        }   
+    }
+
+    ul {
+        display: flex;
+        width: 100%;
+        overflow-x: scroll;
+        
+        span {
+            color: $white-color;
+        }
+
+        li {
+            margin-right: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+
+            span {
+                font-weight: func.weight(bold);
+                display: block;
+                font-size: $text-m;
+                text-transform: capitalize;
+            }
+
+            img {
+                max-width: 25rem;
+                height: 20rem;
+            }
+                
+            .brand {
+                text-transform: capitalize;
+                font-size: $text-m;
+                margin: 0;
+            }
+            
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: $accent-color-heading;
+       
+        }
+
+        &::-webkit-scrollbar{
+            height: 8px;
+            background-color: $accent-color-heading;
+  
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: $border-radius-sm;
+            background: $accent-color;
+        }
+    }
+}
