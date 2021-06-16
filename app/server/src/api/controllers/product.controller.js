@@ -1,6 +1,6 @@
 import { handleHTTPError } from '../../utils';
 import database from '../../database';
-
+import { Op } from 'sequelize';
 
 
 /*
@@ -8,7 +8,8 @@ Get all products
 */
 const getProducts = async (req, res, next) => {
   try {
-    const { page, size } = req.pagination
+    const { page, size } = req.pagination;
+
     // Get products from database
     const products = await database.Product.findAndCountAll({
       limit: size,
@@ -58,7 +59,7 @@ const getProductById = async (req, res, next) => {
     // Get specific product
     const product = await database.Product.findAll({
       where: {
-        id: productId
+        id: productId,
       }
     });
     // Send response
@@ -87,16 +88,25 @@ const getProductByCategoryId = async (req, res, next) => {
   try {
     // Get categoryId parameter
     const { categoryId } = req.params;
+    const { brands, colors, min, max } = req.query;
+    console.log(brands);
     // Get all products with categoryId
 
     console.log(categoryId)
-
+    console.log(colors)
     const products = await database.Product.findAll({
+      where: {
+        price: {
+          [Op.between]: [min, max]
+        },
+        // [Op.and]: [{brand: 'omega'}, {brand}]
+      },
+
       include: [{
         model: database.Category,
         through: {
           where: {
-            CategoryId: (categoryId)
+            CategoryId: (categoryId),
           }
         }
       }],

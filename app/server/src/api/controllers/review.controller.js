@@ -95,7 +95,7 @@ const addReview = async (req, res, next) => {
 		// Create a post
 		const createdModel = await database.Review.create(model);
 		// Send response
-		res.status(201).json(createdModel);
+		res.status(200).json(createdModel);
   } catch (error) {
     handleHTTPError(error, next)
   }

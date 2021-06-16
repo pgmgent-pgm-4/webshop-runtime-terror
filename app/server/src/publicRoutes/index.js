@@ -108,7 +108,36 @@ router.get('/watch-storages', async  function(req, res, next) {
 
 
 router.get('/bands', async  function(req, res, next) {
-  const response = await fetch(`${baseUrl}/productsCategory/4`);
+  const { brands, colors, min, max } = req.query;
+  console.log(brands);
+  let brandsQuery = '';
+  let colorsQuery = '';
+  if (typeof brands !== 'undefined') {
+    console.log(typeof brands);
+    console.log('mag niet')
+    if (typeof brands === 'array') {
+      brandsQuery = brands.join('&brands=');
+      brandsQuery = 'brands=' + brandsQuery;
+      console.log(brandsQuery)
+    } else {
+      brandsQuery = 'brands=' + brandsQuery;
+    }
+  
+  }
+  // if (typeof brands !== 'undefined') {
+
+  //   if (colors.length > 0) {
+  //     colorsQuery = colors.join('&colors=')
+  //     colorsQuery = 'colors=' + colorsQuery;
+  //     console.log(colorsQuery)
+  //   }
+  //   if (colors) {
+  //     colorsQuery = 'colors=' + colorsQuery;
+  //   }
+  // }
+  console.log(min)
+  console.log(max)
+  const response = await fetch(`${baseUrl}/productsCategory/4?min=${min}&max=${max}${brandsQuery}${colorsQuery}`);
   const bands = await response.json();
   let  data = {
     base:  'base.njk',
