@@ -1,0 +1,42 @@
+{% extends  base %}
+{% block  content %}
+
+<section class="order-history h-layout">
+    <div class="order-history__nav">
+
+        <ul class="order-history__nav__list">
+            <li>
+                <a id="orderProfileLink" href="/profile/{{profile[0].UserId}}">Profile overview</a>
+            </li>
+            <li class="active">
+                <a href="#">Order History</a>
+            </li>
+            <li>
+                <a href="">Log out</a>
+            </li>
+        </ul>
+
+
+    </div>
+
+    <div class="order-history__content">
+        <h1>Order history</h1>
+        <ul class="order-history__content__list">
+            {% for order in orders %}
+                <li>
+                    <img src="/media/products/{{order.Order_product.Product.image}}" alt=""/>
+                    <div class="flex">
+                        <p>{{order.order_number}} ordernumber</p>
+                        <p>{{order.Order_product.quantity}} quantity</p>
+                    </div>
+                    <p>{{order.delivery_date}} shipped</p>
+                <li>
+            {% endfor %}
+        </ul>    
+        
+    </div>
+</section>
+
+
+
+{% endblock %}

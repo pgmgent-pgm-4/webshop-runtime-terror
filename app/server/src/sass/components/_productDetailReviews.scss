@@ -1,0 +1,65 @@
+@use '../abstracts/functions' as func;
+
+.detail__reviews {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+
+    .title__flex-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__list {
+        margin-top: 2rem;
+        max-height: 35rem;
+        overflow-y: scroll;
+        border-radius: $border-radius-sm;
+        border: 2px solid $accent-color-heading;
+        padding: 1rem;        
+
+        li {
+            margin: 2rem 0;
+            background-color: $nav-transparent-color;
+            padding: 1rem;
+            border-radius: $border-radius-sm;
+
+            .flex-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                p {
+                    color: $black-color;
+                }
+            }
+    
+            .review-title {
+                font-size: $text-m;
+                font-weight: func.weight(bold);
+                color: $white-color;
+            }
+
+            p {
+                color: $about-segmented-control-bg;
+            }
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: $accent-color-heading;
+       
+        }
+
+        &::-webkit-scrollbar{
+            width: 8px;
+            background-color: $accent-color-heading;
+  
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: $border-radius-sm;
+            background: $accent-color;
+        }
+
+    }
+} 

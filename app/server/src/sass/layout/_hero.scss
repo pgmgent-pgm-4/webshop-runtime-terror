@@ -1,0 +1,219 @@
+@use '../abstracts/functions' as func;
+
+.hero {
+    position: relative;
+    z-index: 1;
+    transform: translateY(-4.5rem);
+    width: 100%;
+    
+    &__video {
+        width: 100%;
+        height: 100%;
+
+        &--desktop,
+        &--ultrawide {
+            display: none;
+        }
+
+        @include medium { 
+            &--mobile {
+                display: none;
+            }
+
+            &--desktop {
+                display: block;
+            } 
+
+            &--ultrawide {
+                display: none;
+            }   
+        }
+
+        @include large { 
+            &--mobile,
+            &--ultrawide {
+                display: none;
+            }
+
+            &--desktop {
+                display: block;
+            }      
+        }
+
+        @include extra-large { 
+            &--mobile,
+            &--desktop {
+                display: none;
+            }
+
+            &--ultrawide {
+                display: block;
+            }   
+        }
+    }
+
+    &__image {
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 51vh;
+        background-position-x: 50%;
+        padding: 1.5rem;
+
+        &--about {
+            background-image: url('../media/About/About_story_hero.jpg');
+            height: 51vh;
+            max-height: 90rem;
+            background-position-x: 65%;
+        }
+
+        &--men {
+            background-image: url('../media/hero/men.jpg');
+        }
+
+        &--women {
+            background-image: url('../media/hero/women.jpg');
+        }
+
+        &--storages {
+            background-image: url('../media/hero/storages.jpg');
+        }
+
+        &--bands {
+            background-image: url('../media/hero/bands.jpg');
+        }
+
+    }
+
+    @include medium {
+        &__image {
+            height: 60vh;
+            
+            &--men {
+                background-position-y: 65%;
+            }
+
+            &--storages {
+                background-position-y: 80%;
+            }
+        }
+    }
+
+    @include large {
+        &__image {
+            height: 70vh;
+
+            &--men {
+                background-position-y: 65%;
+            }
+
+            &--storages {
+                background-position-y: 80%;
+            }
+        }
+    }
+
+    @include extra-large {
+        &__image {
+            height: 80vh;
+
+            &--about {
+                height: 70vh;
+            }
+
+            &--men {
+                background-position-y: 65%;
+            }
+        }
+    }
+
+    &__title {
+        position: absolute;
+        width: calc(100% - 2rem);
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        bottom: 0;
+        background-color: $hero-transparent-color;
+        
+    }
+
+    @include small { 
+        &__title { 
+            width: calc(100% - 4rem);
+        }    
+    }
+
+    @include medium { 
+        &__title { 
+            width: calc(100% - 8rem);
+        }    
+    }
+
+    @include large { 
+        &__title { 
+            width: calc(100% - 12rem);
+        }    
+    }
+
+    &__call-to-action {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        margin-top: 2rem;
+        width: 15rem;
+
+        a {
+            width: 6rem;
+            text-align: center;
+        }
+
+        @include small { 
+            a {
+                width: 8rem;
+            }   
+        }
+
+        @include medium { 
+            a {
+                width: 10rem;
+            }   
+        }
+
+        @include large { 
+            a {
+                width: 10rem;
+            }   
+        }
+
+        @include extra-large { 
+            a {
+                width: 10rem;
+            }   
+        }
+    }
+
+    @include small { 
+        &__call-to-action {
+            width: 20rem;
+        }   
+    }
+
+    @include medium { 
+        &__call-to-action {
+            width: 25rem;
+        }   
+    }
+
+    @include large { 
+        &__call-to-action {
+            width: 25rem;
+        }   
+    }
+
+    @include extra-large { 
+        &__call-to-action {
+            width: 25rem;
+        }   
+    }
+}
+

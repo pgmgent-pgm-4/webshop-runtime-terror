@@ -1,0 +1,191 @@
+{% extends  base %}
+{% block  content %}
+<section class="hero">    
+    <video class="hero__video hero__video--mobile" autoplay loop muted>
+        <source src="media/hero/hero-video_homepage-mobile.mp4" type="video/mp4">
+    </video>
+
+    <video class="hero__video hero__video--desktop" autoplay loop muted>
+        <source src="media/hero/hero-video_homepage.mp4" type="video/mp4">
+    </video>
+
+    <video class="hero__video hero__video--ultrawide" autoplay loop muted>
+        <source src="media/hero/hero-video_homepage-ultra-wide.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero__title h-layout">
+        <h1>Discover our collection of watches</h1>
+        <section class="hero__call-to-action h-layout">
+            <a href="/men" class="primary-button">Men</a>
+            <a href="/women" class="primary-button">Women</a>
+        </section>
+    </div>
+
+</section>
+
+<section class="home__brands">
+    <div class="home__brands__outer-container">
+        <div class="home__brands__inner-container">
+
+            <div class="marquee">
+                <ul class="marquee__content">
+                    <li>Panerai</li>
+                    <li>Omega</li>
+                    <li>Rolex</li>
+                    <li>Breitling</li>
+                    <li>Cartier</li>
+                    <li>hublot</li>
+                    <li>Piaget</li>
+                    <li>Certina</li>
+                    <li>Chopard</li>
+                    <li>Panerai</li>
+                    <li>Omega</li>
+                    <li>Rolex</li>
+                    <li>Breitling</li>
+                    <li>Cartier</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    
+</section>
+
+<section class="home__collections">
+        <a class="home__collections__link" href="#">
+            <div class="home__collections__link--new">
+                <span>New Collection</span>            
+            </div>
+        </a>
+        <a class="home__collections__link" href="/watch-storages">
+            <div class="home__collections__link--storage">
+                <span>Watch Storage</span>
+            </div>
+        </a>
+        <a class="home__collections__link" href="#">
+            <div class="home__collections__link--outlet">
+                <span>Outlet</span>             
+            </div>
+        </a>
+</section>
+
+<section class="home__quality">
+    <div class="home__quality__wrapper h-layout">
+        <h2>Quality and elegant watches</h2>
+        <div class="scroll-magic-container">
+            <img class="scroll-magic-container__image scroll-magic-container__image--1" src="media/watch-pieces/watch-piece-1.png" alt="">
+            <img class="scroll-magic-container__image scroll-magic-container__image--2" src="media/watch-pieces/watch-piece-2.png" alt="">
+            <img class="scroll-magic-container__image scroll-magic-container__image--3" src="media/watch-pieces/watch-piece-3.png" alt="">
+            <img class="scroll-magic-container__image scroll-magic-container__image--4" src="media/watch-pieces/watch-piece-4.png" alt="">
+            <img class="scroll-magic-container__image scroll-magic-container__image--5" src="media/watch-pieces/watch-piece-5.png" alt="">
+            <img class="scroll-magic-container__image scroll-magic-container__image--6" src="media/watch-pieces/watch-piece-6.png" alt="">
+            <img class="scroll-magic-container__image scroll-magic-container__image--7" src="media/watch-pieces/watch-piece-7.png" alt="">
+            <img class="scroll-magic-container__image scroll-magic-container__image--8" src="media/watch-pieces/watch-piece-8.png" alt="">
+        </div>
+
+        <p>A watch is something personal. It is therefore an extension of yourself. Everyone has their own taste in design and style. Therefore, we do not want to say what a good or bad watch is, but we are going to offer an extensive collection of quality watches. Due to the extensive and strict checks by our experienced experts, we can guarantee quality watches. And because of the close relationship we have with our partners, we can offer an extensive collection of watches with different styles and designs.</p>
+
+    </div>
+
+</section>
+
+<section class="home__explore h-layout">
+    <h2>Explore our newest watches</h2>
+
+    <div class="swiper-container mySwiper">
+      <ul class="swiper__watches swiper-wrapper">
+        {% for watch in watches %}
+            <li class="watch swiper-slide">
+                <a href="/products/{{watch.id}}">
+                    <span class="watch__brand">{{watch.brand}}</span>
+                    <img class="watch__image" src="/media/products/{{watch.image}}" alt="{{watch.title}}">
+                    <span class="watch__devider"></span>
+                    <span class="watch__name">{{watch.title}}</span>
+                    <div class="watch__background"></div>
+                </a>
+            </li>
+        {% endfor %}   
+      </ul>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+</section>
+
+<section class="home__newsletter h-layout">
+    <img class="home__newsletter__image" src="media/newsletter-img.png" alt="subscribe to newsletter">
+
+    <article class="home__newsletter__call-to-action">
+        <h2>Stay up to date</h2>
+        <p>Subscribe to the Timeless Taste newsletter. We will treat the personal data you enter with respect for your privacy.</p>
+        <a href="#" class="primary-button">Subscribe</a>
+    </article>
+
+</section>
+
+<section class="home__buying-process h-layout">
+    <h2>Buying process</h2>
+
+    <div class="home__buying-process__clock">
+            <div class="home__buying-process__clock__bg">
+                <div class="home__buying-process__clock__bg__pointer">
+                    <img class="home__buying-process__clock__bg__pointer__image" src="media/buying-process/watch_pointer-big.png" alt="">
+                </div>
+
+                <img class="home__buying-process__clock__bg__hour__image" src="media/buying-process/watch_pointer-small.png" alt="">
+
+                <div class="home__buying-process__clock__bg__wrapper"></div>
+
+                <div class="home__buying-process__clock__info">
+                    <div class="home__buying-process__clock__info__bg find">
+                        <span class="home__buying-process__clock__info__bg--mobile">Find</span>
+                        <span class="home__buying-process__clock__info__bg--desktop">Find your dream watch</span>
+                    </div>
+                    <div class="home__buying-process__clock__info__bg pay">
+                        <span class="home__buying-process__clock__info__bg--mobile">Pay</span>
+                        <span class="home__buying-process__clock__info__bg--desktop">Pay through a secure online transaction</span>
+                    </div>
+                    <div class="home__buying-process__clock__info__bg receive">
+                        <span class="home__buying-process__clock__info__bg--mobile">Receive</span>
+                        <span class="home__buying-process__clock__info__bg--desktop">Receive your dream watch</span>
+                    </div>
+                    <div class="home__buying-process__clock__info__bg enjoy">
+                        <span class="home__buying-process__clock__info__bg--mobile">Enjoy</span>
+                        <span class="home__buying-process__clock__info__bg--desktop">Only then will the seller receive payment</span>
+                    </div>
+                </div>  
+            </div>
+    </div>
+
+    <div class="home__buying-process__band"></div>
+</section>
+
+<div class="page-loader hide-page-loader">
+    <div class="page-loader__text">
+        <div class="page-loader__text__hide">
+            <span class="page-loader__text__hide__inner-text">“Time is a resource. One that must be</span>
+        </div>
+        <div class="page-loader__text__hide">
+            <span class="page-loader__text__hide__inner-text">used to the maximum, as it can not be</span>
+        </div>
+        <div class="page-loader__text__hide">
+            <span class="page-loader__text__hide__inner-text">replenished.”</span>
+        </div>
+        <div class="page-loader__text__hide page-loader__text__hide--brandname">
+            <span class="page-loader__text__hide__inner-text page-loader__text__hide__inner-text--brandname">Timeless Taste</span>
+        </div>
+    </div>
+</div>
+<div class="slider hide-page-loader"></div>
+
+<div id="cookie-popup" class="hidden">
+    <p>
+    This website uses cookies to Ensure you get the best experience on our website. This is a fictional website as an assignement of Graduat Programming Artevelde univeristy. By using this site you agree to our <a href="#">Terms and Conditions</a>.
+    </p>
+    <button class="form-button" id="accept" href="#">Accept</button>
+</div>
+{% endblock %}
+
+
+

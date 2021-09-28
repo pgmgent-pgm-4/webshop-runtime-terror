@@ -1,0 +1,46 @@
+@use '../abstracts/functions' as func;
+
+body {
+    background-color: $body-bg;
+    font-family: $font-family-montserrat;
+}
+
+h1 {
+    color: $white-color;
+    font-weight: func.weight(normal);
+    text-align: center;
+    margin: 0;
+}
+
+h2 {
+    margin: 0;
+    font-size: $text-lg;
+    color:$white-color;
+}
+
+p {
+    line-height: 1.5;
+    color: $white-color;
+}
+
+.h-layout {
+    padding: 0 1rem;
+}
+
+@include small { 
+    .h-layout {
+        padding: 0 2rem;
+    }   
+}
+
+@include medium { 
+    .h-layout {
+        padding: 0 4rem;
+    }   
+}
+
+@include large { 
+    .h-layout {
+        padding: 0 6rem;
+    }   
+}

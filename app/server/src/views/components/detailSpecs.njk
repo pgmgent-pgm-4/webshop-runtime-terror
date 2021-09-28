@@ -1,0 +1,200 @@
+<section class="detail__specifications h-layout">
+    <h2>Specifications</h2>
+
+    {% if productSuperlatives.length > 0 %}
+        <div class="detail__superlatives">
+            <img class="detail__superlatives__image" src="/media/superlatives/watch-specs.svg" alt="product superlatives">
+        
+            <ul class="detail__superlatives__list">
+                {% for productSuperlative in productSuperlatives %}
+                    <li>
+                        <img src="/media/superlatives/{{productSuperlative.img}}">
+                        <span>{{productSuperlative.superlative}}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    <article class="detail__general">
+        <div class="dropdown" id="dropdown__general">
+            <h3>General</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="5.143"><path data-name="Icon awesome-minus" d="M22.286 0H1.714A1.714 1.714 0 000 1.714v1.714a1.714 1.714 0 001.714 1.714h20.572A1.714 1.714 0 0024 3.429V1.714A1.714 1.714 0 0022.286 0z" fill="#fff"/></svg>            
+        </div>
+
+        <div class="detail__general__info">
+
+            <div class="general__flex-container">
+                {% if productDetails[0].watch_length %}
+                    <span class="specifications__info">Watch length</span>
+                    <span>{{ productDetails[0].watch_length }} mm </span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].watch_width %}
+                    <span class="specifications__info">Watch width</span>
+                    <span>{{ productDetails[0].watch_width }} mm </span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].case_material %}
+                    <span class="specifications__info">Case material</span>
+                    <span>{{ productDetails[0].case_material }} </span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].case_width %}
+                    <span class="specifications__info">Case width</span>
+                    <span>{{ productDetails[0].case_width }} mm</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].case_length %}
+                    <span class="specifications__info">Case length</span>
+                    <span>{{ productDetails[0].case_length }} mm</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].case_thickness %}
+                    <span class="specifications__info">Case thickness</span>
+                    <span>{{ productDetails[0].case_thickness }} mm</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].case_shape %}
+                    <span class="specifications__info">Case thickness</span>
+                    <span>{{ productDetails[0].case_shape }} </span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].glass_material %}
+                    <span class="specifications__info">Glass material</span>
+                    <span>{{ productDetails[0].glass_material }} </span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].glass_opening_diameter %}
+                    <span class="specifications__info">Glass diameter</span>
+                    <span>{{ productDetails[0].glass_opening_diameter }} mm</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].band_material %}
+                    <span class="specifications__info">Band material</span>
+                    <span>{{ productDetails[0].band_material }}</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].band_width %}
+                    <span class="specifications__info">Band width</span>
+                    <span>{{ productDetails[0].band_width }} mm</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].band_length %}
+                    <span class="specifications__info">Band length</span>
+                    <span>{{ productDetails[0].band_length }} mm</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].circumference_range %}
+                    <span class="specifications__info">Circumference range</span>
+                    <span>{{ productDetails[0].circumference_range }} mm</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].movement_type %}
+                    <span class="specifications__info">Movement type</span>
+                    <span>{{ productDetails[0].movement_type }}</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].battery %}
+                    <span class="specifications__info">Battery</span>
+                    <span>{{ productDetails[0].battery }}</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].battery_life %}
+                    <span class="specifications__info">Battery life</span>
+                    <span>{{ productDetails[0].battery_life }} months</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].weight %}
+                    <span class="specifications__info">Weight</span>
+                    <span>{{ productDetails[0].weight }} g</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].watch_thickness %}
+                    <span class="specifications__info">Thickness</span>
+                    <span>{{ productDetails[0].watch_thickness }} mm </span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].water_resistance %}
+                    <span class="specifications__info">Water resistance</span>
+                    <span>{{ productDetails[0].water_resistance }} meters</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].storage_material %}
+                    <span class="specifications__info">Storage material</span>
+                    <span>{{ productDetails[0].storage_material }}</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].storage_width %}
+                    <span class="specifications__info">Storage width</span>
+                    <span>{{ productDetails[0].storage_width }} mm</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].storage_length %}
+                    <span class="specifications__info">Storage length</span>
+                    <span>{{ productDetails[0].storage_length }} mm</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].storage_thickness %}
+                    <span class="specifications__info">Storage thickness</span>
+                    <span>{{ productDetails[0].storage_thickness }} mm</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].capacity %}
+                    <span class="specifications__info">Storage capacity</span>
+                    <span>{{ productDetails[0].capacity }} watches</span>
+                {% endif %}
+            </div>
+            <div class="general__flex-container">
+                {% if productDetails[0].storage_style %}
+                    <span class="specifications__info">Storage style</span>
+                    <span>{{ productDetails[0].storage_style }}</span>
+                {% endif %}
+            </div>
+
+        </div>
+    </article>
+
+    <article class="detail__shipping">
+        <div class="dropdown" id="dropdown__shipping">
+            <h3>Shipping</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="5.143"><path data-name="Icon awesome-minus" d="M22.286 0H1.714A1.714 1.714 0 000 1.714v1.714a1.714 1.714 0 001.714 1.714h20.572A1.714 1.714 0 0024 3.429V1.714A1.714 1.714 0 0022.286 0z" fill="#fff"/></svg>            
+        </div>
+
+        <div class="detail__shipping__info">
+            <p><strong>**Important: Due to the impact of COVID-19 on fulfillment and shipping infrastructure, order delivery could be delayed up to an additional 3 business days for E.U. customers and an additional 21 business days for international customers**</strong></p>
+
+            <p>Timeless Taste will cover the cost for Standard International Mail* (orders over €999). Not all countries are eligible for free international shipping. Upgraded shipping options (estimated transit times and rates) will be quoted during checkout. </p>
+
+            <p>Timeless Taste has been shipping worldwide since 1999 and we ship internationally daily! All orders are processed and shipped out by 5pm (EST) Monday through Friday on regular business days. Orders placed/received after 12:00pm (EST) will be processed the next business day. </p>
+
+            <p>Because customs fees vary by country, we do not collect duties during checkout. If duties are due, your customs agency will let you know when the package arrives in your country. It is your responsibility to pay these fees to your country.</p>
+
+            <p>Once items are shipped, liability is covered by the terms of the carrier. We will ship to the address specified by the customer. If you did not provide us with an accurate address, neither Timeless Taste, nor the shipping carrier can be held responsible for the loss of an item. Please double check your shipping address. Any shipping damage must be reported to Watches.com within 48 hours of delivery, otherwise it is ineligible for any insurance or refund claims.</p>
+        </div>
+    </article>
+
+</section>

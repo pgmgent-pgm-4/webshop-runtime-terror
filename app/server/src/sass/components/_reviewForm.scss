@@ -1,0 +1,185 @@
+@use '../abstracts/functions' as func;
+
+.detail__reviews__overlay {
+    background-color: $nav-transparent-color;
+    backdrop-filter: blur(4px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    transition: all 0.4s ease;
+    transform: translateY(-200%);
+
+    &--open {
+        transform: translateY(0);
+        transition: all 0.8s ease;
+    }
+}
+
+.detail__reviews__form {
+    background-color: $body-bg;
+    padding: 2rem 0.5rem;
+    padding-top: 1rem;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(20rem -1rem);
+    max-width: 30rem;
+    border-radius: $border-radius-sm;
+
+    &__title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        
+        span {
+            color: $white-color;
+            font-weight: func.weight(bold);
+            font-size: $text-m;
+            display: block; 
+        }
+
+        #review__form_closing__btn {
+            cursor: pointer;
+        }
+
+        
+    }
+
+    .review__form__item__wrapper {
+        position: relative;
+        margin-bottom: 1rem;
+
+        .review__input,
+        textarea {
+            width: 100%;
+            margin-bottom: 1rem;
+            padding: 0.5rem 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid $white-color;
+            outline: none;
+            transition: all 0.2s ease;
+            color: $white-color;
+        }
+
+        textarea {
+            width: calc(100% - 1rem);
+            border-radius: $border-radius-sm;
+            height: 5rem;
+            color: $black-color;
+            background-color: $white-color;
+            padding: 0.5rem;
+            box-shadow: rgb(172, 189, 204) 6px 6px 12px 4px inset, rgba(226, 226, 226, 0.5) -6px -6px 12px 2px inset;
+        }
+    
+        .review__label {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            pointer-events: none;
+            transition: all 0.2s ease;
+            color: $white-color;
+
+            &--textarea {
+                color: $black-color;
+                margin-left: 0.5rem;
+            }
+        }
+
+        .review__input-border {
+            width: 0;
+            background: $accent-color;
+            border-radius: $border-radius-sm;
+            box-shadow: 0px 0px 10px $accent-color;
+            height: 0.15rem;
+            display: block;
+            transform: translateY(-1.1rem);
+            transition: all 0.2s ease;
+        }
+
+        .review__input:focus ~ .review__label,
+        textarea:focus ~ .review__label {
+            top: -12px;
+            font-size: 0.8rem;
+            color: $accent-color;
+            font-weight: func.weight(bold);
+            margin-left: 0rem;
+
+            &--textarea {
+                top: -20px;
+            }
+        }
+
+        .review__input:valid ~ .review__label,
+        textarea:valid ~ .review__label {
+            top: -12px;
+            font-size: 0.8rem;
+            color: $accent-color;
+            font-weight: func.weight(bold);
+        }
+
+        .review__input:focus ~ span, 
+        .review__input:valid ~ span {
+            width: calc(100% - 0.5rem);
+        }
+        
+    }
+
+    .review__rating {
+        margin-bottom: 1.5rem;
+        
+
+        .review__rating__label {
+            color: $white-color;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .review__rating__stars {
+            position: relative;
+            width: 11rem;
+            height: 1.5rem;
+
+            input {
+                display: none;
+            }
+    
+            label {
+                font-size: $text-m;
+                color: $nav-transparent-color;
+                margin-right: 0.5rem;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                float: right;
+            }
+    
+            input:not(:checked) ~ label:hover,
+            input:not(:checked) ~ label:hover ~ label {
+                color: lighten($accent-color, 15%);
+            }
+    
+            input:checked ~ label {
+                color: $accent-color;
+            }
+        }
+
+    }
+
+    button {
+        width: 100%;
+    }
+
+}
+
+@include small { 
+    .detail__reviews__form {
+        padding: 3rem 2rem;
+        padding-top: 2rem;
+    }    
+}
+

@@ -1,0 +1,186 @@
+{% extends  base %}
+{% block  content %}
+
+<section class="hero"> 
+    <div class="hero__image hero__image--storages">
+    </div>  
+
+    <div class="hero__title h-layout">
+        <h1>Watch Storages</h1>
+    </div>
+</section>
+
+<section class="products">
+    <button id="filter-toggle" class="secondary-button">Filter</button>
+
+    <div class="filter-overlay"></div>
+
+    <div class="filter">
+        <form id="filter-bands" action="">
+            <div class="filter-header">
+                <h2>Filter</h2>
+                <svg id="filter-close" xmlns="http://www.w3.org/2000/svg" width="24" height="23.999"><path data-name="close (1)" d="M14.2 12l9.345-9.345a1.55563 1.55563 0 00-2.2-2.2L12 9.801 2.655.456a1.55563 1.55563 0 10-2.2 2.2L9.8 12 .456 21.345a1.55563 1.55563 0 102.2 2.2L12 14.199l9.345 9.345a1.55563 1.55563 0 102.2-2.2zm0 0" fill="#fff"/></svg>
+            </div>
+    
+            <div class="filter__container">
+                <div class="filter__container__flex" id="filter-option-colors">
+                    <h3>Colors</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="5.143"><path data-name="Icon awesome-minus" d="M22.286 0H1.714A1.714 1.714 0 000 1.714v1.714a1.714 1.714 0 001.714 1.714h20.572A1.714 1.714 0 0024 3.429V1.714A1.714 1.714 0 0022.286 0z" fill="#fff"/></svg>            
+                </div>
+    
+                <ul class="filter-option-colors-list">
+                    <li class="check__container">
+                        <input class="check__input" type="checkbox" id="black" name="black">
+                        <label class="check__label" for="black">
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">Black</span>
+                        </label>
+                    </li>
+    
+                    <li class="check__container">
+                        <input class="check__input" type="checkbox" id="white" name="white">
+                        <label class="check__label" for="white">
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">White</span>
+                        </label>
+                    </li>
+
+                    <li class="check__container">
+                        <input class="check__input" type="checkbox" id="brown" name="brown">
+                        <label class="check__label" for="brown">
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">Brown</span>
+                        </label>
+                    </li>
+
+                    <li class="check__container">
+                        <input class="check__input" type="checkbox" id="silver" name="silver">
+                        <label class="check__label" for="silver">
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">Silver</span>
+                        </label>
+                    </li>
+
+                    <li class="check__container">
+                        <input class="check__input" type="checkbox" id="gold" name="gold">
+                        <label class="check__label" for="gold">
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">Gold</span>
+                        </label>
+                    </li>
+
+                    <li class="check__container">
+                        <input class="check__input" type="checkbox" id="blue" name="blue">
+                        <label class="check__label" for="blue">
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">Blue</span>
+                        </label>
+                    </li>
+
+                    <li class="check__container">
+                        <input class="check__input" type="checkbox" id="red" name="red">
+                        <label class="check__label" for="red">
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">Red</span>
+                        </label>
+                    </li>
+    
+                    <li class="check__container">
+                        <input class="check__input" type="checkbox" id="beige" name="beige">
+                        <label class="check__label" for="beige">
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">Beige</span>
+                        </label>
+                    </li>
+                </ul>  
+            </div>
+    
+            <div class="filter__container">
+                <div class="filter__container__flex" id="filter-option-brands">
+                    <h3>Brands</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="5.143"><path data-name="Icon awesome-minus" d="M22.286 0H1.714A1.714 1.714 0 000 1.714v1.714a1.714 1.714 0 001.714 1.714h20.572A1.714 1.714 0 0024 3.429V1.714A1.714 1.714 0 0022.286 0z" fill="#fff"/></svg>            
+                </div>
+    
+                <ul class="filter-option-brands-list">
+                    <li class="check__container">
+                        <input class="check__input" type="checkbox" id="all" name="all" checked>
+                        <label class="check__label" for="all">
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">All</span>
+                        </label>
+                    </li>
+                    <li class="check__container">
+                        <input class="check__input" type="checkbox" id="omega" name="omega">
+                        <label class="check__label" for="omega">
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">Omega</span>
+                        </label>
+                    </li>
+                    <li class="check__container">
+                        <input class="check__input" type="checkbox" id="breitling" name="breitling">
+                        <label class="check__label" for="breitling">
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">Breitling</span>
+                        </label>
+                    </li>
+                    <li class="check__container">
+                        <input class="check__input" type="checkbox" id="hublot" name="hublot">
+                        <label class="check__label" for="hublot">
+                            <span class="check__label__helper"></span>
+                            <span class="check__label__text">Hublot</span>
+                        </label>
+                    </li>
+                </ul>
+                
+            </div>
+
+            <div class="filter__container">
+                <div class="filter__container__flex" id="filter-option-price">
+                    <h3>Price</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="5.143"><path data-name="Icon awesome-minus" d="M22.286 0H1.714A1.714 1.714 0 000 1.714v1.714a1.714 1.714 0 001.714 1.714h20.572A1.714 1.714 0 0024 3.429V1.714A1.714 1.714 0 0022.286 0z" fill="#fff"/></svg>            
+                </div>
+    
+                <div class="filter-option-price-container">
+                    <span>€</span> 
+                    <input class="price__input" type="text" id="min" name="min" required placeholder="39">
+                    <span>to</span>
+                    <input class="price__input" type="text" id="max" name="max" required placeholder="10000">
+                </div>
+                
+            </div>
+            
+            <button class="secondary-button">Apply</button>
+        </form>
+    
+    </div>
+    
+    <ul class="product__list">
+        {% for storage in storages %}
+            <li class="product__list-item">
+                <a class="product__list-item__link" href="products/{{watch.id}}"> 
+                    <div class="product__list-item__link__options">
+                        <button>
+                            <svg class="product__list-item-wishlist" xmlns="http://www.w3.org/2000/svg" width="28.564" height="25"><path d="M25.573 1.803a8.4 8.4 0 00-11.292.837A8.4 8.4 0 002.99 1.803a8.441 8.441 0 00-.59 12.341l9.785 9.969a2.93 2.93 0 004.2.006l9.785-9.969a8.447 8.447 0 00-.597-12.347zm-1.317 10.46l-9.785 9.969a.229.229 0 01-.379 0l-9.785-9.968a5.753 5.753 0 01.407-8.407 5.656 5.656 0 017.615.586l1.953 1.992 1.953-1.992a5.652 5.652 0 017.615-.591 5.778 5.778 0 01.407 8.412z" fill="#f1f1f1"/></svg>
+                        </button>
+                        <button>
+                            <svg class="product__list-item-shopping-bag" xmlns="http://www.w3.org/2000/svg" width="22.64" height="26"><path data-name="shopping-bag (1)" d="M22.134 24.679l-1.9-18.094a.744.744 0 00-.74-.666h-3.571V5.1a4.604 4.604 0 00-9.207 0v.814H3.145a.744.744 0 00-.74.666L.501 24.679a.744.744 0 00.744.821h20.149a.744.744 0 00.74-.822zM8.201 5.1a3.115 3.115 0 016.23 0v.814h-6.23zm-6.13 18.912L3.815 7.406h2.9v1.64a.744.744 0 001.488 0v-1.64h6.23v1.64a.744.744 0 001.488 0v-1.64h2.9l1.744 16.606zm0 0" fill="#f1f1f1" stroke="#f1f1f1"/></svg>
+                        </button>
+                    </div>
+                    <div class="product__list-item__link__image product__list-item__link__image--storages">
+                        <img class="card_image card_image--storages" src="media/products/{{storage.image}}">
+                    </div>
+                    <div class="product__list-item__link__info">
+                        <div class="product__list-item__link__info--flex">
+                            <span class="card_title">{{storage.title}}</span>
+                            <span class="card_price">{{storage.price}}</span>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 256"><path d="M506.134 241.843c-.006-.006-.011-.013-.018-.019l-104.504-104c-7.829-7.791-20.492-7.762-28.285.068-7.792 7.829-7.762 20.492.067 28.284L443.558 236H20c-11.046 0-20 8.954-20 20s8.954 20 20 20h423.557l-70.162 69.824c-7.829 7.792-7.859 20.455-.067 28.284 7.793 7.831 20.457 7.858 28.285.068l104.504-104c.006-.006.011-.013.018-.019 7.833-7.818 7.808-20.522-.001-28.314z"/></svg>
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>  
+
+</section>
+
+{% endblock %}

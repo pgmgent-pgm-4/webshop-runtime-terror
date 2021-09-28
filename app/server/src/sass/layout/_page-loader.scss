@@ -1,0 +1,97 @@
+.page-loader {
+    z-index: 999;
+    padding: 1rem;
+    background-color: $body-bg;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100% - 2rem);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__text {
+        color: $white-color;
+        font-size: $text-base;
+
+        &__hide {
+            background-color: $body-bg;
+            overflow: hidden;
+            margin-bottom: 1rem;
+
+            &--brandname {
+                margin-top: 3rem;
+            }
+
+            &__inner-text {
+                display: inline-block;
+                transform: translateY(100%);
+
+                &--brandname {
+                    font-family: $font-family-source-serif-pro;
+                    color: $accent-color-heading;
+                    font-size: $text-lg;
+                }
+
+                @include medium { 
+                    &--brandname {
+                        font-size: $text-elg;
+                    }   
+                }
+            
+                @include large { 
+                    &--brandname {
+                        font-size: $text-elg;
+                    }   
+                }
+            
+                @include extra-large { 
+                    &--brandname {
+                        font-size: $text-elg;
+                    }   
+                }
+            }
+        }
+    }
+
+    @include small { 
+        &__text {
+            font-size: $text-m;
+        }   
+    }
+
+    @include medium { 
+        &__text {
+            font-size: $text-lg;
+        }   
+    }
+
+    @include large { 
+        &__text {
+            font-size: $text-lg;
+        }   
+    }
+
+    @include extra-large { 
+        &__text {
+            font-size: $text-lg;
+        }   
+    }
+}
+
+.slider {
+    z-index: 999;
+    background: linear-gradient(0deg, rgba(7, 11, 18, 0.774) 0%, rgba(7,11,18,1) 100%);
+    border-top: 2px solid $accent-color;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(100%);
+}
+
+.hide-page-loader {
+    opacity: 0;
+}

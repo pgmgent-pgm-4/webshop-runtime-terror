@@ -1,0 +1,53 @@
+{% extends  base %}
+{% block  content %}
+
+<section class="location hero">    
+    <div id="map" class="map">
+        <div id="right" class="contact-form collapsed">
+            <div class="contact-form__container">
+                <h2>Contact us</h2>
+                <form action="#">
+                    <label for="name">Hey my name is</label>
+                    <input type="text" name="name" id="name" required>
+
+                    <label for="question">And i have a question about</label>
+                    <select name="question" id="question">
+                        <option value="" disabled selected></option>
+                        <option value="Jobs">Jobs</option>
+                        <option value="Waranty">Waranty</option>
+                        <option value="Return">Return</option>
+                    </select>
+
+                    <label for="email">You can answer me on my email</label>
+                    <input type="email" name="email" id="email" required>
+
+                    <label for="tel">and/or my mobile number</label>
+                    <input type="tel" name="tel" id="tel" required>
+
+                    <label for="question" class="question">Question:</label>
+                    <textarea id="question" name="question" rows="5" cols="5"></textarea>
+
+                    <button class="secondary-button">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <button class="contact-form-toggle secondary-button">
+        Contact form
+    </button>
+</section>
+
+<section class="contact-info h-layout">
+    <div>
+        <h2>Address</h2>
+        <p>Foresteelaan 1</p>
+        <p>9000, Gent</p>
+    </div>
+
+    <div>
+        <h2>Contact</h2>
+        <a href="tel:09 234 86 00">09 234 86 00</a>
+        <a href="mailto:Timeless@Taste.com">Timeless@Taste.com</a>
+    </div>
+</section>
+{% endblock %}

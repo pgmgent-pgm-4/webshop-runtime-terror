@@ -1,0 +1,143 @@
+.header {
+    position: relative;
+    z-index: 5;
+    background-color: $hero-transparent-color;
+
+    a {
+        text-decoration: none;
+    }
+
+    &__logo-desktop {
+        display: none;
+    }
+
+    @include medium { 
+        &__logo-desktop {
+            display: block;
+        }
+        
+        &__logo-mobile {
+            display: none;
+        }   
+    }
+
+    @include large { 
+        &__logo-desktop {
+            display: block;
+        }
+        
+        &__logo-mobile {
+            display: none;
+        }   
+    }
+
+    @include extra-large { 
+        &__logo-desktop {
+            display: block;
+        }
+        
+        &__logo-mobile {
+            display: none;
+        }   
+    }
+
+    &__hamburger {
+        width: 4.5rem;
+
+        svg {
+            cursor: pointer;
+        }
+    }
+
+    &__actions__account {
+        display: none;
+    }
+
+    @include medium { 
+        &__actions__account {
+            display: inline;
+        }   
+    }
+
+    @include large { 
+        &__actions__account {
+            display: inline;
+        }   
+    }
+
+    &__shopping-bag,
+    &__wishlist {
+        margin-left: 1rem;
+    }
+
+    .nav-overlay__bg {
+        background-color: $nav-transparent-color;
+        backdrop-filter: blur(4px);
+        position: fixed;
+        transform: translateX(-200rem);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        transition: all 0.8s ease;
+        transition-delay: 0.2s;
+
+        &--open {
+            transform: translateX(0);
+            backdrop-filter: blur(4px);
+        }
+    }
+
+    .nav-overlay {
+        background-color: $body-bg;
+        position: fixed;
+        transform: translateX(-100rem);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        transition: all 0.4s ease;
+
+        &--open {
+            transform: translateX(0);
+        }
+    }
+
+    @include small { 
+        .nav-overlay { 
+            width: 576px;
+        }    
+    }
+    @include medium { 
+        .nav-overlay { 
+            width: 576px;
+        }    
+    }
+    @include large { 
+        .nav-overlay { 
+            width: 576px;
+        }    
+    }
+    @include extra-large { 
+        .nav-overlay { 
+            width: 576px;
+        }    
+    }
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+}
+
+@include extra-large { 
+    .container {
+        width: 80rem;
+        margin: 0 auto;
+    }   
+}
+

@@ -1,0 +1,64 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development HOSTNAME=localhost PORT=8080 nodemon --exec babel-node -e js,html,nj src/app.js --watch src/*",
+    "seed": "sequelize db:seed:all",
+    "delete_seed": "sequelize db:seed:undo:all",
+    "sass": "sass --style=compressed ./src/sass/main.scss ./src/public/css/style.css --watch"
+  },
+  "keywords": [
+    "Timeless",
+    "Taste"
+  ],
+  "author": "Timeless Taste",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/node": "^7.13.13",
+    "@babel/preset-env": "^7.14.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.26.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-recommended": "^4.1.0",
+    "eslint-plugin-import": "^2.23.2",
+    "eslint-plugin-json": "^3.0.0",
+    "faker": "^5.5.3",
+    "nodemon": "^2.0.7",
+    "sequelize-cli": "^6.2.0",
+    "underscore": "^1.13.1"
+  },
+  "dependencies": {
+    "@godaddy/terminus": "^4.7.2",
+    "babel-polyfill": "^6.26.0",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "chalk": "^3.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "express-validator": "^6.11.1",
+    "helmet": "^4.6.0",
+    "http": "^0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "morgan": "^1.10.0",
+    "node-fetch": "^2.6.1",
+    "node-sass": "^6.0.0",
+    "nunjucks": "^3.2.3",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "sequelize": "^6.6.2",
+    "sqlite3": "^5.0.2",
+    "swagger-jsdoc": "6.1.0",
+    "swagger-ui-express": "^4.1.6",
+    "swiper": "^6.7.0"
+  },
+  "engines": {
+    "node": "14.16.X"
+  }
+}

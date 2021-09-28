@@ -1,0 +1,33 @@
+.primary-button {
+    font-size: $text-btn;
+    background-color: $accent-color;
+    border-radius: $border-radius-sm;
+    border: none;
+    padding: 0.5rem;
+    box-shadow: 0 0 10px $accent-color, 0 0 30px transparentize($accent-color, 0.5);
+    cursor: pointer;
+    text-decoration: none;
+    color: $black-color;
+}
+
+.secondary-button {
+    font-size: $text-btn;
+    background-color: transparent;
+    border-radius: $border-radius-sm;
+    border: 2px solid $white-color;
+    padding: 0.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: $white-color;
+}
+
+.form-button {
+    font-size: $text-btn;
+    background-color: $black-color;
+    border-radius: $border-radius-sm;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: $white-color;
+}

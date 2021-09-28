@@ -1,0 +1,51 @@
+<div class="detail__reviews__overlay">
+    <div class="detail__reviews__form">
+        <div class="detail__reviews__form__title">
+            <span>Share your experience</span>
+            <span id="review__form_closing__btn"><i class="fas fa-times"></i></span>
+        </div>
+        <form id="reviewForm" action="">
+            <div>
+                <div class="review__form__item__wrapper">
+                    <input class="review__input" type="text"  name="review__username" id="review__username" required >
+                    <label class="review__label" for="review__username">Username</label>
+                    <span class="review__input-border"></span>
+                </div>
+                <div class="review__form__item__wrapper">
+                    <input class="review__input" type="email"  name="review__email" id="review__email" required >
+                    <label class="review__label" for="review__email">Email</label>
+                    <span class="review__input-border"></span>
+                </div>
+                <div class="review__rating">
+                    <span class="review__rating__label">Rating</span>
+                    <div class="review__rating__stars">
+                        <input type="radio" value=5 name="rating" id="rating-5">
+                        <label for="rating-5" class="fas fa-star"></label>
+                        <input type="radio"  name="rating" value=4  id="rating-4">
+                        <label for="rating-4" class="fas fa-star"></label>
+                        <input type="radio" name="rating" value=3 id="rating-3">
+                        <label for="rating-3" class="fas fa-star"></label>
+                        <input type="radio" name="rating" value=2  id="rating-2">
+                        <label for="rating-2" class="fas fa-star"></label>
+                        <input type="radio" name="rating" value=1  id="rating-1">
+                        <label for="rating-1" class="fas fa-star"></label>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="review__form__item__wrapper">
+                    <input class="review__input" type="text" name="review__title" id="review__title" required >
+                    <label class="review__label" for="review__title">Review title</label>
+                    <span class="review__input-border"></span>
+                </div>
+                <div class="review__form__item__wrapper">
+                    <textarea type="text"  name="review__text" id="review__text" required ></textarea>
+                    <label class="review__label review__label--textarea" for="review__text">Your Review...</label>
+                    <span class="review__input-border"></span>
+                </div>
+                <button id="reviewButton" class="primary-button">Send</button>
+            </div>
+        </form>
+    </div>
+</div>

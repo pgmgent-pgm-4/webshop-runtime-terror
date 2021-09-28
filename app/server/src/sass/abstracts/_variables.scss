@@ -1,0 +1,52 @@
+// FONTS
+$font-family-montserrat: 'Montserrat', sans-serif;
+$font-family-source-serif-pro: 'Source Serif Pro', serif;
+
+// COLORS
+$accent-color: #F4BE18;
+$white-color: #ffffff;
+$black-color: #000000;
+$accent-color-heading: #263C5B;
+$hero-transparent-color: #070b1273;
+$footer-bg-color: #111C2D;
+$body-bg: #070B12;
+$nav-transparent-color: #89bbbe9c;
+$about-segmented-control-bg: #EEEEF0;
+$secondary-accent-color: #C1CFD0;
+
+$filter-dark-gray: #343434;
+$filter-white: #FFFFFF;
+$filter-brown: #A37652;
+$filter-silver: #999999;
+$filter-gold: #F5CB60;
+$filter-blue: #4969B2;
+$filter-red: #C0402A;
+$filter-beige: #EDE2D0;
+
+// FONT-SIZE
+$text-base: 1rem;
+$text-m: 1.5rem;
+$text-lg: 2rem;
+$text-elg: 3.5rem;
+$text-decorative: 7.5rem;
+$text-btn: 1.2rem;
+
+// FONT-WEIGHT
+$font-weights: (
+    "light": 300,
+    "normal": 400,
+    "bold": 700,
+);
+
+// BORDER-RADIUS
+$border-radius-sm: 0.1875rem;
+$border-radius-circle: 50%;
+
+// WIDTH
+$small-width: 576px;
+$medium-width: 768px;
+$large-width: 1280px;
+$extra-large-width: 1600px;
+
+// TRANSITION
+$transition-regular: all 0.2s ease;
